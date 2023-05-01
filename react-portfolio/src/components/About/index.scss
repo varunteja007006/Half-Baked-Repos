@@ -1,0 +1,74 @@
+.container {
+  padding: 2rem;
+  margin: 1rem;
+  width: 100%;
+  height: 90%;
+  min-height: 30rem;
+  position: absolute;
+  opacity: 0;
+  top: 5%;
+  z-index: 1;
+  transform-style: preserve-3d;
+  animation: fadeIn 0.5s forwards;
+  animation-delay: 0.5s;
+}
+
+.about-page {
+  color: yellow;
+
+  h1 {
+    font-size: 3rem;
+    margin: 1rem 2rem;
+
+    &::before {
+      content: '<h1>';
+      font-size: 1.3rem;
+      position: absolute;
+      left: 5%;
+      margin: -1rem;
+      font-family: 'Dancing Script', cursive, sans-serif;
+      font-weight: 400;
+    }
+
+    &::after {
+      content: '<h1>';
+      font-size: 1.3rem;
+      position: absolute;
+      bottom: 77%;
+      left: 3%;
+      font-family: 'Dancing Script', cursive, sans-serif;
+      font-weight: 400;
+    }
+  }
+
+  h2 {
+    font-size: 2rem;
+    margin: 1rem;
+    margin-bottom: 3rem;
+    letter-spacing: 0.5rem;
+  }
+
+  p {
+    margin: 2rem 1rem;
+    font-weight: 500;
+    color: white;
+    min-width: fit-content;
+    animation: pulse 1s;
+
+    &:nth-of-type(1) {
+      animation-delay: 1.1s;
+    }
+    &:nth-of-type(2) {
+      animation-delay: 1.3s;
+    }
+    &:nth-of-type(3) {
+      animation-delay: 1.5s;
+    }
+  }
+
+  .text-animate-hover {
+    &:hover {
+      color: white;
+    }
+  }
+}
