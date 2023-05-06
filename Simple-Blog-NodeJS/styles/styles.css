@@ -1,0 +1,176 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css");
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0%;
+}
+
+body {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: black;
+}
+
+h1, h2, h3, h4, h5 {
+  text-align: center;
+  margin: 0.8rem 0;
+}
+
+.blog-footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.about-image {
+  text-align: center;
+}
+
+.about-image .about-img {
+  width: auto;
+  height: auto;
+}
+
+.error-img {
+  display: block;
+  padding: 0rem;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.blog-input {
+  text-decoration: none;
+  border: 0.2rem solid yellow !important;
+}
+
+.blog-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 2rem;
+}
+
+.blogs {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border: 0.2rem solid yellow;
+  border-right: none;
+}
+
+.blogs .blogs-title {
+  position: relative;
+  margin-top: 1rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.blogs .blogs-title .blogs-item-a {
+  position: absolute;
+  right: 0%;
+  top: 50%;
+  text-decoration: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: yellow;
+  border: 0.15rem solid black;
+  border-radius: 1rem;
+}
+
+.blogs .blogs-title .blogs-item-a:hover {
+  -webkit-transition: ease-in 200ms;
+  transition: ease-in 200ms;
+  -webkit-transform: translateX(0.3rem);
+          transform: translateX(0.3rem);
+}
+
+.blogs .blogs-title .blogs-item-a .material-symbols-outlined {
+  color: #000;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-variation-settings: 'FILL' 0, 'wght' 1000, 'GRAD' 100, 'opsz' 48;
+}
+
+.blogs .blogs-snippet {
+  margin-bottom: 1rem;
+}
+
+.blog {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.blog .blog-title {
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 1rem;
+  -webkit-text-decoration: underline wavy yellow 0.2rem;
+          text-decoration: underline wavy yellow 0.2rem;
+}
+
+.blog .blog-title .blog-item {
+  position: absolute;
+  right: 0%;
+}
+
+.blog .blog-body {
+  margin-bottom: 1rem;
+  text-align: justify;
+}
+
+.blog .delete-btn {
+  text-decoration: none;
+  color: #000;
+  border: 0.15rem solid black;
+  background-color: yellow;
+  text-align: center;
+  border-radius: 1rem;
+}
+
+.blog .delete-btn:hover {
+  cursor: pointer;
+  color: yellow;
+  background-color: red;
+  -webkit-transition: ease-in 380ms;
+  transition: ease-in 380ms;
+}
+
+.brand-name {
+  font-weight: 900;
+  color: yellow !important;
+}
+
+.footer-a {
+  text-decoration: none;
+  font-weight: 800;
+  color: yellow;
+}
+/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,26 @@
+<html lang="en">
+<%- include('./partials/head.ejs') %>
+
+<body>
+  <%- include('./partials/nav.ejs') %>
+  <div class="container">
+    <%- include('./partials/blog_content.ejs') %>
+  </div>
+  <%- include('./partials/footer.ejs') %>
+  <script>
+    //Listen to delete button
+    const trash = document.querySelector('a.delete-btn');
+    console.log(trash);
+    trash.addEventListener('click', (e) => {
+      const endpoint = `/blogs/${trash.dataset.doc}`;
+      fetch(endpoint, {
+          method: 'DELETE'
+        })
+        .then((response) => response.json()) //json convertion to JavaScript
+        .then((data) => window.location.href = data.redirect) // redirect using above conversion
+        .catch(err => console.log(err))
+    })
+  </script>
+</body>
+
+</html>

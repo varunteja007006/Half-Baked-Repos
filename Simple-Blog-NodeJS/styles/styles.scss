@@ -1,0 +1,158 @@
+
+$primary-color-one : black;
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+
+html {
+    scroll-behavior: smooth;
+  }
+
+*{
+    font-family: 'Montserrat', sans-serif;
+    margin: 0%;
+}
+
+body{
+    align-items: center;
+    background-color: $primary-color-one;
+}
+
+
+h1, h2, h3, h4, h5 {
+    text-align: center;
+    margin: 0.8rem 0; 
+}
+
+.blog-footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.about-image{
+    text-align: center;
+    
+    .about-img{
+        width: auto;
+        height: auto;
+    }
+}
+
+
+.error-img {
+    display: block;
+    padding: 0rem;
+    text-align: center;
+    align-items: center;
+}
+
+.blog-input{
+    text-decoration: none;
+    border: 0.2rem solid yellow !important;
+}
+
+.blog-content{
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+}
+
+.blogs{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border: 0.2rem solid yellow;
+    border-right: none;
+
+    .blogs-title{
+        position: relative;
+        margin-top: 1rem;
+        align-items: center;
+
+        .blogs-item-a{
+            position: absolute;
+            right: 0%;
+            top: 50%;
+            text-decoration: none;
+            align-items: center;
+            background-color: yellow;
+            border: 0.15rem solid $primary-color-one;
+            border-radius: 1rem;
+
+            &:hover{
+                transition: ease-in 200ms;
+                transform: translateX(0.3rem);
+            }
+
+            .material-symbols-outlined {
+                color: #000;
+                align-items: center;
+                font-variation-settings:
+                    'FILL' 0,
+                    'wght' 1000,
+                    'GRAD' 100,
+                    'opsz' 48
+            }
+        }
+    }
+    
+    .blogs-snippet{
+        margin-bottom: 1rem;
+    }
+}
+
+.blog{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    .blog-title{
+        text-align: center;
+        align-items: center;
+        margin: 1rem;
+        text-decoration: underline wavy yellow 0.2rem;      
+
+        .blog-item{
+            position: absolute;
+            right: 0%;
+        }
+
+    }
+    
+    .blog-body{
+        margin-bottom: 1rem;
+        text-align: justify;
+    }
+
+    .delete-btn{
+        text-decoration: none;
+        color: #000;
+        border: 0.15rem solid black;
+        background-color: yellow;
+        text-align: center;
+        border-radius: 1rem;
+
+        &:hover{
+            cursor: pointer;
+            color: yellow;
+            background-color: red;
+            transition: ease-in 380ms;
+        }
+    }
+
+}
+
+
+
+.brand-name{
+    font-weight: 900; 
+    color: yellow !important;
+}
+
+.footer-a {
+    text-decoration: none;
+    font-weight: 800;
+    color: yellow;
+}

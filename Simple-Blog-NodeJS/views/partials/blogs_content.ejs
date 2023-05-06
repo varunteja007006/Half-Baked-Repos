@@ -1,0 +1,16 @@
+<div class="blogs-content">
+  <h1 class="m-3">Blogs</h1>
+  <% if (blogs.length > 0) { %>
+  <% blogs.forEach(blog => { %>
+  <div class="blogs mb-3 pl-3 pt-0">
+    <h3 class="blogs-title"> <%= blog.title %>
+      <span> <a class="blogs-item-a" href="/blogs/<%= blog._id %>">
+          <span class="material-symbols-outlined">navigate_next</span></a></span>
+    </h3>
+    <p class="blogs-snippet"> <%= blog.snippet %> </p>
+  </div>
+  <% }) %>
+  <% } else { %>
+  <p class="no-blogs">There no blogs to display....</p>
+  <% } %>
+</div>

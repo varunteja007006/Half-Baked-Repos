@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head.ejs') %>
+
+<body class="body-dark">
+  <%- include('./partials/nav.ejs') %>
+  <div class="container">
+    <h1 class="m-3">Create your blog</h1>
+    <form class="row g-3 needs-validation" novalidate action="/blogs" method="POST">
+      <div class="col-md-4">
+        <label for="validationCustom01" class="form-label">Blog Title</label>
+        <input type="text" class="form-control blog-input mb-3" name="title" id="validationCustom01" required>
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+        <label for="validationCustom02" class="form-label">Blog Snippet</label>
+        <input type="text" class="form-control blog-input mb-3" name="snippet" id="validationCustom02" required>
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+        <label for="blogbody" class="form-label">Blog Body</label>
+        <textarea class="form-control blog-input" name="body" id="body" rows="3"></textarea>
+      </div>
+      <div class="col-12">
+        <button class="btn btn-warning" type="submit">Submit form</button>
+      </div>
+    </form>
+  </div>
+  <%- include('./partials/footer.ejs') %>
+</body>
+
+</html>
