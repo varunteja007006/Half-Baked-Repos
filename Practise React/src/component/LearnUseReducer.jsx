@@ -28,15 +28,27 @@ function LearnUseReducer() {
   console.log(counter);
   return (
     <>
-      <h1>Learn UseReducer</h1>
+      <h1 className="text-2xl">Learn UseReducer</h1>
       <p>
         Below is the small funcitonality you can build to learn useReducer....
         {counter.emoji}.
       </p>
-      <div className="result">{counter.count}</div>
-      <div className="clickbtns">
-        <button onClick={handleIncrement}>+</button>
-        <button onClick={handleDecrement}>-</button>
+      <div className="w-1/2 p-2 m-2 rounded-full text-center items-center align-baseline border-2 border-black font-semibold">
+        {counter.count}
+      </div>
+      <div className="p-2 m-2 w-1/2 flex flex-row gap-4 justify-center">
+        <button
+          className=" font-semibold border-2 border-black rounded-full p-2 items-center align-baseline text-xl w-10 bg-green-500"
+          onClick={handleIncrement}
+        >
+          +
+        </button>
+        <button
+          className=" font-semibold border-2 border-black rounded-full p-2 items-center align-baseline text-xl w-10 bg-red-500"
+          onClick={handleDecrement}
+        >
+          -
+        </button>
       </div>
     </>
   );

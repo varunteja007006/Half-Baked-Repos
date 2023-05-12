@@ -1,4 +1,4 @@
-import "./App.css";
+import LearnCheckboxes from "./component/LearnCheckboxes";
 import LearnUseReducer from "./component/LearnUseReducer";
 import LearnUseRedux from "./component/LearnUseRedux";
 
@@ -7,6 +7,7 @@ function App() {
     <div className="app">
       <LearnUseReducer></LearnUseReducer>
       <LearnUseRedux></LearnUseRedux>
+      <LearnCheckboxes></LearnCheckboxes>
       {/* 
       Try to learn useCallback
       Try to learn useMemo
