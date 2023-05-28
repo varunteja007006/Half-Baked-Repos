@@ -315,7 +315,7 @@ print(len(emp_1))
 # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 '''
-# EXAMPLE SIX - Special (Magic/Dunder) Methods
+# EXAMPLE SIX - Property Decorators - Getters, Setters and Deleters
 
 # These methods allow us to emulate built-in types or implement operator overloading. 
 
@@ -336,13 +336,64 @@ class Employee:
         self.first = first
         self.last = last
         self.pay = pay
-
+        '''
+        self.email = first+"."+last+"@gmail.com"
+        # print(emp_1.email)  # Prints John.Wick@gmail.com instead of Joe.Wick@gmail.com
+        '''
+    '''
+    def email(self):
+        return f'{self.first}.{self.last}@gmail.com'
+    # print(emp_1.email())  # Prints Joe.Wick@gmail.com
+    '''
+    @property
+    def email(self):
+        return f'{self.first}.{self.last}@gmail.com'
+    '''
+    This method can be accessed as if it is a attribute just by mentioning property decorator
+    '''
+    '''
     def fullname(self):
         return f'{self.first} {self.last}'
+    # emp_1.fullname = "Charlie Man"
+    # print(emp_1.fullname) # Prints Charlie Man (Without property decorator)
+    '''
+    @property
+    def fullname(self):
+        return f'{self.first} {self.last}'
+    '''
+    emp_1.fullname = "Charlie Man"
+    print(emp_1.fullname)
+    
+    emp_1.fullname = "Charlie Man"
+    ^^^^^^^^^^^^^^
+    AttributeError: property 'fullname' of 'Employee' object has no setter
+    '''
+
+    @fullname.setter
+    def fullname(self, name):
+        first, last = name.split(" ")
+        self.first = first
+        self.last = last
+    '''
+    emp_1.fullname = "Charlie Man"
+    print(emp_1.fullname)
+    This does not throw AttributeError: property 'fullname' of 'Employee' object has no setter. 😀
+    '''
+    @fullname.deleter
+    def fullname(self):
+        print("Deleted Name!")
+        self.first = None
+        self.last = None
 
 
 emp_1 = Employee("John", "Wick", 5000)
 
+emp_1.first = "Joe"
 print(emp_1.first)
-print(emp_1.fullname())
-print(Employee.fullname(emp_1))
+# Prints Joe.Wick@gmail.com -> Works after setting the property decorator on the email method
+print(emp_1.email)
+
+emp_1.fullname = "Charlie Man"
+print(emp_1.fullname)
+
+del emp_1.fullname  # Deleter decorator. Prints "Deleted Name!"
