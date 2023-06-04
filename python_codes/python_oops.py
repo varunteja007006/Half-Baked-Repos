@@ -313,21 +313,9 @@ print(emp_1 + emp_2)
 print(len(emp_1))
  """
 # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-
+""" 
 '''
 # EXAMPLE SIX - Property Decorators - Getters, Setters and Deleters
-
-# These methods allow us to emulate built-in types or implement operator overloading. 
-
-when methods are surrounded by double underscores it is called dunders.
-For example when they say dunder init they mean  __init__ 
-
-About __repr___
-Provides the official string representation of an object, aimed at the programmer.
-
-About __str___ 
-Provides the informal string representation of an object, aimed at the user
-'''
 
 
 class Employee:
@@ -397,3 +385,4 @@ emp_1.fullname = "Charlie Man"
 print(emp_1.fullname)
 
 del emp_1.fullname  # Deleter decorator. Prints "Deleted Name!"
+ """
