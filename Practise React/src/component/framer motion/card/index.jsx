@@ -47,6 +47,11 @@ function Card() {
         >
           <motion.h5>😎</motion.h5>
         </motion.div>
+        <motion.a className="text-black border border-red-500 bg-pink-400 h-fit p-2"
+          href="https://www.google.com"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+          >This is a link</motion.a>
       </AnimatePresence>
     </div>
   );
