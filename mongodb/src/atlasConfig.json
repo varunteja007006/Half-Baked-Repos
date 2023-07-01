@@ -1,0 +1,9 @@
+{
+    "appId": "application-0-vwlut",
+    "appUrl": "https://realm.mongodb.com/groups/6337e23f7ae9972c0ad97969/apps/64a05b66108d5fffdd0225a8",
+    "baseUrl": "https://realm.mongodb.com",
+    "clientApiBaseUrl": "https://ap-south-1.aws.realm.mongodb.com",
+    "dataApiBaseUrl": "https://ap-south-1.aws.data.mongodb-api.com",
+    "dataExplorerLink": "https://cloud.mongodb.com/links/6337e23f7ae9972c0ad97969/explorer/MERNstack/database/collection/find",
+    "dataSourceName": "mongodb-atlas"
+}

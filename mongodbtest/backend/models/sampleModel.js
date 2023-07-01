@@ -5,13 +5,17 @@ const Schema = mongoose.Schema;
 
 //Create the model using Schema
 const sampleSchema = new Schema(
-    {
-        name:{
-            type: String,
-            required: true,
-        }
+  {
+    name: {
+      type: String,
+      required: true,
     },
-    { timestamps: true }
-)
+    dob: {
+      type: Date,
+      required: true,
+    },
+  },
+  { timestamps: true }
+);
 
 module.exports = mongoose.model("sample", sampleSchema);
