@@ -34,7 +34,8 @@ function LearnFramer() {
             />
           )}
         </AnimatePresence>
-        <Card></Card>
+        <Card>
+        </Card>
       </div>
     </CodeBlock>
   );
