@@ -8,7 +8,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 //Import routes
 const sampleRoutes = require("./routes/sampleRoutes");
-
+const eventRoutes = require("./routes/eventRoutes");
 //Express app
 const app = express();
 
@@ -27,6 +27,7 @@ app.use(cors());
 
 //Add routes
 app.use("/api/samples", sampleRoutes);
+app.use("/api/events", eventRoutes);
 
 //connect to Mongo DB
 mongoose
