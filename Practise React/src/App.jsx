@@ -3,6 +3,7 @@ import LearnChildrenProp from "./component/main/LearnChildrenProp";
 import LearnFramer from "./component/main/LearnFramer";
 import LearnUseReducer from "./component/main/LearnUseReducer";
 import LearnUseRedux from "./component/main/LearnUseRedux";
+import LearnUseState from "./component/main/LearnUseState";
 
 function App() {
   return (
@@ -20,9 +21,11 @@ function App() {
         <p>Hi there, How are you? 😃</p>
       </LearnChildrenProp>
       <LearnFramer></LearnFramer>
+      {/* Learn Reducer concept */}
       <LearnUseReducer></LearnUseReducer>
       <LearnUseRedux></LearnUseRedux>
       <LearnCheckboxes></LearnCheckboxes>
+      <LearnUseState></LearnUseState>
       {/* 
       Try to learn useCallback
       Try to learn useMemo

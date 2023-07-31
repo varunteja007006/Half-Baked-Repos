@@ -2,7 +2,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { React, useState } from "react";
 import Modal from "../framer motion/modal";
 import CodeBlock from "./CodeBlock";
-import Card from "../framer motion/card";
 
 function LearnFramer() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -34,8 +33,6 @@ function LearnFramer() {
             />
           )}
         </AnimatePresence>
-        <Card>
-        </Card>
       </div>
     </CodeBlock>
   );
