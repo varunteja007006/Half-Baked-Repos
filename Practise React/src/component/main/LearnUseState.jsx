@@ -19,12 +19,13 @@ function LearnUseState() {
   };
   return (
     <CodeBlock>
-      <div className="flex flex-col">
-        <h1>
+      <div className="flex flex-col gap-4">
+        <h1 className="text-2xl">Learn UseState 🧡</h1>
+        <p>
           This should change on button click {"->"} {value}
-        </h1>
+        </p>
         <button
-          className=" w-fit border-2 border-pink-500 p-2 hover:bg-pink-300 rounded-md"
+          className=" w-fit border-2 bg-black text-white border-pink-500 p-2 hover:bg-gray-900 rounded-md"
           // onClick={handleClick}
           onClick={handleNewClick}
         >
