@@ -26,7 +26,7 @@ function LearnUseReducer() {
     dispatch({ type: "decrement" });
   };
 
-  console.log(counter);
+  // console.log(counter);
   return (
     <CodeBlock>
       <>
