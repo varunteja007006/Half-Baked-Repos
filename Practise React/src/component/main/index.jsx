@@ -13,8 +13,8 @@ import RandomJsTopics from "../subcomponents/RandomJsTopics";
 export {
   CodeBlock,
   LearnCheckboxes,
-  LearnChildrenProp,
   LearnFramer,
+  LearnChildrenProp,
   LearnUseEffectCleanup,
   LearnUseReducer,
   LearnUseRedux,

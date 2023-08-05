@@ -10,6 +10,7 @@ function LearnUseEffectCleanup() {
   return (
     <CodeBlock>
       <div className="flex flex-row gap-4 align-middle items-center">
+        <h1 className="text-2xl">Learn Children Props 💚</h1>
         <button
           className="bg-yellow-500 text-black p-2 hover:bg-yellow-400"
           onClick={togglebtn}
