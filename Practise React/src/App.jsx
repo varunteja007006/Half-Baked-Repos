@@ -8,7 +8,9 @@ import {
   LearnUseState,
   RandomJsTopics,
 } from "./component/main";
+import LearnFormData from "./component/main/LearnFormData";
 import LearnMultipleInputs from "./component/main/LearnMultipleInputs";
+import LearnUseRef from "./component/main/LearnUseRef";
 //importing all the components from one file - index.jsx in main folder inside src/components.
 
 function App() {
@@ -34,11 +36,11 @@ function App() {
       Try to learn useCallback
       Try to learn useMemo
       Try to learn Memo
-      Try to learn useRef
       Try to learn Transition
       Try to learn Suspence
       */}
-
+      <LearnUseRef></LearnUseRef>
+      <LearnFormData></LearnFormData>
       {/* random topics */}
       <RandomJsTopics></RandomJsTopics>
     </div>
