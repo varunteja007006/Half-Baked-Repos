@@ -7,10 +7,15 @@ import {
   LearnUseRedux,
   LearnUseState,
   RandomJsTopics,
+  LearnCustomHooks,
+  LearnFormData,
+  LearnMultipleInputs,
+  LearnUseRef,
+  SampleComponent,
+  LearnMemo,
 } from "./component/main";
-import LearnFormData from "./component/main/LearnFormData";
-import LearnMultipleInputs from "./component/main/LearnMultipleInputs";
-import LearnUseRef from "./component/main/LearnUseRef";
+import { LearnContextProvider } from "./context/LearnContext";
+
 //importing all the components from one file - index.jsx in main folder inside src/components.
 
 function App() {
@@ -32,6 +37,8 @@ function App() {
       <LearnUseEffectCleanup></LearnUseEffectCleanup>
 
       <LearnMultipleInputs></LearnMultipleInputs>
+
+      <LearnMemo></LearnMemo>
       {/* 
       Try to learn useCallback
       Try to learn useMemo
@@ -40,8 +47,16 @@ function App() {
       Try to learn Suspence
       */}
       <LearnUseRef></LearnUseRef>
+
       <LearnFormData></LearnFormData>
-      {/* random topics */}
+
+      <LearnCustomHooks></LearnCustomHooks>
+
+      <LearnContextProvider>
+        <SampleComponent></SampleComponent>
+        {/* random topics */}
+      </LearnContextProvider>
+
       <RandomJsTopics></RandomJsTopics>
     </div>
   );

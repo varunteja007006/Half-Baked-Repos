@@ -6,24 +6,22 @@ function LearnUseRef() {
   const refInputContainer = useRef(null);
   const isMounted = useRef(false);
 
-  useEffect();
-
   useEffect(() => {
     // What if I dont want to run certain functionality after initial render
     if (!isMounted.current) {
       isMounted.current = true;
-      console.log("Initial Render");
+    //   console.log("Initial Render");
       return;
     }
     // You can see that above code in "if" is not running during re-render
-    console.log("Re-Render");
+    // console.log("Re-Render");
     // Note: Dont check isMounted since it is an object and will always be true
   }, [value]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // You can get the value of an input using UseRef
-    console.log(refInputContainer.current.value);
+    // console.log(refInputContainer.current.value);
   };
 
   return (
