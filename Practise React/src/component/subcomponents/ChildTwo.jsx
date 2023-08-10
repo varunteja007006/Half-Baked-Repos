@@ -4,7 +4,9 @@ function ChildTwo({ index, item }) {
   console.log("render");
   return (
     <>
-      <p>{item}</p>
+      <p className="p-1 border-2 border-black bg-white text-black font-semibold">
+        {item}
+      </p>
     </>
   );
 }

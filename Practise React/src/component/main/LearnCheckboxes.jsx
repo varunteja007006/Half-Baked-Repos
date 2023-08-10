@@ -22,7 +22,7 @@ function LearnCheckboxes() {
         <form
           action=""
           onSubmit={handleformSubmit}
-          className=" border-2 border-black p-2 w-fit my-2"
+          className="bg-white border-2 border-black p-2 w-fit my-2"
         >
           {Onlytasks.map((item) => (
             <div className="flex flex-row gap-4" key={item.id}>

@@ -17,6 +17,7 @@ import {
   LearnUseMemo,
   LearnUseTransition,
   LearnUseContext,
+  LearnSuspenseAPI,
 } from "./component/main";
 import { LearnContextProvider } from "./context/LearnContext";
 
@@ -27,9 +28,11 @@ function App() {
     <div className="app p-5 bg-emerald-100">
       <LearnDaisyUI></LearnDaisyUI>
 
-      <LearnChildrenProp></LearnChildrenProp>
-
       <LearnFramer></LearnFramer>
+      
+      <LearnSuspenseAPI></LearnSuspenseAPI>
+
+      <LearnChildrenProp></LearnChildrenProp>
 
       {/* Learn Reducer concept */}
       <LearnUseReducer></LearnUseReducer>
@@ -45,13 +48,7 @@ function App() {
       <LearnMultipleInputs></LearnMultipleInputs>
 
       <LearnMemo></LearnMemo>
-      {/* 
-      Try to learn useCallback
-      Try to learn useMemo
-      Try to learn Memo
-      Try to learn Transition
-      Try to learn Suspence
-      */}
+
       <LearnUseRef></LearnUseRef>
 
       <LearnFormData></LearnFormData>

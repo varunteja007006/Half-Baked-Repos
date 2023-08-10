@@ -37,7 +37,7 @@ function LearnUseRef() {
           Submit
         </button>
       </form>
-      <p className="my-5">{value}</p>
+      <p className="w-fit p-2 my-2 bg-white rounded-full text-center items-center align-baseline border-2 border-black font-semibold">{value}</p>
       <button
         className="p-2 bg-yellow-400 text-black"
         onClick={() => {

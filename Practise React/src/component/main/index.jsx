@@ -17,6 +17,7 @@ import LearnDaisyUI from "./LearnDaisyUI";
 import LearnUseMemo from "./LearnUseMemo";
 import LearnUseTransition from "./LearnUseTransition";
 import LearnUseContext from "./LearnUseContext";
+import LearnSuspenseAPI from "./LearnSuspenseAPI";
 // all the component imports in one file.
 
 export {
@@ -39,4 +40,5 @@ export {
   LearnUseMemo,
   LearnUseTransition,
   LearnUseContext,
+  LearnSuspenseAPI,
 };

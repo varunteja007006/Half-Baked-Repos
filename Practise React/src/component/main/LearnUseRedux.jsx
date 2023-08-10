@@ -13,7 +13,7 @@ function LearnUseRedux() {
           Below is the small funcitonality you can build to learn Redux....{" "}
           {counter.emoji}
         </p>
-        <div className="w-1/2 p-2 m-2 rounded-full text-center items-center align-baseline border-2 border-black font-semibold">
+        <div className="w-1/2 p-2 m-2 bg-zinc-300 rounded-full text-center items-center align-baseline border-2 border-black font-semibold">
           {" "}
           {counter.count}{" "}
         </div>

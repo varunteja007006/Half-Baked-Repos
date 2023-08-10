@@ -35,7 +35,7 @@ function LearnUseReducer() {
           Below is the small funcitonality you can build to learn useReducer....
           {counter.emoji}.
         </p>
-        <div className="w-1/2 p-2 m-2 rounded-full text-center items-center align-baseline border-2 border-black font-semibold">
+        <div className="w-1/2 p-2 m-2 bg-zinc-300 rounded-full text-center items-center align-baseline border-2 border-black font-semibold">
           {counter.count}
         </div>
         <div className="p-2 m-2 w-1/2 flex flex-row gap-4 justify-center">

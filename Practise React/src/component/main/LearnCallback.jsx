@@ -45,10 +45,16 @@ function LearnCallback() {
         {/* Solution 2 - Add lowerstate */}
 
         {/* Solution 3 - Use Memo */}
-        <p> {value} </p>
-        <button className="text-black bg-blue-300 p-2" onClick={handleClick}>
-          Click me
-        </button>
+        <div className="flex flex-row gap-3 w-fit items-center">
+          <button className="text-black bg-blue-300 p-2" onClick={handleClick}>
+            Click me
+          </button>{" "}
+          <p className="w-fit p-2 m-2 bg-white rounded-full text-center items-center align-baseline border-2 border-black font-semibold">
+            {" "}
+            {value}{" "}
+          </p>
+        </div>
+
         <ChildThree data={data} removeItem={removeItem}></ChildThree>
       </div>
     </CodeBlock>

@@ -20,7 +20,7 @@ function LearnUseMemo() {
 
   return (
     <CodeBlock heading={"Learn UseMemo 💜 "} explanation={``}>
-      <p> {count} </p>
+      <p className="w-fit p-2 m-2 bg-white rounded-full text-center items-center align-baseline border-2 border-black font-semibold"> {count} </p>
       <button className="text-black bg-blue-300 p-2 mt-3" onClick={handleClick}>
         Click me
       </button>

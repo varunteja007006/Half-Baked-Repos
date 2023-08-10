@@ -18,7 +18,7 @@ function ToggleComponent() {
   }, []);
 
   return (
-    <div>
+    <div className="w-fit px-2 bg-white rounded-full text-center items-center align-baseline border-2 border-black font-semibold">
       <p>Hello!</p>
     </div>
   );

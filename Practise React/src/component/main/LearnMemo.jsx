@@ -11,7 +11,7 @@ function LearnMemo() {
     setValue(value + 1);
   };
   return (
-    <CodeBlock heading={'Learn Memo 💙'} explanation={``}>
+    <CodeBlock heading={"Learn Memo 💙"} explanation={``}>
       <h1 className="text-2xl mb-3"></h1>
       <div className="flex flex-col gap-3 w-fit items-center">
         {/* Solution 1 - Seperate the useState logic into different component 
@@ -21,10 +21,15 @@ function LearnMemo() {
         {/* Solution 2 - Add lowerstate */}
 
         {/* Solution 3 - Use Memo */}
-        <p> {value} </p>
-        <button className="text-black bg-blue-300 p-2" onClick={handleClick}>
-          Click me
-        </button>
+        <div className="flex flex-row gap-3 w-fit items-center">
+          <button className="text-black bg-blue-300 p-2" onClick={handleClick}>
+            Click me
+          </button>
+          <p className="w-fit p-2 m-2 bg-white rounded-full text-center items-center align-baseline border-2 border-black font-semibold">
+            {" "}
+            {value}{" "}
+          </p>
+        </div>
         <ChildOne data={data}></ChildOne>
       </div>
     </CodeBlock>

@@ -27,7 +27,7 @@ function LearnChildrenProp() {
             "We passed a children prop between the opening and closing tags of the component"
           }
         >
-          <p className="p-2 bg-green-300 w-fit my-5 shadow-md">
+          <p className="p-2 bg-green-600 text-white font-semibold w-fit my-5 shadow-md">
             Hi there, How are you? 😃. This line is child prop
           </p>
         </ChildrenProp>
