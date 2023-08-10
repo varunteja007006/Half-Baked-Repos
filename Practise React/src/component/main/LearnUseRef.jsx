@@ -25,8 +25,7 @@ function LearnUseRef() {
   };
 
   return (
-    <CodeBlock>
-      <h1 className="text-2xl mb-4">Learn UseRef 🖤</h1>
+    <CodeBlock heading={'Learn UseRef 🖤'} explanation={``}>
       <form action="" onSubmit={handleSubmit}>
         <input
           type="text"

@@ -8,9 +8,8 @@ function LearnUseEffectCleanup() {
     setToggle(!toggle);
   };
   return (
-    <CodeBlock>
+    <CodeBlock heading={"Learn UseEffect Cleanup 💚"} explanation={``}>
       <div className="flex flex-row gap-4 align-middle items-center">
-        <h1 className="text-2xl">Learn UseEffect Cleanup 💚</h1>
         <button
           className="bg-yellow-500 text-black p-2 hover:bg-yellow-400"
           onClick={togglebtn}

@@ -17,9 +17,8 @@ function LearnCheckboxes() {
     console.log(checkedItems);
   };
   return (
-    <CodeBlock>
+    <CodeBlock heading={"Learn CheckBox 🤎"} explanation={`Checkbox component`}>
       <>
-        <h1 className="text-2xl">Learn CheckBox 🤎</h1>
         <form
           action=""
           onSubmit={handleformSubmit}

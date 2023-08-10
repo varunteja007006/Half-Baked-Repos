@@ -7,9 +7,8 @@ function LearnUseRedux() {
   const counter = useSelector((state) => state.counter);
   const dispatch = useDispatch();
   return (
-    <CodeBlock>
+    <CodeBlock heading={"Learn Redux 💜"} explanation={``}>
       <>
-        <h1 className="text-2xl">Learn Redux 💜</h1>
         <p>
           Below is the small funcitonality you can build to learn Redux....{" "}
           {counter.emoji}

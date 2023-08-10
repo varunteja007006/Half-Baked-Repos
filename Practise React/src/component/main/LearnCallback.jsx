@@ -28,10 +28,15 @@ function LearnCallback() {
     },
     [data]
   );
-
   return (
-    <CodeBlock>
-      <h1 className="text-2xl mb-3">Learn UseCallback 💙</h1>
+    <CodeBlock
+      heading={"Learn UseCallback 💙"}
+      explanation={`It returns a memoized callback function. 
+      Think of memoization as caching a value so that it does not need to be recalculated. 
+      This allows us to isolate resource intensive functions so that they will not automatically run on every render. 
+      The useCallback Hook only runs when one of its dependencies update. 
+      This can improve performance.`}
+    >
       <div className="flex flex-col gap-3 w-fit items-center">
         {/* Solution 1 - Seperate the useState logic into different component 
         as shown below */}

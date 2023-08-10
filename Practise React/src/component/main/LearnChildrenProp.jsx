@@ -8,8 +8,12 @@ function LearnChildrenProp() {
     <>
       {/* I dont want to render the below paragraph for this component LearnChildrenProp */}
       {/* <p>Hi there, How are you? 😃</p> */}
-      <CodeBlock>
-        <h1 className="text-2xl">Learn Children Props 🖤</h1>
+      <CodeBlock
+        heading={"Learn Children Props 🖤"}
+        explanation={`props.children does is that it is used to display
+          whatever you include between the opening and closing tags when
+          invoking a component.`}
+      >
         <ChildrenProp
           title={"No Children Props"}
           subtitle={

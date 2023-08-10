@@ -28,9 +28,9 @@ function LearnUseReducer() {
 
   // console.log(counter);
   return (
-    <CodeBlock>
+    <CodeBlock heading={'Learn UseReducer ❤'} explanation={``}>
       <>
-        <h1 className="text-2xl">Learn UseReducer ❤</h1>
+        <h1 className="text-2xl"></h1>
         <p>
           Below is the small funcitonality you can build to learn useReducer....
           {counter.emoji}.

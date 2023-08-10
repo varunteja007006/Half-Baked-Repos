@@ -1,12 +1,13 @@
 import React from "react";
-import { CodeBlock } from "../main";
 import { UseLearnContext } from "../../context/LearnContext";
+import CodeBlock from "./CodeBlock";
 
-function SampleComponent() {
+function LearnUseContext() {
   const { sampleProp, setSampleProp } = UseLearnContext();
+
   return (
-    <CodeBlock>
-      <h1 className="text-2xl mb-3">Learn UseContext 💙</h1>
+    <CodeBlock heading={"Learn UseContext 💙"} explanation={``}>
+      <h1 className="text-2xl mb-3"></h1>
       <div className="flex flex-row gap-5 items-center">
         <p> {sampleProp} </p>
         <button
@@ -26,4 +27,4 @@ function SampleComponent() {
   );
 }
 
-export default SampleComponent;
+export default LearnUseContext;

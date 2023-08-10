@@ -20,8 +20,11 @@ function LearnFormData() {
     e.currentTarget.reset();
   };
   return (
-    <CodeBlock>
-      <h1 className="text-2xl mb-4">Learn Form Data API 🤎</h1>
+    <CodeBlock
+      heading={"Learn Form Data API 🤎"}
+      explanation={`Trying to understand the usage of FormData API in JavaScript`}
+    >
+      <h1 className="text-2xl mb-4"></h1>
       <form
         method="post"
         action=""

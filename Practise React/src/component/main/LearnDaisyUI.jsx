@@ -7,9 +7,10 @@ function LearnDaisyUI() {
     setItemStatus(!itemStatus);
   };
   return (
-    <CodeBlock>
-      <h1 className="text-2xl mb-3">Learn Daisy UI 🧡</h1>
-
+    <CodeBlock
+      heading={"Learn Daisy UI 🧡"}
+      explanation={`Component library for Tailwind CSS`}
+    >
       <details className="dropdown mb-32">
         <summary
           onClick={handleItemStatus}

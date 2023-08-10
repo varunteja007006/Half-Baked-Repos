@@ -11,11 +11,12 @@ import {
   LearnFormData,
   LearnMultipleInputs,
   LearnUseRef,
-  SampleComponent,
   LearnMemo,
   LearnCallback,
   LearnDaisyUI,
   LearnUseMemo,
+  LearnUseTransition,
+  LearnUseContext,
 } from "./component/main";
 import { LearnContextProvider } from "./context/LearnContext";
 
@@ -23,7 +24,7 @@ import { LearnContextProvider } from "./context/LearnContext";
 
 function App() {
   return (
-    <div className="app p-5 flex flex-col gap-5 bg-emerald-100">
+    <div className="app p-5 bg-emerald-100">
       <LearnDaisyUI></LearnDaisyUI>
 
       <LearnChildrenProp></LearnChildrenProp>
@@ -60,12 +61,15 @@ function App() {
       <LearnCallback></LearnCallback>
 
       <LearnContextProvider>
-        <SampleComponent></SampleComponent>
+        <LearnUseContext></LearnUseContext>
         {/* random topics */}
       </LearnContextProvider>
 
       <RandomJsTopics></RandomJsTopics>
+
       <LearnUseMemo></LearnUseMemo>
+
+      <LearnUseTransition></LearnUseTransition>
     </div>
   );
 }

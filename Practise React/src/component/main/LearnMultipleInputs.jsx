@@ -23,8 +23,7 @@ function LearnMultipleInputs() {
     });
   };
   return (
-    <CodeBlock>
-      <h1 className="text-2xl mb-4">Learn Mulitple Inputs 🤎</h1>
+    <CodeBlock heading={"Learn Mulitple Inputs 🤎"} explanation={``}>
       <form method="post" action="" className="flex flex-col gap-5 w-1/3">
         <input
           className="p-1 border-2 border-black"

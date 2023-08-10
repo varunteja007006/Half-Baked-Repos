@@ -11,8 +11,8 @@ function LearnMemo() {
     setValue(value + 1);
   };
   return (
-    <CodeBlock>
-      <h1 className="text-2xl mb-3">Learn Memo 💙</h1>
+    <CodeBlock heading={'Learn Memo 💙'} explanation={``}>
+      <h1 className="text-2xl mb-3"></h1>
       <div className="flex flex-col gap-3 w-fit items-center">
         {/* Solution 1 - Seperate the useState logic into different component 
         as shown below */}

@@ -8,9 +8,12 @@ function LearnFramer() {
   const close = () => setModalOpen(false);
   const open = () => setModalOpen(true);
   return (
-    <CodeBlock>
+    <CodeBlock
+      heading={"Learn Framer Motion for React 💙"}
+      explanation={`Framer library to help in animation, efects, etc.`}
+    >
       <div className="flex flex-col">
-        <h1 className="text-2xl mb-3">Learn Framer Motion for React 💙</h1>
+        <h1 className="text-2xl mb-3"></h1>
         {/* Button with framer animations 😀 */}
         <motion.button
           whileHover={{ scale: 1.1 }}

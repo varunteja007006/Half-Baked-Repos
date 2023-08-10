@@ -18,9 +18,8 @@ function LearnUseState() {
     });
   };
   return (
-    <CodeBlock>
+    <CodeBlock heading={"Learn UseState 🧡"} explanation={``}>
       <div className="flex flex-col gap-4">
-        <h1 className="text-2xl">Learn UseState 🧡</h1>
         <p>
           This should change on button click {"->"} {value}
         </p>

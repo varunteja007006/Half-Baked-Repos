@@ -11,11 +11,12 @@ import LearnCustomHooks from "./LearnCustomHooks";
 import LearnFormData from "./LearnFormData";
 import LearnMultipleInputs from "./LearnMultipleInputs";
 import LearnUseRef from "./LearnUseRef";
-import SampleComponent from "../subcomponents/SampleComponent";
 import LearnMemo from "./LearnMemo";
 import LearnCallback from "./LearnCallback";
 import LearnDaisyUI from "./LearnDaisyUI";
 import LearnUseMemo from "./LearnUseMemo";
+import LearnUseTransition from "./LearnUseTransition";
+import LearnUseContext from "./LearnUseContext";
 // all the component imports in one file.
 
 export {
@@ -32,9 +33,10 @@ export {
   LearnFormData,
   LearnMultipleInputs,
   LearnUseRef,
-  SampleComponent,
   LearnMemo,
   LearnCallback,
   LearnDaisyUI,
   LearnUseMemo,
+  LearnUseTransition,
+  LearnUseContext,
 };

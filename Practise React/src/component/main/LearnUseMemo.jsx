@@ -19,8 +19,7 @@ function LearnUseMemo() {
   console.log(value);
 
   return (
-    <CodeBlock>
-      <h1 className="text-2xl mb-3">Learn UseMemo 💜 </h1>
+    <CodeBlock heading={"Learn UseMemo 💜 "} explanation={``}>
       <p> {count} </p>
       <button className="text-black bg-blue-300 p-2 mt-3" onClick={handleClick}>
         Click me
