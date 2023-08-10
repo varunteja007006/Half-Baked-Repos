@@ -1,10 +1,10 @@
 import React from "react";
 
-function ChildTwo({ index, data }) {
+function ChildTwo({ index, item }) {
   console.log("render");
   return (
     <>
-      <p>{data}</p>
+      <p>{item}</p>
     </>
   );
 }

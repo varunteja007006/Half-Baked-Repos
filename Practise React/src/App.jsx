@@ -13,6 +13,9 @@ import {
   LearnUseRef,
   SampleComponent,
   LearnMemo,
+  LearnCallback,
+  LearnDaisyUI,
+  LearnUseMemo,
 } from "./component/main";
 import { LearnContextProvider } from "./context/LearnContext";
 
@@ -21,6 +24,8 @@ import { LearnContextProvider } from "./context/LearnContext";
 function App() {
   return (
     <div className="app p-5 flex flex-col gap-5 bg-emerald-100">
+      <LearnDaisyUI></LearnDaisyUI>
+
       <LearnChildrenProp></LearnChildrenProp>
 
       <LearnFramer></LearnFramer>
@@ -52,12 +57,15 @@ function App() {
 
       <LearnCustomHooks></LearnCustomHooks>
 
+      <LearnCallback></LearnCallback>
+
       <LearnContextProvider>
         <SampleComponent></SampleComponent>
         {/* random topics */}
       </LearnContextProvider>
 
       <RandomJsTopics></RandomJsTopics>
+      <LearnUseMemo></LearnUseMemo>
     </div>
   );
 }

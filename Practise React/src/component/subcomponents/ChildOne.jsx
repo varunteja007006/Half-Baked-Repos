@@ -1,16 +1,16 @@
-import React from "react";
+import React, { memo } from "react";
 import ChildTwo from "./ChildTwo";
 
-function ChildOne({ sampleData }) {
+function ChildOne({ data }) {
   return (
     <>
-      {sampleData.map((data, index) => (
+      {data.map((item, index) => (
         <div key={index}>
-          <ChildTwo index={index} data={data}></ChildTwo>
+          <ChildTwo index={index} item={item}></ChildTwo>
         </div>
       ))}
     </>
   );
 }
 
-export default ChildOne;
+export default memo(ChildOne);

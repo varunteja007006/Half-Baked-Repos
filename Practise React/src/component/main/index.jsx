@@ -13,6 +13,9 @@ import LearnMultipleInputs from "./LearnMultipleInputs";
 import LearnUseRef from "./LearnUseRef";
 import SampleComponent from "../subcomponents/SampleComponent";
 import LearnMemo from "./LearnMemo";
+import LearnCallback from "./LearnCallback";
+import LearnDaisyUI from "./LearnDaisyUI";
+import LearnUseMemo from "./LearnUseMemo";
 // all the component imports in one file.
 
 export {
@@ -31,4 +34,7 @@ export {
   LearnUseRef,
   SampleComponent,
   LearnMemo,
+  LearnCallback,
+  LearnDaisyUI,
+  LearnUseMemo,
 };
