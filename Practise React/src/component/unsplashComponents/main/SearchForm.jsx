@@ -1,11 +1,17 @@
 import React from "react";
 import { CodeBlock } from "../../main";
 import { useQuery } from "@tanstack/react-query";
+import { UseUnsplashGlobalContext } from "../../../context/UnsplashGlobalContext";
 
 function SearchForm() {
+  const { setSearchTerm } = UseUnsplashGlobalContext();
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(e.target.elements.search.value);
+    const searchValue = e.target.elements.search.value;
+    if (!searchValue) {
+      return;
+    }
+    setSearchTerm(searchValue);
   };
   const { isLoading, error, data } = useQuery({
     queryKey: ["repoData"],
@@ -20,7 +26,7 @@ function SearchForm() {
   if (error) return "An error has occurred: " + error.message;
   return (
     <div>
-      <CodeBlock heading={"Search form"} explanation={"Search the images"}>
+      <>
         <form
           onSubmit={handleSubmit}
           action=""
@@ -47,7 +53,7 @@ function SearchForm() {
             Search
           </button>
         </form>
-      </CodeBlock>
+      </>
     </div>
   );
 }

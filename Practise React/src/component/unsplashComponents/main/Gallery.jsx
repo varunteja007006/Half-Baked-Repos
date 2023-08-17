@@ -2,15 +2,18 @@ import React from "react";
 import { CodeBlock } from "../../main";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import { UseUnsplashGlobalContext } from "../../../context/UnsplashGlobalContext";
 
 function Gallery() {
-  const url =
-    "https://api.unsplash.com/search/photos?client_id=xfbCQ1fvZmXqOL014peTylVtteibbGUu33ZbKlCe5V0&query=cat";
+  const apiKey = import.meta.env.VITE_UNSPLASH_ACCESS_KEY;
+  const url = `https://api.unsplash.com/search/photos?client_id=${apiKey}`;
+
+  const { searchTerm } = UseUnsplashGlobalContext();
 
   const result = useQuery({
-    queryKey: ["images"],
+    queryKey: ["images", searchTerm],
     queryFn: async () => {
-      const response = await axios.get(url);
+      const response = await axios.get(`${url}&query=${searchTerm}`);
       return response;
     },
   });
@@ -84,8 +87,8 @@ function Gallery() {
   }
   return (
     <div>
-      <CodeBlock heading={"Gallery"} explanation={"Loads the images"}>
-        <div className="flex flex-wrap gap-4">
+      <>
+        <div className="flex flex-wrap gap-4 py-5">
           {outputData.map((item) => {
             return (
               <img
@@ -97,7 +100,7 @@ function Gallery() {
             );
           })}
         </div>
-      </CodeBlock>
+      </>
     </div>
   );
 }
