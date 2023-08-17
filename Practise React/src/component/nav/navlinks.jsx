@@ -6,6 +6,9 @@ export const navlinks = [
   {
     path: "/unsplash-project",
     pathName: "Unsplash Project",
+  },  {
+    path: "/cms-project",
+    pathName: "CMS Project",
   },
 ];
 

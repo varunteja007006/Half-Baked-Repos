@@ -19,6 +19,8 @@ import {
   LearnUseContext,
   LearnSuspenseAPI,
 } from "../component/main";
+//Above we are importing all the components from one file - index.jsx in main folder inside src/components.
+
 import { LearnContextProvider } from "../context/LearnContext";
 import React from "react";
 
