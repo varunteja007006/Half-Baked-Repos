@@ -10,7 +10,7 @@ function LearnUseRef() {
     // What if I dont want to run certain functionality after initial render
     if (!isMounted.current) {
       isMounted.current = true;
-    //   console.log("Initial Render");
+      //   console.log("Initial Render");
       return;
     }
     // You can see that above code in "if" is not running during re-render
@@ -25,7 +25,7 @@ function LearnUseRef() {
   };
 
   return (
-    <CodeBlock heading={'Learn UseRef 🖤'} explanation={``}>
+    <CodeBlock heading={"Learn UseRef 🖤"} explanation={``}>
       <form action="" onSubmit={handleSubmit}>
         <input
           type="text"
@@ -37,7 +37,9 @@ function LearnUseRef() {
           Submit
         </button>
       </form>
-      <p className="w-fit p-2 my-2 bg-white rounded-full text-center items-center align-baseline border-2 border-black font-semibold">{value}</p>
+      <p className="w-fit p-2 my-2 bg-white rounded-full text-center items-center align-baseline border-2 border-black font-semibold">
+        {value}
+      </p>
       <button
         className="p-2 bg-yellow-400 text-black"
         onClick={() => {

@@ -4,7 +4,7 @@ import { increment, decrement } from "../../features/counterSlice";
 import CodeBlock from "./CodeBlock";
 
 function LearnUseRedux() {
-  const counter = useSelector((state) => state.counter);
+  const counter = useSelector((store) => store.counter);
   const dispatch = useDispatch();
   return (
     <CodeBlock heading={"Learn Redux 💜"} explanation={``}>
