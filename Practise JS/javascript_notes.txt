@@ -1,0 +1,13 @@
+JavaScript Notes:
+
+1. If it is not primitive then it is an object
+2. Truthy and falsy
+3. double bang means two exclamations (i.e !!)
+4.  ' == ' abstract comparision. It does a type conversion before comparision.
+5. Strict check can be used ' === '
+6. If a value is assigned to undeclared variable then it is considered as global variable.
+7. hositing
+8. funcitons
+9. Higher order functions ->  functions can be given as input to another function or as a return value from a funciton. Eg: Async functions is used as arguments to anounymous function that will be called back later after some async code is finished
+10. Closures -  Funciton within a function where the inner function references a variable that was declared in the scope of the outer function. The variables in the outer function will be in memory even though the function has returned and has popped of the call stack. It means the inner function always has access to the inner function at the time it was created.
+

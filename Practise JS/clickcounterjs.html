@@ -1,23 +1,20 @@
 <html>
-<head>
-	<title>Test</title>
-</head>
-<body>
+  <head>
+    <title>Test</title>
+  </head>
+  <body>
+    <button id="counter">Click me</button>
+    <p id="result">0</p>
 
-<button id="counter">Click me</button>
-<p id="result">0</p>
+    <script type="text/javascript">
+      let count = 0;
+      let counter = document.getElementById("counter");
+      let result = document.getElementById("result");
 
-<script type="text/javascript">
-	let count = 0;
-	let counter = document.getElementById("counter");
-	let result = document.getElementById("result");
-
-	counter.onclick = () => {
-		count +=1;
-		result.innerHTML = count;
-	}
-
-</script>
-
-</body>
+      counter.onclick = () => {
+        count += 1;
+        result.innerHTML = count;
+      };
+    </script>
+  </body>
 </html>

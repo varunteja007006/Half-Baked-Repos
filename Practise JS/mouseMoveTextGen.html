@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text Gen on Mouse Movement</title>
+  </head>
+  <body>
+    <div>
+      <p id="textGen">Hello</p>
+    </div>
+
+    <script type="text/javascript">
+      let textGen = document.getElementById("textGen");
+
+      const az = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+      function generateRandomText(length) {
+        let randomText = "";
+        for (let i = 0; i < length; i++) {
+          const randomIndex = Math.floor(Math.random() * az.length);
+          randomText += az[randomIndex];
+        }
+        return randomText;
+      }
+
+      onmousemove = function (e) {
+        console.log("mouse location:", e.clientX, e.clientY);
+        const hugeText = generateRandomText(100);
+        textGen.innerHTML = hugeText;
+      };
+    </script>
+  </body>
+</html>

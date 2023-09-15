@@ -41,6 +41,6 @@ dataThree.map((item) => {
   console.log(item.area); //each array item has a property
   //destructure the second array item's property
   item.district.map((x) => {
-    console.log(x);
+    console.log(x); 
   });
 });
