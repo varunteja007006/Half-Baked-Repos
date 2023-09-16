@@ -1,0 +1,11 @@
+/* The following block can be included in a custom.scss */
+
+/* make the customizations */
+$theme-colors: (
+    "nav-color": rgb(0, 0, 0),
+    "border-nav-color": rgba(11, 15, 223, 0.678),
+    "light-grey": rgb(199, 199, 199),
+    );
+    
+/* import bootstrap to set changes */
+@import "../node_modules/bootstrap/scss/bootstrap";

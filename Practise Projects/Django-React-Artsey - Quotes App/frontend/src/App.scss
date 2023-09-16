@@ -1,0 +1,70 @@
+/* The following line can be included in a src/App.scss */
+@import "custom";
+
+body {
+  background-color: white;
+}
+
+a {
+  text-decoration: none;
+}
+
+.add-btn {
+  background-color: white;
+  border: 0.15rem solid black;
+  font-weight: 500;
+}
+
+.del-btn {
+  background-color: white;
+  border: 0.15rem solid black;
+  font-weight: 500;
+  align-items: baseline;
+  padding: 0.2rem;
+  margin: 0.2rem;
+
+  .del-icon {
+    margin: 0.2rem;
+    padding: 0;
+  }
+  &:hover {
+    background: red;
+    border: 0.15rem solid black;
+  }
+}
+
+.outer-card{
+    z-index: 1;
+    padding: 0.5rem;
+    background: black;
+    color: white;
+}
+
+.inner-card{
+    z-index: 1;
+    padding: 0.5rem;
+}
+
+.f-700 {
+  font-weight: 700;
+}
+
+.grey-bg{
+    background: rgb(56, 56, 56);
+    color: white;
+
+    .btn-close{
+        background-color: white;
+        opacity: 1;
+
+        &:hover{
+            background-color: rgb(252, 53, 53);
+        }
+    }
+}
+
+
+
+.border-black{
+    border: 0.15rem solid black;
+}
