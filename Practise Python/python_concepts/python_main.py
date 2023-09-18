@@ -3,16 +3,16 @@ print("This code is always executed")
 
 # code block 1
 
-
 def main():
-    print('Hello this is main, only exexuted when it is main')
-
+    print('Hello this is main, only executed when it is main')
 
 if __name__ == '__main__':
     main()
+
 # code block 2
 else:
     print('This is not main therefore it is run')
+
 
 '''
 Do run the python_dummy_import file to get more information on this.
