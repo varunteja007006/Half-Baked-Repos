@@ -1,27 +1,25 @@
 # Half-Baked-Repos
 
-Hi
+Hi, These projects are made for practice.
 
-These projects are made for practise.
-
-- mongodbtest: To practise mongodb
+- mongodbtest: To practice mongodb
 
 - My Code Snippets:
-    - react+Tailwind : This is a base project file created to quickly start with react and tailwind css.
 
-    - react+TS+Tailwind : This is a base project file created to quickly start with react and tailwind css alongside TypeScript.
+  - react+Tailwind : This is a base project file created to quickly start with react and tailwind css.
 
-    -- initial css setup.scss : Very initial css setup configuration.
+  - react+TS+Tailwind : This is a base project file created to quickly start with react and tailwind css alongside TypeScript.
+
+  - initial css setup.scss : Very initial css setup configuration.
 
 - MY_PC_PYTHON_SCRIPTS
 
-- Practise JS
+- Practice JS
 
-- Practise Projects
+- Practice Projects
 
-- Practise Python
+- Practice Python
 
-- Practise React
+- Practice React
 
-
-Thank you for checking out this repo.
+Thank you for checking out this repo 😇.
