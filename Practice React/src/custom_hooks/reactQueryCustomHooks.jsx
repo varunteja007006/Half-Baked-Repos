@@ -1,6 +1,7 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import customFetch from './utils';
 import { toast } from 'react-toastify';
+
 export const useFetchTasks = () => {
   const { isLoading, data, isError, error } = useQuery({
     queryKey: ['tasks'],

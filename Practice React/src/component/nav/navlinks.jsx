@@ -6,19 +6,13 @@ export const navlinks = [
   {
     path: "/unsplash-project",
     pathName: "Unsplash Project",
-  },  {
+  },
+  {
     path: "/cms-project",
     pathName: "CMS Project",
   },
-];
-
-export const dropdownlinks = [
   {
-    path: "/learn-daisy-UI",
-    pathName: "Daisy UI",
-  },
-  {
-    path: "/learn-children-props",
-    pathName: "Children Props",
+    path: "/menu-project",
+    pathName: "Menu Project",
   },
 ];

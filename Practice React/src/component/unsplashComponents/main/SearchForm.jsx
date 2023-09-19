@@ -1,10 +1,10 @@
 import React from "react";
-import { CodeBlock } from "../../main";
 import { useQuery } from "@tanstack/react-query";
 import { UseUnsplashGlobalContext } from "../../../context/UnsplashGlobalContext";
 
 function SearchForm() {
   const { setSearchTerm } = UseUnsplashGlobalContext();
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const searchValue = e.target.elements.search.value;
@@ -13,6 +13,7 @@ function SearchForm() {
     }
     setSearchTerm(searchValue);
   };
+
   const { isLoading, error, data } = useQuery({
     queryKey: ["repoData"],
     queryFn: () =>
@@ -24,37 +25,25 @@ function SearchForm() {
   if (isLoading) return "Loading...";
 
   if (error) return "An error has occurred: " + error.message;
+
   return (
-    <div>
-      <>
-        <form
-          onSubmit={handleSubmit}
-          action=""
-          method="post"
-          className="flex flex-col gap-5"
+    <>
+      <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+        <input
+          className="p-2 dark:text-black"
+          type="text"
+          name="search"
+          id="search"
+          placeholder="cat"
+        />
+        <button
+          type="submit"
+          className="btn bg-purple-700 text-white w-fit hover:bg-purple-600"
         >
-          <input
-            className="p-2"
-            type="text"
-            name="search"
-            id="search"
-            placeholder="cat"
-          />
-          {/* <input
-            className="p-2"
-            type="search"
-            name="sampleSearch"
-            id="sampleSearch"
-          /> */}
-          <button
-            type="submit"
-            className="btn bg-purple-700 text-white w-fit hover:bg-purple-600"
-          >
-            Search
-          </button>
-        </form>
-      </>
-    </div>
+          Search
+        </button>
+      </form>
+    </>
   );
 }
 

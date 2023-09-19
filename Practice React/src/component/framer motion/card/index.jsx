@@ -8,9 +8,6 @@ function Card() {
     <div className="flex flex-row gap-5 my-10">
       <AnimatePresence>
         <motion.div
-          // animate={{ x: [0, 100, 0], rotate: 10 }}
-          // animate={{ x: [null, 100, 0], rotate: 10 }}
-          // transition={{ ease: "easeOut", duration: 2 }}
           animate={{
             scale: [1, 1.2, 1.2, 1, 1],
             rotate: [0, 0, 180, 180, 0],

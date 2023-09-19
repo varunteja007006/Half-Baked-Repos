@@ -2,11 +2,13 @@ import React from "react";
 
 function CodeBlock({ heading, explanation, children }) {
   return (
-    <div className="border-2 border-black p-5 my-2 bg-yellow-100">
+    <div className="border-2 border-black p-5 my-2 bg-yellow-100 dark:bg-black dark:text-white">
       <h1 className="text-2xl font-semibold">{heading}</h1>
-      <p className="font-semibold my-2 text-justify">
-        Explanation {"-->"} {explanation}
-      </p>
+      {explanation && (
+        <p className="font-semibold my-2 text-justify">
+          Explanation {"-->"} {explanation}
+        </p>
+      )}
       {children}
     </div>
   );

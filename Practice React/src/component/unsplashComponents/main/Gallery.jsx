@@ -1,5 +1,4 @@
 import React from "react";
-import { CodeBlock } from "../../main";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { UseUnsplashGlobalContext } from "../../../context/UnsplashGlobalContext";
@@ -17,10 +16,11 @@ function Gallery() {
       return response;
     },
   });
+
   if (result.isLoading) {
     return (
       <>
-        <div className="alert alert-info">
+        <div className="alert alert-info my-5">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -39,10 +39,11 @@ function Gallery() {
       </>
     );
   }
+
   if (result.isError) {
     return (
       <>
-        <div className="alert alert-error">
+        <div className="alert alert-error my-5">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="stroke-current shrink-0 h-6 w-6"
@@ -66,7 +67,7 @@ function Gallery() {
   if (outputData.length < 1) {
     return (
       <>
-        <div className="alert alert-error">
+        <div className="alert alert-error my-5">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="stroke-current shrink-0 h-6 w-6"
@@ -85,10 +86,11 @@ function Gallery() {
       </>
     );
   }
+
   return (
     <div>
       <>
-        <div className="flex flex-wrap gap-4 py-5">
+        <div className="flex flex-wrap gap-4 my-5">
           {outputData.map((item) => {
             return (
               <img
