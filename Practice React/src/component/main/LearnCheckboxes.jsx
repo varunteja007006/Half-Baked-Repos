@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import tasks from "../../../data/db.json";
-import CodeBlock from "./CodeBlock";
+import CodeBlock from "../CodeBlock";
 
 function LearnCheckboxes() {
   const Onlytasks = tasks.tasks;

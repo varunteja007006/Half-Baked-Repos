@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
-import CodeBlock from "./CodeBlock";
+import CodeBlock from "../CodeBlock";
+import YellowBtn from "../subcomponents/YellowBtn";
 
 function LearnUseRef() {
   const [value, setValue] = useState(0);
@@ -24,30 +25,31 @@ function LearnUseRef() {
     console.log(refInputContainer.current.value);
   };
 
+  const handleClick = () => {
+    setValue(value + 1);
+  };
+
   return (
     <CodeBlock heading={"Learn UseRef 🖤"} explanation={``}>
-      <form action="" onSubmit={handleSubmit}>
+      <form
+        action=""
+        onSubmit={handleSubmit}
+        className="mt-3 flex flex-row gap-3"
+      >
         <input
           type="text"
           className="border-2 p-2 border-black w-96"
           placeholder="Type anything and check the console"
           ref={refInputContainer}
         />
-        <button className="bg-yellow-400 p-2 m-3" type="submit">
-          Submit
-        </button>
+        <YellowBtn label={"Submit"} type={"submit"}></YellowBtn>
       </form>
-      <p className="w-fit px-3 py-2 my-2 bg-white rounded-full text-center items-center align-baseline border-2 border-black font-semibold">
-        {value}
-      </p>
-      <button
-        className="p-2 bg-yellow-400 text-black"
-        onClick={() => {
-          setValue(value + 1);
-        }}
-      >
-        Click me!!
-      </button>
+      <div className="flex flex-row gap-4 mt-3">
+        <p className="btn bg-white hover:bg-white border-2 border-black hover:border-black cursor-default">
+          {value}
+        </p>
+        <YellowBtn handleButton={handleClick} type={"button"}></YellowBtn>
+      </div>
     </CodeBlock>
   );
 }

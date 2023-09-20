@@ -1,11 +1,13 @@
 import React, { useState, useTransition } from "react";
-import CodeBlock from "./CodeBlock";
+import CodeBlock from "../CodeBlock";
+import YellowBtn from "../subcomponents/YellowBtn";
 
 function LearnUseTransition() {
   const [text, setText] = useState("");
   const [images, SetImages] = useState([]);
   const [isPending, startTransition] = useTransition();
   const [show, setShow] = useState(true);
+
   const handleText = (e) => {
     setText(e.target.value);
 
@@ -34,17 +36,18 @@ function LearnUseTransition() {
           />
         );
       });
-
       SetImages(newImages);
     });
   };
 
+  const handleClick = () => setShow(!show);
+
   return (
     <CodeBlock
-      heading={"Learn UseTransition 🧡"}
+      heading={"Learn UseTransition 💖"}
       explanation={`Lets you update the state without blocking the UI. useTransition will make it possible to load the required data lazily`}
     >
-      <>
+      <div className="flex flex-col gap-3">
         <form>
           <input
             className="border-2 border-black p-2 w-96"
@@ -55,17 +58,18 @@ function LearnUseTransition() {
             value={text}
           />
         </form>
-        
-        <button
-          className="my-3 bg-fuchsia-700 text-white font-semibold hover:bg-fuchsia-500 hover:text-black p-2"
-          onClick={() => setShow(!show)}
-        >
-          {show
-            ? "Toggle to hide the images 😎"
-            : "Toggle to show the images 😎"}
-        </button>
-
-        <h1 className="text-lg my-3 font-semibold underline">Images Below</h1>
+        <span>
+          <YellowBtn
+            type={"button"}
+            handleButton={handleClick}
+            label={
+              show
+                ? "Toggle to hide the images 😎"
+                : "Toggle to show the images 😎"
+            }
+          ></YellowBtn>
+        </span>
+        <h1 className="text-lg font-semibold underline">Images Below</h1>
 
         {/* <div className="flex flex-wrap gap-3">{images}</div> */}
         {show &&
@@ -74,7 +78,7 @@ function LearnUseTransition() {
           ) : (
             <div className="flex flex-wrap gap-3">{images}</div>
           ))}
-      </>
+      </div>
     </CodeBlock>
   );
 }

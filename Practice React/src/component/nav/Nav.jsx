@@ -20,9 +20,9 @@ function Nav() {
         <li>
           <button
             onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-            className="btn hover:bg-gray-700 bg-black text-xl"
+            className={theme === 'light' ? `btn text-black hover:bg-yellow-400 bg-yellow-300 border-2 border-yellow-600 hover:border-yellow-500`: `btn text-black hover:bg-gray-400 bg-gray-300`}
           >
-            {theme === "light" ? "🌕" : "🌞"}
+            {theme === "light" ? "Light Mode" : "Dark Mode"}
           </button>
         </li>
       </ul>

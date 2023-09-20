@@ -1,5 +1,5 @@
 import React, { useReducer } from "react";
-import CodeBlock from "./CodeBlock";
+import CodeBlock from "../CodeBlock";
 
 function LearnUseReducer() {
   function handleClick(counter, action) {
@@ -28,31 +28,27 @@ function LearnUseReducer() {
 
   // console.log(counter);
   return (
-    <CodeBlock heading={'Learn UseReducer ❤'} explanation={``}>
-      <>
-        <h1 className="text-2xl"></h1>
-        <p>
-          Below is the small funcitonality you can build to learn useReducer....
-          {counter.emoji}.
-        </p>
-        <div className="w-1/2 p-2 m-2 bg-zinc-300 rounded-full text-center items-center align-baseline border-2 border-black font-semibold">
+    <CodeBlock
+      heading={`Learn UseReducer ❤ ${counter.emoji}`}
+      explanation={`Below is the small functionality you can build to learn useReducer.`}
+    >
+      <div className="flex flex-row gap-4 justify-start">
+        <button
+          className="btn font-semibold border-2 border-black text-xl bg-green-500 hover:bg-green-600 hover:border-black"
+          onClick={handleIncrement}
+        >
+          +
+        </button>
+        <div className="btn font-semibold border-2 border-black bg-white hover:bg-white hover:border-black">
           {counter.count}
         </div>
-        <div className="p-2 m-2 w-1/2 flex flex-row gap-4 justify-center">
-          <button
-            className=" font-semibold border-2 border-black rounded-full p-2 items-center align-baseline text-xl w-10 bg-green-500"
-            onClick={handleIncrement}
-          >
-            +
-          </button>
-          <button
-            className=" font-semibold border-2 border-black rounded-full p-2 items-center align-baseline text-xl w-10 bg-red-500"
-            onClick={handleDecrement}
-          >
-            -
-          </button>
-        </div>
-      </>
+        <button
+          className="btn font-semibold border-2 border-black text-xl bg-red-500 hover:bg-red-600 hover:border-black"
+          onClick={handleDecrement}
+        >
+          -
+        </button>
+      </div>
     </CodeBlock>
   );
 }

@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from "react";
-import CodeBlock from "./CodeBlock";
+import CodeBlock from "../CodeBlock";
 import SlowFunction from "../subcomponents/SlowFunction";
+import YellowBtn from "../subcomponents/YellowBtn";
 
 function LearnUseMemo() {
   const [count, setcount] = useState(0);
@@ -9,7 +10,7 @@ function LearnUseMemo() {
     setcount(count + 1);
   };
 
-  //   // The below line will run everytime the state changes since the react re-renders the functions
+  //   // The below line will run every time the state changes since the react re-renders the functions
   //   const value = SlowFunction();
   //   console.log(value);
 
@@ -20,13 +21,12 @@ function LearnUseMemo() {
 
   return (
     <CodeBlock heading={"Learn UseMemo 💜 "} explanation={``}>
-      <p className="w-fit p-2 m-2 bg-white rounded-full text-center items-center align-baseline border-2 border-black font-semibold">
-        {" "}
-        {count}{" "}
-      </p>
-      <button className="text-black bg-blue-300 p-2 mt-3" onClick={handleClick}>
-        Click me
-      </button>
+      <div className="flex flex-row gap-4 mt-3">
+        <YellowBtn handleButton={handleClick} type={"button"}></YellowBtn>
+        <div className="btn font-semibold border-2 border-black bg-white hover:bg-white hover:border-black">
+          {count}
+        </div>
+      </div>
     </CodeBlock>
   );
 }

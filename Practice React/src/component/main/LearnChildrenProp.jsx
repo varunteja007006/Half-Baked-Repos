@@ -1,7 +1,7 @@
 import React from "react";
 import ChildrenProp from "../subcomponents/ChildrenProp";
 import DivisionLine from "../subcomponents/DivisionLine";
-import CodeBlock from "./CodeBlock";
+import CodeBlock from "../CodeBlock";
 
 function LearnChildrenProp() {
   return (

@@ -19,7 +19,7 @@ function SlowFunctionTwo() {
 
   return (
     <>
-      <div className="flex flex-wrap gap-3">{images}</div>
+      <div className="flex flex-wrap gap-3 mt-3">{images}</div>
     </>
   );
 }

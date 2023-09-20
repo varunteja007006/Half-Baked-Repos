@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { CodeBlock } from "../component/main";
 import MenuCard from "../component/menu/MenuCard";
-import menuData from "../data/menuData";
+import menuData from "../../data/menuData";
 const allCategories = [
   "all",
   ...new Set(menuData.map((item) => item.category)),

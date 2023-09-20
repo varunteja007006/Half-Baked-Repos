@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { React, useState } from "react";
-import Modal from "../framer motion/modal";
-import CodeBlock from "./CodeBlock";
+import Modal from "./modal";
+import CodeBlock from "../CodeBlock";
 
 function LearnFramer() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -10,7 +10,7 @@ function LearnFramer() {
   return (
     <CodeBlock
       heading={"Learn Framer Motion for React 💙"}
-      explanation={`Framer library to help in animation, efects, etc.`}
+      explanation={`Framer library to help in animation, effects, etc.`}
     >
       <div className="flex flex-col">
         <h1 className="text-2xl mb-3"></h1>

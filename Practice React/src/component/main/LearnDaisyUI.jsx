@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import CodeBlock from "./CodeBlock";
+import CodeBlock from "../CodeBlock";
 
 function LearnDaisyUI() {
   const [itemStatus, setItemStatus] = useState(false);

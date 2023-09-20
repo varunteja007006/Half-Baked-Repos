@@ -11,6 +11,7 @@ function ToggleComponent() {
     }, 1000);
     // if you are subscribing to a service then you have to unsubscribe the service
     // i.e you use clearInterval after setInterval
+
     return () => {
       clearInterval(intervalFunc);
       console.log("Cleanup Triggered!!");
@@ -19,7 +20,7 @@ function ToggleComponent() {
 
   return (
     <div className="w-fit px-2 bg-white rounded-full text-center items-center align-baseline border-2 border-black font-semibold">
-      <p>Hello!</p>
+      <p>Hello! UseEffect triggered.</p>
     </div>
   );
 }

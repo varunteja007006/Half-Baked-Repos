@@ -1,13 +1,13 @@
-import item_1 from "../assets/item-1.jpeg"
-import item_2 from "../assets/item-2.jpeg"
-import item_3 from "../assets/item-3.jpeg"
-import item_4 from "../assets/item-4.jpeg"
-import item_5 from "../assets/item-5.jpeg"
-import item_6 from "../assets/item-6.jpeg"
-import item_7 from "../assets/item-7.jpeg"
-import item_8 from "../assets/item-8.jpeg"
-import item_9 from "../assets/item-9.jpeg"
-import item_10 from "../assets/item-10.jpeg"
+import item_1 from "../src/assets/item-1.jpeg"
+import item_2 from "../src/assets/item-2.jpeg"
+import item_3 from "../src/assets/item-3.jpeg"
+import item_4 from "../src/assets/item-4.jpeg"
+import item_5 from "../src/assets/item-5.jpeg"
+import item_6 from "../src/assets/item-6.jpeg"
+import item_7 from "../src/assets/item-7.jpeg"
+import item_8 from "../src/assets/item-8.jpeg"
+import item_9 from "../src/assets/item-9.jpeg"
+import item_10 from "../src/assets/item-10.jpeg"
 
 const menuData = [
   {

@@ -1,8 +1,7 @@
-import CodeBlock from "./CodeBlock";
+import CodeBlock from "../CodeBlock";
 import ChildThree from "../subcomponents/ChildThree";
-// import ClickMe from "../subcomponents/ClickMe";
 import { useCallback, useState } from "react";
-import { sampleData } from "../../data/sampleData";
+import { sampleData } from "../../../data/sampleData";
 
 function LearnCallback() {
   const [value, setValue] = useState(0);

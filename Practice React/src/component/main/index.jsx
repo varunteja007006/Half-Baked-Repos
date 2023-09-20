@@ -1,7 +1,7 @@
-import CodeBlock from "./CodeBlock";
+import CodeBlock from "../CodeBlock";
 import LearnCheckboxes from "./LearnCheckboxes";
 import LearnChildrenProp from "./LearnChildrenProp";
-import LearnFramer from "./LearnFramer";
+import LearnFramer from "../framer motion/LearnFramer";
 import LearnUseEffectCleanup from "./LearnUseEffectCleanup";
 import LearnUseReducer from "./LearnUseReducer";
 import LearnUseRedux from "./LearnUseRedux";

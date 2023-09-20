@@ -26,22 +26,14 @@ import React from "react";
 
 function Home() {
   return (
-    <div>
+    <>
       <LearnDaisyUI></LearnDaisyUI>
 
       <LearnFramer></LearnFramer>
 
       <LearnChildrenProp></LearnChildrenProp>
 
-      <LearnSuspenseAPI></LearnSuspenseAPI>
-
       <LearnCheckboxes></LearnCheckboxes>
-
-      <LearnUseEffectCleanup></LearnUseEffectCleanup>
-
-      <LearnMultipleInputs></LearnMultipleInputs>
-
-      <LearnMemo></LearnMemo>
 
       <LearnFormData></LearnFormData>
 
@@ -49,12 +41,20 @@ function Home() {
 
       <LearnCallback></LearnCallback>
 
+      {/* random topics */}
+      <RandomJsTopics></RandomJsTopics>
+
+      <LearnMemo></LearnMemo>
+
+      <LearnMultipleInputs></LearnMultipleInputs>
+
+      <LearnSuspenseAPI></LearnSuspenseAPI>
+
       <LearnContextProvider>
         <LearnUseContext></LearnUseContext>
       </LearnContextProvider>
 
-      {/* random topics */}
-      <RandomJsTopics></RandomJsTopics>
+      <LearnUseEffectCleanup></LearnUseEffectCleanup>
 
       <LearnUseMemo></LearnUseMemo>
 
@@ -68,7 +68,7 @@ function Home() {
       <LearnUseState></LearnUseState>
 
       <LearnUseTransition></LearnUseTransition>
-    </div>
+    </>
   );
 }
 
