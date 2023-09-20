@@ -1,7 +1,7 @@
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import { UseUnsplashGlobalContext } from "../../../context/UnsplashGlobalContext";
+import { UseUnsplashGlobalContext } from "../../context/UnsplashGlobalContext";
 
 function Gallery() {
   const apiKey = import.meta.env.VITE_UNSPLASH_ACCESS_KEY;

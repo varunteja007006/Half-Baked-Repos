@@ -1,13 +1,13 @@
 import React from "react";
-import ThemeToggle from "../component/unsplashComponents/main/ThemeToggle";
-import SearchForm from "../component/unsplashComponents/main/SearchForm";
-import Gallery from "../component/unsplashComponents/main/Gallery";
-import { CodeBlock } from "../component/main";
+import SearchForm from "../component/unsplashComponents/SearchForm";
+import Gallery from "../component/unsplashComponents/Gallery";
+import CodeBlock from "../component/CodeBlock";
+
+
 function unsplash() {
   return (
     <>
       <h1 className="text-2xl font-bold">Unsplash Project</h1>
-      <ThemeToggle></ThemeToggle>
       <CodeBlock
         heading={"Search the Unsplash Gallery"}
         explanation={

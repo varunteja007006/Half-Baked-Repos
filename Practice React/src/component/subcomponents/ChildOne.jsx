@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import YellowBtn from "./YellowBtn";
+import CustomBadge from "./CustomBadge";
 
 function ChildOne({ data }) {
   return (
@@ -7,15 +7,11 @@ function ChildOne({ data }) {
       <ul className="flex flex-row gap-4">
         {data.map((item, index) => (
           <li key={index}>
-            <YellowBtn
-              type={"button"}
-              label={item}
-              disabledStatus={true}
-            ></YellowBtn>
+            <CustomBadge label={item}></CustomBadge>
           </li>
         ))}
       </ul>
-    </div>  
+    </div>
   );
 }
 

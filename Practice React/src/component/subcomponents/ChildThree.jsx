@@ -1,18 +1,20 @@
 import React, { memo } from "react";
 import ChildFour from "./ChildFour";
+import YellowBtn from "./YellowBtn";
 
 function ChildThree({ data, removeItem }) {
   return (
     <>
-      {data.map((item, id) => (
-        <div key={id} className="flex flex-row gap-0">
+      {data.map((item, index) => (
+        // each record
+        <div key={index} className="flex flex-row items-center">
           <ChildFour item={item}></ChildFour>
-          <button
-            onClick={() => removeItem(id)}
-            className="bg-yellow-400 hover:bg-yellow-300 p-1 text-xs font-semibold border-2 border-black"
-          >
-          ❌
-          </button>
+
+          <YellowBtn
+            label={"❌"}
+            handleButton={() => removeItem(index)}
+            customClass={""}
+          ></YellowBtn>
         </div>
       ))}
     </>

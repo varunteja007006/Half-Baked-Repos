@@ -1,6 +1,6 @@
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
-import { UseUnsplashGlobalContext } from "../../../context/UnsplashGlobalContext";
+import { UseUnsplashGlobalContext } from "../../context/UnsplashGlobalContext";
 
 function SearchForm() {
   const { setSearchTerm } = UseUnsplashGlobalContext();

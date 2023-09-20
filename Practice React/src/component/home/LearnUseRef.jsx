@@ -38,7 +38,7 @@ function LearnUseRef() {
       >
         <input
           type="text"
-          className="border-2 p-2 border-black w-96"
+          className="border-2 p-2 border-black w-96 dark:text-black"
           placeholder="Type anything and check the console"
           ref={refInputContainer}
         />

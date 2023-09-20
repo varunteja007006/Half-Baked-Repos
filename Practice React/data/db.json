@@ -7,7 +7,7 @@
     },
     {
       "id": 2,
-      "task": "Finish project",
+      "task": "Finish the project",
       "status": true
     },
     {
@@ -17,8 +17,9 @@
     },
     {
       "id": 4,
-      "task": "Do laundry",
+      "task": "Do the laundry",
       "status": false
     }
-  ]
+  ],
+  "noTasks": []
 }

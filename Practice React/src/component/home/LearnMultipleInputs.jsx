@@ -33,7 +33,7 @@ function LearnMultipleInputs() {
       <form className="flex flex-col gap-5 w-1/3 mt-3">
         {/* name field */}
         <input
-          className="p-1 border-2 border-black"
+          className="p-1 border-2 border-black dark:text-black"
           placeholder="Name"
           type="text"
           name="name"
@@ -43,7 +43,7 @@ function LearnMultipleInputs() {
 
         {/* email field */}
         <input
-          className="p-1 border-2 border-black"
+          className="p-1 border-2 border-black dark:text-black"
           placeholder="Email ID"
           type="email"
           name="email"
@@ -53,7 +53,7 @@ function LearnMultipleInputs() {
 
         {/* password field */}
         <input
-          className="p-1 border-2 border-black"
+          className="p-1 border-2 border-black dark:text-black"
           placeholder="Password"
           type="password"
           name="password"

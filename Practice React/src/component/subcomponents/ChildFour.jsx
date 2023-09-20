@@ -1,12 +1,12 @@
 import React from "react";
+import CustomBadge from "./CustomBadge";
 
 function ChildFour({ item }) {
-  console.log("render");
+  console.log("useCallback: ChildFour Component render");
+
   return (
     <>
-      <p className="p-1 border-2 border-black border-r-0 bg-white text-black font-semibold">
-        {item.toUpperCase()}
-      </p>
+      <CustomBadge label={item}></CustomBadge>
     </>
   );
 }

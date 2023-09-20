@@ -50,7 +50,7 @@ function LearnUseTransition() {
       <div className="flex flex-col gap-3">
         <form>
           <input
-            className="border-2 border-black p-2 w-96"
+            className="border-2 border-black p-2 w-96 dark:text-black"
             placeholder="Enter any text to test the performance"
             type="text"
             name="text"

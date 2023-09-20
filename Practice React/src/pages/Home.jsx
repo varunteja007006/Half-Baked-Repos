@@ -1,48 +1,44 @@
 import {
   LearnCheckboxes,
   LearnChildrenProp,
-  LearnFramer,
   LearnUseEffectCleanup,
   LearnUseReducer,
   LearnUseRedux,
   LearnUseState,
-  RandomJsTopics,
   LearnCustomHooks,
   LearnFormData,
   LearnMultipleInputs,
   LearnUseRef,
   LearnMemo,
   LearnCallback,
-  LearnDaisyUI,
   LearnUseMemo,
   LearnUseTransition,
   LearnUseContext,
   LearnSuspenseAPI,
-} from "../component/main";
-//Above we are importing all the components from one file - index.jsx in main folder inside src/components.
+} from "../component/home";
+//Above we are importing all the components from one file - index.jsx in home folder inside src/components.
 
 import { LearnContextProvider } from "../context/LearnContext";
+
 import React from "react";
 
 function Home() {
   return (
     <>
-      <LearnDaisyUI></LearnDaisyUI>
-
-      <LearnFramer></LearnFramer>
-
-      <LearnChildrenProp></LearnChildrenProp>
+      {/* <LearnFramer></LearnFramer> */}
+    
+      <LearnCallback></LearnCallback>
 
       <LearnCheckboxes></LearnCheckboxes>
 
-      <LearnFormData></LearnFormData>
+      <LearnChildrenProp></LearnChildrenProp>
 
       <LearnCustomHooks></LearnCustomHooks>
-
-      <LearnCallback></LearnCallback>
+      
+      <LearnFormData></LearnFormData>
 
       {/* random topics */}
-      <RandomJsTopics></RandomJsTopics>
+      {/* <RandomJsTopics></RandomJsTopics> */}
 
       <LearnMemo></LearnMemo>
 
