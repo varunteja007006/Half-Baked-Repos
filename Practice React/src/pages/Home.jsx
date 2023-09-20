@@ -35,22 +35,13 @@ function Home() {
 
       <LearnSuspenseAPI></LearnSuspenseAPI>
 
-      {/* Learn Reducer concept */}
-      <LearnUseReducer></LearnUseReducer>
-
-      <LearnUseRedux></LearnUseRedux>
-
       <LearnCheckboxes></LearnCheckboxes>
-
-      <LearnUseState></LearnUseState>
 
       <LearnUseEffectCleanup></LearnUseEffectCleanup>
 
       <LearnMultipleInputs></LearnMultipleInputs>
 
       <LearnMemo></LearnMemo>
-
-      <LearnUseRef></LearnUseRef>
 
       <LearnFormData></LearnFormData>
 
@@ -66,6 +57,15 @@ function Home() {
       <RandomJsTopics></RandomJsTopics>
 
       <LearnUseMemo></LearnUseMemo>
+
+      {/* Learn Reducer concept */}
+      <LearnUseReducer></LearnUseReducer>
+
+      <LearnUseRedux></LearnUseRedux>
+
+      <LearnUseRef></LearnUseRef>
+
+      <LearnUseState></LearnUseState>
 
       <LearnUseTransition></LearnUseTransition>
     </div>

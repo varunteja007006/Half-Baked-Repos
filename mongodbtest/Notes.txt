@@ -1,4 +1,4 @@
------ Practise -----
+----- Practice -----
 Create a event manager
 
 Models:

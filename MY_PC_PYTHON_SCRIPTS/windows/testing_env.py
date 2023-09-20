@@ -1,4 +1,3 @@
-
 import os
 
 value_PGDATABASE = os.environ.get('PGDATABASE')

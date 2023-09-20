@@ -7,27 +7,25 @@ function LearnUseRedux() {
   const counter = useSelector((store) => store.counter);
   const dispatch = useDispatch();
   return (
-    <CodeBlock heading={"Learn Redux 💜"} explanation={``}>
+    <CodeBlock
+      heading={"Learn Redux 💜"}
+      explanation={`Redux is a state management library or tool for react. We can create a global state management for the app.Below is the small functionality you can build to learn Redux. ${counter.emoji}`}
+    >
       <>
-        <p>
-          Below is the small funcitonality you can build to learn Redux....{" "}
-          {counter.emoji}
-        </p>
-        <div className="w-1/2 p-2 m-2 bg-zinc-300 rounded-full text-center items-center align-baseline border-2 border-black font-semibold">
-          {" "}
-          {counter.count}{" "}
-        </div>
-        <div className=" p-2 m-2 w-1/2 flex flex-row gap-4 justify-center">
+        <div className="w-1/2 flex flex-row gap-4 justify-start items-center">
           <button
-            className=" font-semibold border-2 border-black rounded-full p-2 items-center align-baseline text-xl w-10 bg-green-500"
+            className="btn font-semibold border-2 border-black items-center text-xl bg-green-500 hover:bg-green-600 hover:border-black"
             onClick={() => {
               dispatch(increment());
             }}
           >
             +
           </button>
+          <div className="btn border-2 border-black bg-white hover:bg-white hover:border-black">
+            {counter.count}
+          </div>
           <button
-            className=" font-semibold border-2 border-black rounded-full p-2 items-center align-baseline text-xl w-10 bg-red-500"
+            className="btn font-semibold border-2 border-black items-center text-xl bg-red-500 hover:bg-red-600 hover:border-black" 
             onClick={() => {
               dispatch(decrement());
             }}

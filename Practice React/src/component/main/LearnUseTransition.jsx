@@ -38,22 +38,24 @@ function LearnUseTransition() {
       SetImages(newImages);
     });
   };
+
   return (
     <CodeBlock
       heading={"Learn UseTransition 🧡"}
-      explanation={`Lets you update the state without blocking the UI`}
+      explanation={`Lets you update the state without blocking the UI. useTransition will make it possible to load the required data lazily`}
     >
       <>
-        <form action="">
+        <form>
           <input
-            className="border-2 border-black p-2"
-            placeholder="Enter any text"
+            className="border-2 border-black p-2 w-96"
+            placeholder="Enter any text to test the performance"
             type="text"
             name="text"
             onChange={handleText}
             value={text}
           />
         </form>
+        
         <button
           className="my-3 bg-fuchsia-700 text-white font-semibold hover:bg-fuchsia-500 hover:text-black p-2"
           onClick={() => setShow(!show)}
@@ -62,7 +64,9 @@ function LearnUseTransition() {
             ? "Toggle to hide the images 😎"
             : "Toggle to show the images 😎"}
         </button>
-        <h1 className="text-lg my-3">Images Below</h1>
+
+        <h1 className="text-lg my-3 font-semibold underline">Images Below</h1>
+
         {/* <div className="flex flex-wrap gap-3">{images}</div> */}
         {show &&
           (isPending ? (

@@ -1,5 +1,5 @@
 '''
-Buidling a grahpical UI using customtkinter
+Building a graphical UI using customtkinter
 '''
 import customtkinter
 

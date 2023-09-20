@@ -7,7 +7,7 @@ function LearnUseRef() {
   const isMounted = useRef(false);
 
   useEffect(() => {
-    // What if I dont want to run certain functionality after initial render
+    // What if I don't want to run certain functionality after initial render? Then the below code will help.
     if (!isMounted.current) {
       isMounted.current = true;
       //   console.log("Initial Render");
@@ -15,13 +15,13 @@ function LearnUseRef() {
     }
     // You can see that above code in "if" is not running during re-render
     // console.log("Re-Render");
-    // Note: Dont check isMounted since it is an object and will always be true
+    // Note: Don't check isMounted since it is an object and will always be true
   }, [value]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // You can get the value of an input using UseRef
-    // console.log(refInputContainer.current.value);
+    console.log(refInputContainer.current.value);
   };
 
   return (
@@ -29,15 +29,15 @@ function LearnUseRef() {
       <form action="" onSubmit={handleSubmit}>
         <input
           type="text"
-          className="border-2 p-2 border-black"
-          placeholder="Type Anything and check console"
+          className="border-2 p-2 border-black w-96"
+          placeholder="Type anything and check the console"
           ref={refInputContainer}
         />
         <button className="bg-yellow-400 p-2 m-3" type="submit">
           Submit
         </button>
       </form>
-      <p className="w-fit p-2 my-2 bg-white rounded-full text-center items-center align-baseline border-2 border-black font-semibold">
+      <p className="w-fit px-3 py-2 my-2 bg-white rounded-full text-center items-center align-baseline border-2 border-black font-semibold">
         {value}
       </p>
       <button
@@ -46,7 +46,7 @@ function LearnUseRef() {
           setValue(value + 1);
         }}
       >
-        click me!!
+        Click me!!
       </button>
     </CodeBlock>
   );
