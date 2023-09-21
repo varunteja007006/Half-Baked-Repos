@@ -1,0 +1,1 @@
+[print({i:j} )for i in "abcd" for j in "kiwi"]

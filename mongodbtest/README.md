@@ -1,8 +1,8 @@
------ Practice -----
+# Practice
 Create a event manager
 
-Models:
-->Events
+### Models:
+- Events
     - Event name
     - Start Date
     - End Date
@@ -10,4 +10,4 @@ Models:
     - Team2
     - status - active/inactive
 
-fetch data
+

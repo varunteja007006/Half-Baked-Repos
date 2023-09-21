@@ -1,6 +1,9 @@
-projects to be added:
+# Practice React
+
+
+# Practice projects to be added:
 Menu ✅
-Tabs
+Tabs ✅
 Slider
 Dynamic Navbar
 
