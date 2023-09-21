@@ -1,3 +1,10 @@
+projects to be added:
+Menu ✅
+Tabs
+Slider
+Dynamic Navbar
+
+
 # Axios Tutorial
 https://www.udemy.com/course/react-tutorial-and-projects-course/
 
