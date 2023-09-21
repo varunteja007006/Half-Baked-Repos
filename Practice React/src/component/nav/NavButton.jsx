@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function NavButtons({ path, pathName }) {
+function NavButton({ path, pathName }) {
   return (
-    <li>
+    <li className="">
       <Link
-        className="btn font-bold  bg-orange-400 text-black hover:bg-orange-500"
+        className="btn font-bold bg-orange-400 text-black hover:bg-orange-500"
         to={path}
       >
         {pathName}
@@ -14,4 +14,4 @@ function NavButtons({ path, pathName }) {
   );
 }
 
-export default NavButtons;
+export default NavButton;

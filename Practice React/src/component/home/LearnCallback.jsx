@@ -53,7 +53,7 @@ function LearnCallback() {
         {/* Solution 3 - Use Memo and useCallback function */}
         <div className="flex flex-row gap-3 w-fit items-center">
           <Yellowbtn type={"button"} handleButton={handleClick}></Yellowbtn>
-          <p className="btn bg-white dark:text-black hover:bg-white cursor-default">
+          <p className="btn bg-white border-2 border-black dark:text-black hover:border-black hover:bg-white cursor-default">
             {value}
           </p>
         </div>

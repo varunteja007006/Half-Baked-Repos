@@ -7,6 +7,7 @@ import Cms from "./pages/Cms";
 import Menu from "./pages/Menu";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Tabs from "./pages/Tabs";
 
 function App() {
   const { theme } = UseThemeContext();
@@ -33,6 +34,8 @@ function App() {
 
             {/* menu project - hotel menu*/}
             <Route path="/menu-project" element={<Menu></Menu>}></Route>
+
+            <Route path="/tabs-project" element={<Tabs></Tabs>}></Route>
           </Routes>
         </div>
       </main>
