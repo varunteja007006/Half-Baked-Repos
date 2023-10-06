@@ -1,7 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 // create a initial state
-const initialState = { count: 0, emoji: "😉" };
+const initialState = {
+  count: 0,
+  emoji: "😉",
+};
 
 const counterSlice = createSlice({
   name: "counter", //This name can be anything
