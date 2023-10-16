@@ -15,10 +15,11 @@ function getNthPrimeNumber(n) {
     //divide j with no's from 1 to infinity until count is met
     if (j === 2) {
       flag = false;
-    } else {
+    } 
+    else {
       while (i < j) {
         if (j % i == 0) {
-          flag = true;
+          flag = true; //Not a prime
           break;
         }
         i = i + 1;
@@ -27,7 +28,7 @@ function getNthPrimeNumber(n) {
     console.log("count", count);
     console.log("j", j);
     if (flag === true) {
-      j = j + 1;
+      j = j + 1; // Not a prime so increment 'j'
     } else {
       count = count + 1;
       j = j + 1;
