@@ -1,3 +1,4 @@
+// pass a funciton as arguement  
 function greet() {
   return "hello";
 }
