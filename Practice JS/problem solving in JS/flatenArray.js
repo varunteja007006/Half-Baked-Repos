@@ -13,6 +13,7 @@ function flatten(array) {
   }
   return result; // finally return the flattened array
 }
+
 const nestedArray = [
   [1, 2],
   [3, 4],
@@ -20,4 +21,7 @@ const nestedArray = [
 ];
 const flattenedArray = flatten(nestedArray);
 
-console.log(flattenedArray); // [1, 2, 3, 4, 5, 6]
+const nestedArray2 = [...nestedArray];
+
+console.log("Own flatten function", flattenedArray); // [1, 2, 3, 4, 5, 6]
+console.log("use flat() function", nestedArray2.flat((depth = Infinity))); // [1, 2, 3, 4, 5, 6]
