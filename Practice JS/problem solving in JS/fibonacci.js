@@ -2,7 +2,7 @@
 let n1 = 0,
   n2 = 1,
   nextTerm;
-let num = 4;
+let num = 4; // No of iterations
 
 for (let i = 1; i <= number; i++) {
   console.log(n1);
