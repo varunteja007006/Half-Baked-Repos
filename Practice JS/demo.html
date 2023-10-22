@@ -16,6 +16,7 @@
       border: 0.3rem solid red;
       margin: 1rem 0;
       padding: 1rem;
+      color: black;
     }
 
     button {
@@ -41,15 +42,21 @@
 <body>
   <h1>This page is to test JavaScript...</h1>
 
-  <div id="grandparent">
-    <div id="parent">
-      <div id="child">
-      </div>
-    </div>
+  <!-- Event delegation -->
+  <div>
+    <ul id="categories">
+      <li id="laptops">Laptops</li>
+      <li id="cameras">Cameras</li>
+      <li id="shoes">Shoes</li>
+    </ul>
+    <!-- one more example -->
+    <form id="form">
+      <input type="text" placeholder="name" name="name" id="name" data-uppercase>
+      <input type="text" placeholder="othername" name="othername" id="othername">
+    </form>
   </div>
 
-  <!-- use of debounce function -->
-  <!-- <input type="text" name="search" id="search" onkeyup="optimizedFunc()"> -->
+
 
   <!-- demonstrate to create a element with JS -->
   <!-- <button type="button" id="createElement">Click to create a element</button> -->
