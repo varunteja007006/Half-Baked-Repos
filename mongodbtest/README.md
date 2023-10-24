@@ -12,28 +12,102 @@ Create a event manager
   - Team2
   - status - active/inactive
 
-# MongoDB Shell/CLI
+# Install Mongodb
 
-### start the mongodb on terminal
+https://www.mongodb.com/docs/manual/installation/
+
+# Run Mongodb
+
+To start the mongodb
+
+```
+sudo systemctl start mongod
+```
+
+To check if mongodb started / status
+
+```
+sudo systemctl status mongod
+```
+
+Stop mongodb
+
+```
+sudo systemctl stop mongod
+```
+
+Restart mongodb
+
+```
+sudo systemctl restart mongod
+```
+
+# MongoDB Shell
+
+Start the mongodb shell
 
 ```
 mongosh
 ```
 
-display db: db
-switch db: use {dbname}
+Help in mongodb shell
 
-create new db & collection
+```
+help
+```
 
-use {dbname}
+Clear the mongodb shell
 
-db.mycollection.insertOne({x:1})
+```
+cls
+```
 
-terminate running command or query : ctrl+c
+Terminate the running command or query
 
-shows all databases: show dbs
-show all collections: show collections
+> ctrl+c
 
-insert single record into collections: db.{collectionName}.insertOne({name:"Varun"})
+Current Database
 
-show all records in collection: db.{collectionName}.find()
+```
+db
+```
+
+Show all databases
+
+```
+show dbs
+```
+
+Use or switch to different database
+
+```
+use < db_name >
+```
+
+Create new db & collection ( Insert a record into collection to create collection )
+
+```
+use < new db_name >
+```
+
+```
+< db.<collection_name>.insertOne({name:"John"}) >
+```
+
+Show all collections
+
+```
+show collections
+```
+
+Insert single record into collections
+
+```
+< db.<collection_name>.insertOne({name:"Tommy"}) >
+```
+
+Show all records in the collection
+
+```
+db.<collectionName>.find()
+```
