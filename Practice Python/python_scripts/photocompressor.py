@@ -74,7 +74,7 @@ if __name__ == "__main__":
         print("\nOPTION 1: .png file type.\nOPTION 2: .jpg file type.\nOPTION 3: .webp file type.")
         fileType = int(input("Choose by typing 1 or 2 or 3 : "))
         filePath = input("Give the file path : ")
-        image_quality = input("Enter the quality of the image (between 10 - 90):\t\t(default:85)")
+        image_quality = input("Enter the quality of the image between 10-90 (Default 85): ")
 
         if fileType == 1:
             convert_png_to_rgb(filePath,image_quality)
