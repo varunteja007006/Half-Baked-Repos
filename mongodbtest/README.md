@@ -1,18 +1,9 @@
-# Practice
-
-Create a event manager
-
-### Models:
-
-- Events
-  - Event name
-  - Start Date
-  - End Date
-  - Team1
-  - Team2
-  - status - active/inactive
-
 # Install Mongodb
+
+### Lingo
+
+document - It means same as record in MySQL
+collections - It means same as table in MySQL
 
 ### Documentation
 
@@ -20,25 +11,25 @@ https://www.mongodb.com/docs/manual/installation/
 
 # Run Mongodb (Linux)
 
-To start the mongodb
+To start the mongodb:
 
 ```
 sudo systemctl start mongod
 ```
 
-To check if mongodb started / status
+To check if mongodb started / status:
 
 ```
 sudo systemctl status mongod
 ```
 
-Stop mongodb
+Stop mongodb:
 
 ```
 sudo systemctl stop mongod
 ```
 
-Restart mongodb
+Restart mongodb:
 
 ```
 sudo systemctl restart mongod
@@ -54,31 +45,31 @@ To refer more methods
 
 https://www.mongodb.com/docs/manual/reference/method/
 
-Start the mongodb shell
+Start the mongodb shell:
 
 ```
 mongosh
 ```
 
-Help in mongodb shell
+Help in mongodb shell:
 
 ```
 help
 ```
 
-Clear the mongodb shell
+Clear the mongodb shell:
 
 ```
 cls
 ```
 
-Terminate the running command or query
+Terminate the running command or query:
 
 > ctrl+c
 
 ### Simple Queries
 
-Current Database
+Current Database - To print current database
 
 ```
 db
@@ -93,17 +84,19 @@ show dbs
 Use or switch to different database
 
 ```
-use < db_name >
+use accounts
 ```
 
-Create new db & collection ( Insert a record into collection to create collection )
+This creates a database named accounts or switches to existing database.
+
+Create new db & collection ( Insert a document into collection to create collection )
 
 ```
-use < new db_name >
+use accounts
 ```
 
 ```
-< db.<collection_name>.insertOne({name:"John"}) >
+db.employees.insertOne({ name:"John" })
 ```
 
 Drop the database
@@ -118,30 +111,32 @@ Show all collections
 show collections
 ```
 
-Insert single record into collections
+Insert a single record into collections
 
 ```
-< db.<collection_name>.insertOne({name:"Tommy"}) >
+db.employees.insertOne({ name:"Tommy" })
 ```
 
 Insert Many record into collections
 
 ```
-db.<collectionName>.insertMany([ {....}, {....}, {.....} ])
+db.employees.insertMany([ {....}, {....}, {.....} ])
 ```
 
-NOTE: Sample data can be found at the end of this file.
+Pass an array of documents. Each document is a object.
+
+**NOTE: Sample data can be found at the end of this file.**
 
 Rename the collection
 
 ```
-db.<collectionName>.renameCollection('<New Collection Name>')
+db.employees.renameCollection('users')
 ```
 
 Delete records/ documents from collection
 
 ```
-db.<collectionName>.remove()
+db.users.remove({ name: "Tommy" })
 ```
 
 Drop the collection
@@ -150,43 +145,93 @@ Drop the collection
 db.collection.drop()
 ```
 
+**NOTE: If you followed the exact order then you may have to follow the insertMany command again to**
+**have some data to proceed further.**
+
+Update a record in collection
+
+```
+db.users.updateOne( { firstname: "Peter" }, { $set: { age : 27  } } )
+```
+
+Other update operations
+
+- $rename - The $rename command renames a field in a document.
+  ```
+  db.users.updateOne({key: <Some Value>}, {"$rename": {"old_field_name": "new_field_name"}})
+  ```
+  This will rename the field old_field_name to new_field_name in the document with the ID 1
+- $unset
+  ```
+  db.collection.update_one({"_id": 1}, {"$unset": {"field_to_remove": ""}})
+  ```
+  This will remove the field field_to_remove from the document with the ID 1.
+- $push
+  ```
+  db.collection.update_one({"_id": 1}, {"$push": {"array_field": "new_element"}})
+  ```
+  This will add the element new_element to the array field array_field in the document with the ID 1.
+- $pull
+  ```
+  db.collection.update_one({"_id": 1}, {"$pull": {"array_field": "element_to_remove"}})
+  ```
+  This will remove the element element_to_remove from the array field array_field in the document with the ID 1.
+
+This completely replaces the record
+
+```
+db.users.replaceOne( { key: < Some Value > }, { key : < New Value >  } )
+```
+
+Delete a record
+
+```
+db.users.deleteOne( { key: < Some Value > } )
+```
+
+Delete multiple records
+
+```
+db.users.deleteMany( { key: < Some Value > } )
+```
+
 Show all records in the collection
 
 ```
-db.<collectionName>.find()
+db.users.find()
 ```
 
 - sort by ascending
   ```
-  db.<collectionName>.find().sort({key:1})
+  db.users.find().sort({key:1})
   ```
 - sort by descending
   ```
-  db.<collectionName>.find().sort({key:-1})
+  db.users.find().sort({key:-1})
   ```
 - limit the records
   ```
-  db.<collectionName>.find().limit(<No of items>)
+  db.users.find().limit(<No of items>)
   ```
 - Skip the records
   ```
-  db.<collectionName>.find().skip(<No of items>)
+  db.users.find().skip(<No of items>)
   ```
 - Show only required keys of a record. Pass two arguments in find(), first query to fetch
   and second the parameter to specify which keys not have to be shown by mentioning '0'
   ```
-  db.<collectionName>.find({key:value}, {key:0, ...})
+  db.users.find({key:value}, {key:0, ...})
   ```
 - use greater than on keys in find
 
   ```
-   db.<collectionName>.find({key: {$gt:<Some Value>}})
+   db.users.find({key: {$gt:<Some Value>}})
   ```
 
   multiple comparisons
 
   ```
-   db.<collectionName>.find({key: {$gt:<Some Value>, $lt:<Some Other Value>}})
+   db.users.find({key: {$gt:<Some Value>, $lt:<Some Other Value>}})
   ```
 
   Available comparison operators
@@ -199,41 +244,45 @@ db.<collectionName>.find()
 AND Operator
 
 ```
-db.<collectionName>.find({key:"....", key1:{$gte:<Some Other Value>}})
+db.users.find({key:"....", key1:{$gte:<Some Other Value>}})
 ```
 
 ```
-db.<collectionName>.find({ $and: [{key:<Some Value>}, {key1:<Some Other Value>}]})
+db.users.find({ $and: [{key:<Some Value>}, {key1:<Some Other Value>}]})
 ```
 
 OR Operator
 
 ```
-db.<collectionName>.find({ $or: [{key:<Some Value>}, {key1:<Some Other Value>}]})
+db.users.find({ $or: [{key:<Some Value>}, {key1:<Some Other Value>}]})
 ```
 
 NOT Operator (NOTE: It will also return records which has no key; something greater than or less
 than will not do )
 
 ```
-db.<collectionName>.find({ key:{ $not: {$lte: <Some Value>} }})
+db.users.find({ key:{ $not: {$lte: <Some Value>} }})
 ```
 
 Use $in in find
 
 ```
-db.<collectionName>.find({key:{ $in : ["<Some Value>","<Some Other Value>"]}})
+db.users.find({key:{ $in : ["<Some Value>","<Some Other Value>"]}})
 ```
 
 Fetch the records if the key exist (NOTE: key with 'null' value, its records will appear)
 
 ```
-db.<collectionName>.find({key:{ $exists: true }})  //fetch the records which has key
+db.users.find({key:{ $exists: true }})
 ```
 
+Fetch the records which has key by mentioning 'true'
+
 ```
-db.<collectionName>.find({key:{ $exists: false }})  //fetch the records which has no key
+db.users.find({key:{ $exists: false }})
 ```
+
+Fetch the records which has no key by mentioning 'false'
 
 ### Complex Queries
 
@@ -243,7 +292,7 @@ The below expression compares two columns where 'ColName' is greater than 'Anoth
 before ColName for columns. Without '$' it indicates just a value.
 
 ```
-db.<collectionName>.find({ $expr: { $gt: [ "$ColName", "$AnotherColName" ] } })
+db.users.find({ $expr: { $gt: [ "$ColName", "$AnotherColName" ] } })
 ```
 
 Sample Data
@@ -524,3 +573,17 @@ Sample Data
   },
 ]
 ```
+
+# MERN stack project
+
+Create a event manager
+
+### Models:
+
+- Events
+  - Event name
+  - Start Date
+  - End Date
+  - Team1
+  - Team2
+  - status - active/inactive
