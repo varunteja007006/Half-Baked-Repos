@@ -99,33 +99,11 @@ use accounts
 db.employees.insertOne({ name:"John" })
 ```
 
-Drop the database
-
-```
-db.dropDatabase()
-```
-
 Show all collections
 
 ```
 show collections
 ```
-
-Insert a single record into collections
-
-```
-db.employees.insertOne({ name:"Tommy" })
-```
-
-Insert Many record into collections
-
-```
-db.employees.insertMany([ {....}, {....}, {.....} ])
-```
-
-Pass an array of documents. Each document is a object.
-
-**NOTE: Sample data can be found at the end of this file.**
 
 Rename the collection
 
@@ -133,7 +111,7 @@ Rename the collection
 db.employees.renameCollection('users')
 ```
 
-Delete records/ documents from collection
+Delete a document from collection who's name is Tommy
 
 ```
 db.users.remove({ name: "Tommy" })
@@ -148,7 +126,152 @@ db.collection.drop()
 **NOTE: If you followed the exact order then you may have to follow the insertMany command again to**
 **have some data to proceed further.**
 
-Update a record in collection
+Drop the database
+
+```
+db.dropDatabase()
+```
+
+## C R U D Operations:
+
+### C for Create
+
+Insert a single document into collections
+
+```
+db.employees.insertOne({ name:"Tommy" })
+```
+
+Insert Many documents into collections
+
+```
+db.employees.insertMany([ {....}, {....}, {.....} ])
+```
+
+Pass an array of documents. Each document is a object.
+
+**NOTE: Sample data can be found at the end of this file.**
+
+### R for Read
+
+Show all documents in the collection
+
+```
+db.users.find()
+```
+
+- sort by ascending
+  ```
+  .users.find().sort({ personid:1 })
+  ```
+- sort by descending
+  ```
+  db.users.find().sort({ personid:-1 })
+  ```
+- limit the documents to show
+  ```
+  db.users.find().limit(5)
+  ```
+- Skip the documents and show the rest
+  ```
+  db.users.find().skip(5)
+  ```
+  **NOTE: Make sure skip() always comes BEFORE .limit()**
+- Show only required limited keys of a document. Pass two arguments in find(), first query to fetch
+  and second the parameter to specify which keys not have to be shown by mentioning '0'
+  ```
+  db.users.find({},{ personid:1, firstname:1, lastname:1 })
+  ```
+- Comparison operators
+
+  **Available comparison operators**
+
+  - $gt = 'greater than'
+    ```
+    db.users.find({age: { $gt:58 } })
+    ```
+  - $gte = 'greater than equal to'
+    ```
+    db.users.find({age: { $gte:58 } })
+    ```
+  - $lt = 'less than'
+    ```
+    db.users.find({age: { $lt:20 } })
+    ```
+  - $gte = 'less than equal to'
+    ```
+    db.users.find({age: { $lt:53 } })
+    ```
+
+  Multiple comparison operators
+
+  ```
+   db.users.find({age: { $gt:50, $lt:60  } })
+  ```
+
+AND Operator
+
+```
+db.users.find({ age:{ $lt:40 }, debt:{ $lt:1000 } })
+```
+
+```
+db.users.find({ $and: [ {age:{ $lt:40 }} , {debt:{ $lt:1000 }} ] })
+```
+
+OR Operator
+
+```
+db.users.find({ $or: [{key:<Some Value>}, {key1:<Some Other Value>}]})
+```
+
+NOT Operator
+
+```
+db.users.find({ key:{ $not: {$lte: <Some Value>} }})
+```
+
+**NOTE: It will also return documents which has no key; something greater than or less
+than will not do**
+
+Use $in in find
+
+```
+db.users.find({key:{ $in : ["<Some Value>","<Some Other Value>"]}})
+```
+
+Fetch only the documents if the key exist (NOTE: key with 'null' value, its documents will appear)
+
+```
+db.users.find({hobbies:{ $exists: true }})
+```
+
+Fetch the documents which has key by mentioning 'true'
+
+```
+db.users.find({hobbies:{ $exists: false }})
+```
+
+Fetch the documents which has no 'hobbies' in the 'users' collection documents by mentioning 'false'
+
+NESTED queries
+
+```
+db.users.find({ 'address.city': 'New York City' })
+```
+
+EXPRESSION - $expr
+
+The below expression compares two columns where 'ColName' is greater than 'AnotherColName'. We use '$'
+before ColName for columns. Without '$' it indicates just a value.
+
+```
+db.users.find({ $expr: { $gt: [ "$ColName", "$AnotherColName" ] } })
+```
+
+### U for Update
+
+Update a document in collection
 
 ```
 db.users.updateOne( { firstname: "Peter" }, { $set: { age : 27  } } )
@@ -177,123 +300,33 @@ Other update operations
   ```
   This will remove the element element_to_remove from the array field array_field in the document with the ID 1.
 
-This completely replaces the record
+This completely replaces the document
 
 ```
 db.users.replaceOne( { key: < Some Value > }, { key : < New Value >  } )
 ```
 
-Delete a record
+### D for Delete
+
+Delete a document
 
 ```
-db.users.deleteOne( { key: < Some Value > } )
+db.users.deleteOne( { firstname:"Peter" } )
 ```
 
-Delete multiple records
+Delete multiple documents
 
 ```
-db.users.deleteMany( { key: < Some Value > } )
+db.users.deleteMany( { } )
 ```
 
-Show all records in the collection
+### More Concepts in MongoDB
 
-```
-db.users.find()
-```
+**Cursor**
 
-- sort by ascending
-  ```
-  db.users.find().sort({key:1})
-  ```
-- sort by descending
-  ```
-  db.users.find().sort({key:-1})
-  ```
-- limit the records
-  ```
-  db.users.find().limit(<No of items>)
-  ```
-- Skip the records
-  ```
-  db.users.find().skip(<No of items>)
-  ```
-- Show only required keys of a record. Pass two arguments in find(), first query to fetch
-  and second the parameter to specify which keys not have to be shown by mentioning '0'
-  ```
-  db.users.find({key:value}, {key:0, ...})
-  ```
-- use greater than on keys in find
+When the db. collection. find () function is used to search for documents in the collection, the result returns a pointer to the collection of documents returned which is called a cursor. By default, the cursor will be iterated automatically when the result of the query is returned
 
-  ```
-   db.users.find({key: {$gt:<Some Value>}})
-  ```
-
-  multiple comparisons
-
-  ```
-   db.users.find({key: {$gt:<Some Value>, $lt:<Some Other Value>}})
-  ```
-
-  Available comparison operators
-
-  - $gt = greater than
-  - $gte = greater than equal to
-  - $lt = less than
-  - $gte = less than equal to
-
-AND Operator
-
-```
-db.users.find({key:"....", key1:{$gte:<Some Other Value>}})
-```
-
-```
-db.users.find({ $and: [{key:<Some Value>}, {key1:<Some Other Value>}]})
-```
-
-OR Operator
-
-```
-db.users.find({ $or: [{key:<Some Value>}, {key1:<Some Other Value>}]})
-```
-
-NOT Operator (NOTE: It will also return records which has no key; something greater than or less
-than will not do )
-
-```
-db.users.find({ key:{ $not: {$lte: <Some Value>} }})
-```
-
-Use $in in find
-
-```
-db.users.find({key:{ $in : ["<Some Value>","<Some Other Value>"]}})
-```
-
-Fetch the records if the key exist (NOTE: key with 'null' value, its records will appear)
-
-```
-db.users.find({key:{ $exists: true }})
-```
-
-Fetch the records which has key by mentioning 'true'
-
-```
-db.users.find({key:{ $exists: false }})
-```
-
-Fetch the records which has no key by mentioning 'false'
-
-### Complex Queries
-
-EXPRESSION - $expr
-
-The below expression compares two columns where 'ColName' is greater than 'AnotherColName'. We use '$'
-before ColName for columns. Without '$' it indicates just a value.
-
-```
-db.users.find({ $expr: { $gt: [ "$ColName", "$AnotherColName" ] } })
-```
+src: https://docs.mongodb.com/manual/reference/method/js-cursor/
 
 Sample Data
 
@@ -570,6 +603,23 @@ Sample Data
     },
     hobbies: ["volunteering", "reading", "spending time with family"],
     alive: true
+  },
+  {
+    personid: 21,
+    firstname:'Harry',
+    lastname:'Bhai',
+    dob: new Date('1995-05-20'),
+    age: 29,
+    debt:34000,
+    balance: 4534399,
+    email:'hbrry@test.com',
+    phone: 747474747747,
+    address: {
+      street: '344 street subway',
+      city:'Heidi',
+      pincode:'35353'
+    },
+    alive:true
   },
 ]
 ```
