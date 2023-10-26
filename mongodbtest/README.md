@@ -129,9 +129,6 @@ Drop the database
 db.dropDatabase()
 ```
 
-**NOTE: If you followed the exact order then you may have to follow the insertMany command again to**
-**have some data to proceed further.**
-
 ## C R U D Operations:
 
 ### C for Create
