@@ -136,16 +136,32 @@ db.dropDatabase()
 
 ### C for Create
 
-Insert a single document into collections
+Insert a single document into collections 'users'
 
 ```
-db.employees.insertOne({ name:"Tommy" })
+db.users.insertOne({
+  personid:25,
+  firstname:"Tommy",
+  lastname:'Ja',
+  dob: new Date('2004-12-25'),
+  age:19,
+  debt:400,
+  balance: 34,
+  email: 'tommy@dummy.com',
+  phone:11111111,
+  address:{
+    street: '434 main road',
+    ity: 'Alps',
+    pincode: '423423'
+  },
+  alive: true
+  })
 ```
 
 Insert Many documents into collections
 
 ```
-db.employees.insertMany([ {....}, {....}, {.....} ])
+db.users.insertMany([ {....}, {....}, {.....} ])
 ```
 
 Pass an array of documents. Each document is a object.
@@ -159,6 +175,22 @@ Show all documents in the collection
 ```
 db.users.find()
 ```
+
+Show only required keys of a document. Pass two arguments in find().  
+**First argument** is 'query to fetch' condition.  
+and  
+**Second argument** is the condition to specify which keys have to be shown by mentioning '1', rest
+of the keys will not be shown.  
+Similarly, to specify which keys should not to be shown mention '0', rest of the keys will be shown.
+
+```
+db.users.find( {age: { $lt:20 }}, { personid:1, firstname:1, lastname:1 })
+```
+
+> Here inside find(), first argument is {age: { $lt: 20}} condition to fetch query, i.e age less than 20.
+>
+> and second argument is { personid:1, firstname:1, lastname:1 } condition to specify required keys,
+> i.e show documents with keys personid, firstname, lastname since they are mentioned with '1'.
 
 - sort by ascending
   ```
@@ -177,11 +209,6 @@ db.users.find()
   db.users.find().skip(5)
   ```
   **NOTE: Make sure skip() always comes BEFORE .limit()**
-- Show only required limited keys of a document. Pass two arguments in find(), first query to fetch
-  and second the parameter to specify which keys not have to be shown by mentioning '0'
-  ```
-  db.users.find({},{ personid:1, firstname:1, lastname:1 })
-  ```
 - Comparison operators
 
   **Available comparison operators**
@@ -216,19 +243,19 @@ db.users.find({ age:{ $lt:40 }, debt:{ $lt:1000 } })
 ```
 
 ```
-db.users.find({ $and: [ {age:{ $lt:40 }} , {debt:{ $lt:1000 }} ] })
+db.users.find({ $and: [ { age:{ $lt:40 }} , { debt:{ $lt:1000 }} ] })
 ```
 
 OR Operator
 
 ```
-db.users.find({ $or: [{key:<Some Value>}, {key1:<Some Other Value>}]})
+db.users.find({ $or: [ { age: {$lte:3} }, { firstname:'Peter' }  ] })
 ```
 
 NOT Operator
 
 ```
-db.users.find({ key:{ $not: {$lte: <Some Value>} }})
+db.users.find({ age: { $not: {$lt:50} } })
 ```
 
 **NOTE: It will also return documents which has no key; something greater than or less
@@ -237,7 +264,7 @@ than will not do**
 Use $in in find
 
 ```
-db.users.find({key:{ $in : ["<Some Value>","<Some Other Value>"]}})
+db.users.find({ age: { $in:[53, 100 ] } })
 ```
 
 Fetch only the documents if the key exist (NOTE: key with 'null' value, its documents will appear)
@@ -266,24 +293,30 @@ The below expression compares two columns where 'ColName' is greater than 'Anoth
 before ColName for columns. Without '$' it indicates just a value.
 
 ```
-db.users.find({ $expr: { $gt: [ "$ColName", "$AnotherColName" ] } })
+db.users.find({ $expr: { $gt: [ '$debt','$balance' ] } })
 ```
 
 ### U for Update
 
-Update a document in collection
+Update a document in a collection
 
 ```
 db.users.updateOne( { firstname: "Peter" }, { $set: { age : 27  } } )
+```
+
+Update documents in a collection
+
+```
+db.users.updateMany({}, { $set: { dummy:null } })
 ```
 
 Other update operations
 
 - $rename - The $rename command renames a field in a document.
   ```
-  db.users.updateOne({key: <Some Value>}, {"$rename": {"old_field_name": "new_field_name"}})
+  db.users.updateMany({email: {$exists:true}}, {$rename:{"email":"mail"}})
   ```
-  This will rename the field old_field_name to new_field_name in the document with the ID 1
+  This will rename the 'email' keys to 'mail' in all the document since we mentioned '{email: {$exists:true}}'
 - $unset
   ```
   db.collection.update_one({"_id": 1}, {"$unset": {"field_to_remove": ""}})
@@ -300,10 +333,10 @@ Other update operations
   ```
   This will remove the element element_to_remove from the array field array_field in the document with the ID 1.
 
-This completely replaces the document
+To replace the complete document
 
 ```
-db.users.replaceOne( { key: < Some Value > }, { key : < New Value >  } )
+db.users.replaceOne( { firstname: 'Susan' }, { firstname : 'Demon'  } )
 ```
 
 ### D for Delete
@@ -317,8 +350,10 @@ db.users.deleteOne( { firstname:"Peter" } )
 Delete multiple documents
 
 ```
-db.users.deleteMany( { } )
+db.users.deleteMany({})
 ```
+
+This deletes all the documents in a collection
 
 ### More Concepts in MongoDB
 
@@ -611,7 +646,7 @@ Sample Data
     dob: new Date('1995-05-20'),
     age: 29,
     debt:34000,
-    balance: 4534399,
+    balance: 33000,
     email:'hbrry@test.com',
     phone: 747474747747,
     address: {
