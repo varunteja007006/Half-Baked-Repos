@@ -131,6 +131,15 @@ db.dropDatabase()
 
 ## C R U D Operations:
 
+Lets set up the database once again since we dropped it in the before section.about-image
+
+```
+use accounts
+```
+
+Now proceed with following insertOne or insertMany operation to create a collection as well a document
+in the collection.
+
 ### C for Create
 
 Insert a single document into collections 'users'
@@ -173,21 +182,23 @@ Show all documents in the collection
 db.users.find()
 ```
 
-Show only required keys of a document. Pass two arguments in find().  
-**First argument** is 'query to fetch' condition.  
-and  
-**Second argument** is the condition to specify which keys have to be shown by mentioning '1', rest
-of the keys will not be shown.  
+To Show only required keys of a document. Pass two arguments in find().
+
+**First argument** is 'query to fetch' condition and **Second argument** is the condition to specify which keys have to be shown by mentioning '1', rest of the keys will not be shown.  
 Similarly, to specify which keys should not to be shown mention '0', rest of the keys will be shown.
+
+Below is the command:
 
 ```
 db.users.find( {age: { $lt:20 }}, { personid:1, firstname:1, lastname:1 })
 ```
 
-> Here inside find(), first argument is {age: { $lt: 20}} condition to fetch query, i.e age less than 20.
->
-> and second argument is { personid:1, firstname:1, lastname:1 } condition to specify required keys,
-> i.e show documents with keys personid, firstname, lastname since they are mentioned with '1'.
+Here inside find(),  
+**first argument** is {age: { $lt: 20}} condition to fetch query, i.e age less than 20.  
+**second argument** is { personid:1, firstname:1, lastname:1 } condition to specify required keys,
+i.e show documents with keys personid, firstname, lastname since they are mentioned with '1'.
+
+More Commands that can used along with find()
 
 - sort by ascending
   ```
@@ -205,10 +216,8 @@ db.users.find( {age: { $lt:20 }}, { personid:1, firstname:1, lastname:1 })
   ```
   db.users.find().skip(5)
   ```
-  **NOTE: Make sure skip() always comes BEFORE .limit()**
-- Comparison operators
-
-  **Available comparison operators**
+  **NOTE: Make sure to always use skip() before limit()**
+- Available comparison operators
 
   - $gt = 'greater than'
     ```
@@ -227,7 +236,7 @@ db.users.find( {age: { $lt:20 }}, { personid:1, firstname:1, lastname:1 })
     db.users.find({age: { $lt:53 } })
     ```
 
-  Multiple comparison operators
+  Using multiple comparison operators
 
   ```
    db.users.find({age: { $gt:50, $lt:60  } })
@@ -267,13 +276,13 @@ db.users.find({ age: { $in:[53, 100 ] } })
 Fetch only the documents if the key exist (NOTE: key with 'null' value, its documents will appear)
 
 ```
-db.users.find({hobbies:{ $exists: true }})
+db.users.find({ hobbies:{ $exists: true }})
 ```
 
 Fetch the documents which has key by mentioning 'true'
 
 ```
-db.users.find({hobbies:{ $exists: false }})
+db.users.find({ hobbies:{ $exists: false }})
 ```
 
 Fetch the documents which has no 'hobbies' in the 'users' collection documents by mentioning 'false'
@@ -301,34 +310,38 @@ Update a document in a collection
 db.users.updateOne( { firstname: "Peter" }, { $set: { age : 27  } } )
 ```
 
+This will update only one document who's firstname is 'Peter', it will update the key age to 27.
+
 Update documents in a collection
 
 ```
 db.users.updateMany({}, { $set: { dummy:null } })
 ```
 
-Other update operations
+This will update all the documents since we passed '{}', it will update new key 'dummy'
+
+**Other update operations**
 
 - $rename - The $rename command renames a field in a document.
   ```
-  db.users.updateMany({email: {$exists:true}}, {$rename:{"email":"mail"}})
+  db.users.updateMany({ email: {$exists:true}}, {$rename:{"email":"mail"}})
   ```
   This will rename the 'email' keys to 'mail' in all the document since we mentioned '{email: {$exists:true}}'
 - $unset
   ```
-  db.collection.update_one({"_id": 1}, {"$unset": {"field_to_remove": ""}})
+  db.users.updateMany({}, {$unset:{dummy:''}})
   ```
-  This will remove the field field_to_remove from the document with the ID 1.
+  This will remove the key 'dummy' from all the documents since we mentioned '{}'.
 - $push
   ```
-  db.collection.update_one({"_id": 1}, {"$push": {"array_field": "new_element"}})
+  db.users.updateOne({personid:18},{$push:{hobbies:'eating'}})
   ```
-  This will add the element new_element to the array field array_field in the document with the ID 1.
+  This will add the 'eating' to the array hobbies in the document with the personid 18.
 - $pull
   ```
-  db.collection.update_one({"_id": 1}, {"$pull": {"array_field": "element_to_remove"}})
+  db.users.updateOne({personid:18},{$pull:{hobbies:'eating'}})
   ```
-  This will remove the element element_to_remove from the array field array_field in the document with the ID 1.
+  This will add the 'eating' to the array hobbies in the document with the personid 18.
 
 To replace the complete document
 
@@ -336,9 +349,11 @@ To replace the complete document
 db.users.replaceOne( { firstname: 'Susan' }, { firstname : 'Demon'  } )
 ```
 
+This replaces the whole document who's firstname is 'Susan', with whatever is passed as second argument.
+
 ### D for Delete
 
-Delete a document
+Delete a single document
 
 ```
 db.users.deleteOne( { firstname:"Peter" } )
