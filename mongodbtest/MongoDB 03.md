@@ -1,5 +1,7 @@
 # FIND QUERY IN ARRAY
 
+### Referred from - https://github.com/karankumarshreds/MongodbQueries
+
 ## To find docs with exact match of an array
 
 Let's suppose we need to query all the chats which has property `users: ['a', 'b']:`

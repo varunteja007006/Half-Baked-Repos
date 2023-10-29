@@ -1,13 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import Unsplash from "./pages/Unsplash";
 import Nav from "./component/nav/Nav";
 import { UseThemeContext } from "./context/ThemeContext";
-import Cms from "./pages/Cms";
-import Menu from "./pages/Menu";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Tabs from "./pages/Tabs";
+import { Home, Menu, Unsplash, Cms, Tabs, Problems } from "./pages";
 
 function App() {
   const { theme } = UseThemeContext();
@@ -36,6 +32,7 @@ function App() {
             <Route path="/menu-project" element={<Menu></Menu>}></Route>
 
             <Route path="/tabs-project" element={<Tabs></Tabs>}></Route>
+            <Route path="/problems" element={<Problems></Problems>}></Route>
           </Routes>
         </div>
       </main>
