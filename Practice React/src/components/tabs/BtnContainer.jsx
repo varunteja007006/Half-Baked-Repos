@@ -3,7 +3,7 @@ function BtnContainer({ data, currentData, setCurrentData }) {
     <div className="flex flex-row flex-wrap gap-3">
       {data.map((item, index) => {
         return (
-          <button
+          <button key={index}
             type="button"
             className={`btn ${
               currentData === index

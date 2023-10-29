@@ -1,7 +1,7 @@
 import { useState } from "react";
-import MenuCard from "../component/menu/MenuCard";
-import menuData from "../../data/menuData";
-import CodeBlock from "../component/CodeBlock";
+import { CodeBlock } from "../components";
+import menuData from "../data/menuData";
+import MenuCard from "../components/menu/MenuCard";
 
 const allCategories = [
   "all",
@@ -23,7 +23,7 @@ function Menu() {
 
   return (
     <CodeBlock heading={"Snack's Menu"}>
-      <div className="flex flex-wrap">
+      <div className="flex flex-wrap mt-4">
         {categories.map((item) => {
           return (
             <button

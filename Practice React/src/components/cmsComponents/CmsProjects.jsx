@@ -21,7 +21,6 @@ export const useFetchProjects = () => {
         const img = image?.fields?.file?.url;
         return { title, url, id, img };
       });
-      console.log(projects);
       setProjects(projects);
       setLoading(false);
     } catch (error) {

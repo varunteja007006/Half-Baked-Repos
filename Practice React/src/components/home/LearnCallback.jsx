@@ -1,7 +1,7 @@
 import CodeBlock from "../CodeBlock";
 import ChildThree from "../subcomponents/ChildThree";
 import { useCallback, useState } from "react";
-import { sampleData } from "../../../data/sampleData";
+import { sampleData } from "../../data/sampleData";
 import { toast } from "react-toastify";
 import Yellowbtn from "../subcomponents/YellowBtn";
 

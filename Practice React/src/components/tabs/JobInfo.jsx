@@ -8,6 +8,7 @@ function JobInfo({ data, currentData }) {
       <h3 className="p-2 text-lg font-semibold">{item.title}</h3>
       <span className="p-2 text-sm">{item.company}</span>
       <p className="p-2 text-sm">{item.dates}</p>
+      {/* bullet points */}
       <Duties duties={item.duties}></Duties>
     </article>
   );

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import tasks from "../../../data/db.json";
+import tasks from "../../data/db.json";
 import CodeBlock from "../CodeBlock";
 import YellowBtn from "../subcomponents/YellowBtn";
 import { toast } from "react-toastify";
@@ -26,8 +26,7 @@ function LearnCheckboxes() {
     const message = `${e.target.id} is ${
       e.target.checked ? "completed 🙂" : "incomplete 😢"
     }`;
-    e.target.checked ? (toast.success(message)):(toast.error(message))
-   
+    e.target.checked ? toast.success(message) : toast.error(message);
   };
 
   const handleFormSubmit = (e) => {

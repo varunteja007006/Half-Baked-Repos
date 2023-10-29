@@ -1,7 +1,7 @@
 import CodeBlock from "../CodeBlock";
 import ChildOne from "../subcomponents/ChildOne";
 import { useState } from "react";
-import { sampleData as data } from "../../../data/sampleData";
+import { sampleData as data } from "../../data/sampleData";
 import YellowBtn from "../subcomponents/YellowBtn";
 
 function LearnMemo() {

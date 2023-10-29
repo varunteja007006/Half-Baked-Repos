@@ -1,8 +1,5 @@
 import React from "react";
-import SearchForm from "../component/unsplashComponents/SearchForm";
-import Gallery from "../component/unsplashComponents/Gallery";
-import CodeBlock from "../component/CodeBlock";
-
+import { Gallery, SearchForm, CodeBlock } from "../components";
 
 function unsplash() {
   return (

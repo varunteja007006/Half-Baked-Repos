@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import BtnContainer from "../component/tabs/BtnContainer";
-import JobInfo from "../component/tabs/JobInfo";
+import BtnContainer from "../components/tabs/BtnContainer";
+import JobInfo from "../components/tabs/JobInfo";
 
 function Tabs() {
   const url = "https://course-api.com/react-tabs-project";

@@ -5,7 +5,7 @@ function MenuCard({ item }) {
       <figure>
         <img src={img} alt={title} className="w-72 h-56" />
       </figure>
-      <div className="card-body">
+      <div className="card-body dark:bg-gray-300 dark:text-black">
         <h2 className="card-title">{title}</h2>
         <p>{desc}</p>
         <div className="card-actions justify-end">

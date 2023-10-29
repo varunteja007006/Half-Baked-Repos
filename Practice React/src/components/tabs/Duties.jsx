@@ -3,9 +3,9 @@ import { FcNext } from "react-icons/fc";
 function Duties({ duties }) {
   return (
     <>
-      {duties.map((item) => {
+      {duties.map((item, index) => {
         return (
-          <div className="flex flex-row p-2">
+          <div key={index} className="flex flex-row p-2">
             <span className="mt-1">
               <FcNext />
             </span>

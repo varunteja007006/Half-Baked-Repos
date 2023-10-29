@@ -1,5 +1,5 @@
 import React from "react";
-import CmsMain from "../component/cmsComponents/CmsMain";
+import CmsMain from "../components/cmsComponents/CmsMain";
 
 function Cms() {
   return (

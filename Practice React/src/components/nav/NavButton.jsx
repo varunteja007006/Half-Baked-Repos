@@ -5,7 +5,7 @@ function NavButton({ path, pathName }) {
   return (
     <li className="">
       <Link
-        className="btn font-bold bg-orange-400 text-black hover:bg-orange-300"
+        className="btn font-bold bg-orange-400 text-black hover:bg-orange-300 dark:hover:bg-gray-400 dark:bg-gray-300"
         to={path}
       >
         {pathName}

@@ -15,7 +15,7 @@ import {
   LearnUseTransition,
   LearnUseContext,
   LearnSuspenseAPI,
-} from "../component/home";
+} from "../components/home";
 //Above we are importing all the components from one file - index.jsx in home folder inside src/components.
 
 import { LearnContextProvider } from "../context/LearnContext";
@@ -26,7 +26,7 @@ function Home() {
   return (
     <>
       {/* <LearnFramer></LearnFramer> */}
-    
+
       <LearnCallback></LearnCallback>
 
       <LearnCheckboxes></LearnCheckboxes>
@@ -34,7 +34,7 @@ function Home() {
       <LearnChildrenProp></LearnChildrenProp>
 
       <LearnCustomHooks></LearnCustomHooks>
-      
+
       <LearnFormData></LearnFormData>
 
       {/* random topics */}
