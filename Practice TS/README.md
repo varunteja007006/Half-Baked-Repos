@@ -1,5 +1,31 @@
 # Practice TypeScript
 
+## About TypeSCript
+
+TypeScript is a programming language that builds on JavaScript, giving you better tooling at any scale. 
+It is a superset of JavaScript, which means that all valid JavaScript code is also valid TypeScript 
+code. However, TypeScript adds optional type annotations to JavaScript, which can help to catch errors 
+early and make your code more readable and maintainable.
+
+TypeScript is compiled to JavaScript, so you can use it with any existing JavaScript codebase. It is
+also supported by all major JavaScript frameworks and libraries, such as React, Angular, and Vue.
+
+TypeScript is a popular choice for developing large and complex JavaScript applications. It is used 
+by companies such as Google, Microsoft, and Amazon.
+
+Here are some examples of how TypeScript can be used:
+
+- To define the types of function parameters and return values: This can help to prevent errors and 
+make your code more robust.
+
+- To define the types of variables and object properties: This can help to improve the readability 
+and maintainability of your code.
+
+- To enforce coding conventions: TypeScript can be used to ensure that your code follows a consistent 
+set of coding conventions, such as those defined by the Airbnb JavaScript Style Guide.
+
+## Install TypeScript
+
 To use TypeScript we need to install Node and then install TypeScript Compiler. The TypeScript Compiler
 allows use to compile TypeScript files
 
@@ -11,7 +37,11 @@ Compile the TypeScript files as follows
 
 > tsc FILENAME
 
-TypeScript Types:
+## TypeScript Notes
+
+Learn TypeScript using documentation https://www.typescriptlang.org/docs/handbook/2/basic-types.html
+
+### TypeScript Types:
 
 - number
 - string
@@ -26,6 +56,8 @@ TypeScript Types:
 - never
 - unknown
 - and much more.....
+
+## TypeScript Code
 
 simple use of typescript
 
