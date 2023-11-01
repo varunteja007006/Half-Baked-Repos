@@ -210,5 +210,6 @@ processUser({
   username: "strongTitan",
   paymentID: 43434,
   email: "strongTitan@test.com",
-  //
+  test: "", // This will throw an error since this property is not available in type "User"
+});
 ```
