@@ -213,3 +213,73 @@ processUser({
   test: "", // This will throw an error since this property is not available in type "User"
 });
 ```
+
+**Using readonly**
+
+This readonly type will not allow to modify the property.
+
+```ts
+type User = {
+  readonly _id: string;
+  username: string;
+  paymentID: number;
+  email: string;
+};
+
+let userOne: User = {
+  _id: "ersse554823fsd",
+  username: "testDummy",
+  paymentID: 5161331,
+  email: "testDummy@test.com",
+};
+
+userOne.email = "dummyTest@dummy.com";
+userOne._id = "596sfasf"; // This throws an error since '_id' is readonly,
+```
+
+**Optional properties**
+
+If we have some properties that are optional, then we have to mention '?' before colon. Check the below
+code snippet.
+
+```ts
+type User = {
+  readonly _id: string;
+  username: string;
+  paymentID: number;
+  email: string;
+  creditCardNumber?: number; // This is an optional property. We use '?' before colon to mention it has optional
+};
+
+let userOne: User = {
+  _id: "ersse554823fsd",
+  username: "testDummy",
+  paymentID: 5161331,
+  email: "testDummy@test.com",
+};
+```
+
+**Appending the types to a new type**
+
+Here if we have more than one types and want to combine them to create a new type then we can use '&'.
+
+```ts
+type CredCardNumber = {
+  credCardNumber: number;
+};
+
+type CredCardDate = {
+  credCardDate: string;
+};
+
+type CredCardDetails = CredCardNumber &
+  CredCardDate & {
+    credCardCVV: number;
+  };
+
+const cardOne: CredCardDetails = {
+  credCardNumber: 546516165,
+  credCardDate: "02/89",
+  credCardCVV: 566,
+};
+```

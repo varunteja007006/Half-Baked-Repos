@@ -1,18 +1,20 @@
-type User = {
-  username: string;
-  paymentID: number;
-  email: string;
+type CredCardNumber = {
+  credCardNumber: number;
 };
 
-function processUser(user: User): User {
-  return { ...user }; // this function should also return the type 'User'
-}
+type CredCardDate = {
+  credCardDate: string;
+};
 
-processUser({
-  username: "strongTitan",
-  paymentID: 43434,
-  email: "strongTitan@test.com",
-  // test: "", // This will throw an error since this property is not available in type "User"
-});
+type CredCardDetails = CredCardNumber &
+  CredCardDate & {
+    credCardCVV: number;
+  };
+
+const cardOne: CredCardDetails = {
+  credCardNumber: 546516165,
+  credCardDate: "02/89",
+  credCardCVV: 566,
+};
 
 export {};
