@@ -1,20 +1,20 @@
-type CredCardNumber = {
-  credCardNumber: number;
+type User = {
+  email: string;
+  id: number;
 };
 
-type CredCardDate = {
-  credCardDate: string;
+type Admin = {
+  username: string;
+  email: string;
+  adminId: number;
 };
 
-type CredCardDetails = CredCardNumber &
-  CredCardDate & {
-    credCardCVV: number;
-  };
+let userOne: User | Admin = { email: "testDummy@test.com", id: 1 };
 
-const cardOne: CredCardDetails = {
-  credCardNumber: 546516165,
-  credCardDate: "02/89",
-  credCardCVV: 566,
-};
+// If the userOne can be an Admin also then,
+
+userOne = { username: "testDummy", email: "testDummy@test.com", adminId: 1 };
 
 export {};
+
+// 1:45:47

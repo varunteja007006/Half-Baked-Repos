@@ -179,7 +179,7 @@ processUser({
   username: "test_user",
   paymentID: 435343,
   email: "test_user@dummy.com",
-  // This throws an error since we are passing an extra argument 'email' which is not accepted as parameter
+  // This throws an error because we are passing an extra argument 'email' which is not accepted as parameter
   // in function 'processUser'.
 });
 
@@ -210,7 +210,7 @@ processUser({
   username: "strongTitan",
   paymentID: 43434,
   email: "strongTitan@test.com",
-  test: "", // This will throw an error since this property is not available in type "User"
+  test: "", // This will throw an error because this property is not available in type "User"
 });
 ```
 
@@ -234,7 +234,7 @@ let userOne: User = {
 };
 
 userOne.email = "dummyTest@dummy.com";
-userOne._id = "596sfasf"; // This throws an error since '_id' is readonly,
+userOne._id = "596sfasf"; // This throws an error because '_id' is readonly,
 ```
 
 **Optional properties**
@@ -282,4 +282,77 @@ const cardOne: CredCardDetails = {
   credCardDate: "02/89",
   credCardCVV: 566,
 };
+```
+
+**type Arrays**
+
+```ts
+const emptyArray: [] = []; // this is a type of array never
+emptyArray.push("Hello"); // this throws error string type cannot be assigned to never type
+
+const tasks: string[] = []; // One way of declaring type array
+tasks.push("Eat");
+
+const ids: Array<number> = []; // Another way of declaring type array
+ids.push(5050);
+```
+
+**Assigning type User to Array**, User is an object with properties username & payment id.
+
+```ts
+type User = {
+  username: string;
+  paymentID: number;
+};
+
+const allUsers: User[] = [];
+
+allUsers.push(""); // throws error because 'allUsers' is type User.
+
+allUsers.push({ username: "Ben", paymentID: 123123 });
+```
+
+**2D Arrays**
+
+```ts
+const matrix2D: number[][] = [
+  [255, 233, 244],
+  [245, 203, 144],
+  [95, 123, 140],
+  [],
+];
+matrix2D.push(["hello", "world", "!"]); // this throws an error because we are passing array of strings
+
+matrix2D.push([1, 2, 3]);
+```
+
+**Union of Types**
+
+```ts
+let username: number | string = "testDummy";
+
+username = true; // this throws an error because username is either number or string.
+
+username = 85262;
+```
+
+**Union of Types** which are **Objects**
+
+```ts
+type User = {
+  email: string;
+  id: number;
+};
+
+type Admin = {
+  username: string;
+  email: string;
+  adminId: number;
+};
+
+let userOne: User | Admin = { email: "testDummy@test.com", id: 1 };
+
+// If the userOne can be an Admin also then,
+
+userOne = { username: "testDummy", email: "testDummy@test.com", adminId: 1 };
 ```
