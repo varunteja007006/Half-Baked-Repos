@@ -59,7 +59,7 @@ Learn TypeScript using documentation https://www.typescriptlang.org/docs/handboo
 
 ## TypeScript Code
 
-Simple use of typescript
+**Simple use of typescript**
 
 ````ts
 const a: number = 10;
@@ -68,6 +68,27 @@ console.log(a);
 const str: string = "hello";
 console.log(str);```
 ````
+
+**Literal Types**
+
+```ts
+let verticalAlignment: "top" | "middle" | "bottom";
+
+verticalAlignment = "top";
+
+verticalAlignment = "left";
+/* 
+this throws an error Type '"left"' is not assignable to type '"top" | "middle" | "bottom"'
+*/
+```
+
+another example,
+
+```ts
+let pi: 3.14 = 3.14;
+
+pi = 5; // this throws an error - Type '5' is not assignable to type '3.14'.
+```
 
 **Creating a simple function**
 
@@ -297,6 +318,16 @@ const ids: Array<number> = []; // Another way of declaring type array
 ids.push(5050);
 ```
 
+**More Arrays**
+
+```ts
+const data: string[] | number[] | boolean[] = ["test", 2, true];
+// the above line throws an error - Type '(string | number | true)[]' is not assignable to type 'string[]'
+
+//correct code is
+const dataOne: (string | number | boolean)[] = ["test", 1, false];
+```
+
 **Assigning type User to Array**, User is an object with properties username & payment id.
 
 ```ts
@@ -355,4 +386,116 @@ let userOne: User | Admin = { email: "testDummy@test.com", id: 1 };
 // If the userOne can be an Admin also then,
 
 userOne = { username: "testDummy", email: "testDummy@test.com", adminId: 1 };
+```
+
+**Functions & its parameter/s of Union Types**
+
+```ts
+function getData(username: number | string) {
+  username.toLowerCase(); // this throws an error since username can be number or string.
+}
+```
+
+To avoid the above error we need to check the types of parameters.
+
+```ts
+function getData(username: number | string) {
+  if (typeof username === "string") {
+    username.toLowerCase();
+  } else {
+    username = username.toString();
+  }
+  console.log(typeof username, username);
+}
+
+getData("hello"); // output: string hello
+getData(123); // output: string 123
+```
+
+**Tuples in TypeScript**
+
+```ts
+let user: (string | number | boolean)[] = ["test", 1, true];
+// one problem is that the order can be changed. For example,
+user = [false, "dummy", 2];
+
+// In order to not change the order we use tuples.
+
+let newUser: [string, number, boolean] = ["test", 3, true];
+
+newUser = [3, false, "dummy"]; // this will throw an error because the values are not in order.
+
+// Real-life use case of tuples in TypeScript
+let rgb: [number, number, number] = [125, 255, 200];
+rgb = [120, 200, 400, 0.5];
+// this throws an error because you cannot add an extra value (in this case transparency)
+```
+
+**Issues with tuples**
+
+```ts
+let rgb: [number, number, number] = [125, 255, 200];
+
+rgb.push(244); // unfortunately tuples can have issues like Array push, pull, shift , unshift can modify it.
+
+console.log(rgb);
+```
+
+Enums in TypeScript
+
+```ts
+enum SeatChoice { // By default enums will be having values, you can override them.
+  AISLE, //this will be 0
+  MIDDLE_AISLE = "middle_aisle",
+  MIDDLE_WINDOW = 14,
+  WINDOW, // this will be 15 since its previous value is modified.
+}
+
+const selectSeat = SeatChoice.AISLE;
+const selectSeat1 = SeatChoice.MIDDLE_WINDOW;
+const selectSeat2 = SeatChoice.MIDDLE_AISLE;
+
+console.log(selectSeat, selectSeat1, selectSeat2);
+```
+
+**Interface in TypeScript**
+
+```ts
+interface User {
+  readonly _id: number;
+  email: string;
+  userID?: number;
+  // creating a method type
+  showData: () => number;
+  // another way of creating a method type
+  showEmail(): string;
+  //passing parameters in method type
+  getHike(name: string, percentage: number): number;
+}
+
+let userData: User = {
+  _id: 2342,
+  email: "testDummy@test.com",
+  userID: 12,
+  showData: () => {
+    return 1;
+  },
+  showEmail: () => {
+    return "Email";
+  },
+  /*
+
+  getHike: (name: "annual", percentage: "ten") => {
+    // throws an error because the percentage type is number but we provided string
+    return 0;
+  }, 
+  
+  */
+  getHike: (name: "annual", percentage: 10) => {
+    return 0;
+  },
+};
+
+userData._id = 32; // this throws an error because '_id' is read only.
+userData.email = "dummyTest@dummy.com";
 ```
