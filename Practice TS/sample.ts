@@ -1,20 +1,41 @@
-type User = {
+// interface
+interface User {
+  readonly _id: number;
   email: string;
-  id: number;
+  userID?: number;
+  // creating a method type
+  showData: () => number;
+  // another way of creating a method type
+  showEmail(): string;
+  //passing parameters in method type
+  getHike(name: string, percentage: number): number;
+}
+
+let userData: User = {
+  _id: 2342,
+  email: "testDummy@test.com",
+  userID: 12,
+  showData: () => {
+    return 1;
+  },
+  showEmail: () => {
+    return "Email";
+  },
+  /*
+
+  getHike: (name: "annual", percentage: "ten") => {
+    // throws an error because the percentage type is number but we provided string
+    return 0;
+  }, 
+  
+  */
+  getHike: (name: "annual", percentage: 10) => {
+    return 0;
+  },
 };
 
-type Admin = {
-  username: string;
-  email: string;
-  adminId: number;
-};
-
-let userOne: User | Admin = { email: "testDummy@test.com", id: 1 };
-
-// If the userOne can be an Admin also then,
-
-userOne = { username: "testDummy", email: "testDummy@test.com", adminId: 1 };
-
+userData._id = 32; // this throws an error because '_id' is read only.
+userData.email = "dummyTest@dummy.com";
 export {};
 
-// 1:45:47
+//2:34:00

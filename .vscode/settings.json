@@ -3,5 +3,6 @@
     "editor.defaultFormatter": "ms-python.python"
   },
   "python.formatting.provider": "none",
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "cSpell.words": ["ersse", "sfasf"]
 }

@@ -5,7 +5,7 @@ import os
 api_key = os.environ.get('OPENAI_API_KEY')
 if api_key is None:
     #Hard code the api key
-    API_KEY = "sk-!$$$$%^&*)(*&^%$@@#$%^&*()_+)"
+    API_KEY = "XXXXXXXXXXXXXXXXXXX"
     openai.api_key = API_KEY
 
 '''

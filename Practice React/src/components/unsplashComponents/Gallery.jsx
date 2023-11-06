@@ -19,7 +19,6 @@ function Gallery() {
 
   if (result.isLoading) {
     return (
-      <>
         <div className="alert alert-info my-5">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -36,13 +35,11 @@ function Gallery() {
           </svg>
           <span>Searching for the images.</span>
         </div>
-      </>
     );
   }
 
   if (result.isError) {
     return (
-      <>
         <div className="alert alert-error my-5">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -59,14 +56,12 @@ function Gallery() {
           </svg>
           <span>Error! Something went wrong.</span>
         </div>
-      </>
     );
   }
 
   const outputData = result.data.data.results;
   if (outputData.length < 1) {
     return (
-      <>
         <div className="alert alert-error my-5">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -83,13 +78,11 @@ function Gallery() {
           </svg>
           <span>No results found.</span>
         </div>
-      </>
     );
   }
 
   return (
     <div>
-      <>
         <div className="flex flex-wrap gap-4 my-5">
           {outputData.map((item) => {
             return (
@@ -102,7 +95,6 @@ function Gallery() {
             );
           })}
         </div>
-      </>
     </div>
   );
 }

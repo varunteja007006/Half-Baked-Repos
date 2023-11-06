@@ -27,23 +27,21 @@ function SearchForm() {
   if (error) return "An error has occurred: " + error.message;
 
   return (
-    <>
-      <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-        <input
-          className="p-2 dark:text-black"
-          type="text"
-          name="search"
-          id="search"
-          placeholder="cat"
-        />
-        <button
-          type="submit"
-          className="btn bg-purple-700 text-white w-fit hover:bg-purple-600"
-        >
-          Search
-        </button>
-      </form>
-    </>
+    <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+      <input
+        className="p-2 dark:text-black"
+        type="text"
+        name="search"
+        id="search"
+        placeholder="cat"
+      />
+      <button
+        type="submit"
+        className="btn bg-purple-700 text-white w-fit hover:bg-purple-600"
+      >
+        Search
+      </button>
+    </form>
   );
 }
 
