@@ -1,6 +1,6 @@
 # Practice TypeScript
 
-## About TypeSCript
+## About TypeScript
 
 TypeScript is a programming language that builds on JavaScript, giving you better tooling at any scale.
 It is a superset of JavaScript, which means that all valid JavaScript code is also valid TypeScript
@@ -35,7 +35,7 @@ npm install -g typescript
 
 Compile the TypeScript files as follows
 
-> tsc FILENAME
+> tsc FILENAME.ts
 
 ## TypeScript Notes
 
@@ -158,6 +158,7 @@ data.map((item): string => {
 Few other function examples,
 
 **Return void**  
+  
 This function returns a void, because it is only console logging an error message.
 
 ```ts
@@ -213,7 +214,7 @@ const userData = {
 processUser(userData); // This does not throw an error even though we are passing the email which is
 // absent as a parameter in the function 'processUser'.
 ```
-
+    
 **Using 'type' alias**
 
 ```ts
