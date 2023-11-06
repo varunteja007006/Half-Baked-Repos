@@ -157,7 +157,7 @@ data.map((item): string => {
 
 Few other function examples,
 
-**Return void**
+**Return void**  
 This function returns a void, because it is only console logging an error message.
 
 ```ts
