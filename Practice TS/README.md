@@ -157,8 +157,8 @@ data.map((item): string => {
 
 Few other function examples,
 
-**Return void**  
-  
+**Return void**
+
 This function returns a void, because it is only console logging an error message.
 
 ```ts
@@ -214,7 +214,7 @@ const userData = {
 processUser(userData); // This does not throw an error even though we are passing the email which is
 // absent as a parameter in the function 'processUser'.
 ```
-    
+
 **Using 'type' alias**
 
 ```ts
@@ -497,6 +497,97 @@ let userData: User = {
   },
 };
 
+// Modifying the content of the userData
 userData._id = 32; // this throws an error because '_id' is read only.
 userData.email = "dummyTest@dummy.com";
 ```
+
+###
+
+What is **re-opening of the interface** in TypeScript?
+
+###
+
+We use the same interface as above 'User' and add extra property type 'githubToken'. The use cases/ scenarios would be like
+you are just using the interface that is exported and modifying it for special use case.
+
+```ts
+interface User {
+  readonly _id: number;
+  email: string;
+  userID?: number;
+  showData: () => number;
+  showEmail(): string;
+  getHike(name: string, percentage: number): number;
+}
+
+// REOPENING of the interface
+interface User {
+  githubToken: string;
+}
+
+let userData: User = {
+  _id: 2342,
+  email: "testDummy@test.com",
+  userID: 12,
+  showData: () => {
+    return 1;
+  },
+  showEmail: () => {
+    return "Email";
+  },
+  getHike: (name: "annual", percentage: 10) => {
+    return 0;
+  },
+  // ADD NEW PROPERTY WHICH WE CREATED BY REOPENING THE INTERFACE
+  githubToken: "12312josfa834r29734rhqer8923jrjs",
+};
+```
+
+###
+
+What is **Extending of the interface** in TypeScript?
+
+###
+
+We use the same interface as above 'User' to extend all the properties to different type 'Admin'.
+In 'Admin' interface we add one new property role.
+
+```ts
+interface User {
+  readonly _id: number;
+  email: string;
+  userID?: number;
+  showData: () => number;
+  showEmail(): string;
+  getHike(name: string, percentage: number): number;
+}
+
+interface User {
+  githubToken: string;
+}
+
+// Extending the interface
+interface Admin extends User {
+  role: "Admin" | "TL" | "Manager";
+}
+
+let adminData: Admin = {
+  _id: 2342,
+  role: "Admin", // Admin interface property
+  email: "testDummy@test.com",
+  userID: 12,
+  showData: () => {
+    return 1;
+  },
+  showEmail: () => {
+    return "Email";
+  },
+  getHike: (name: "annual", percentage: 10) => {
+    return 0;
+  },
+  githubToken: "12312josfa834r29734rhqer8923jrjs",
+};
+```
+
+## Difference between Interface & Type
