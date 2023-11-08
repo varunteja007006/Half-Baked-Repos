@@ -1,41 +1,41 @@
-// interface
-interface User {
-  readonly _id: number;
+class User {
   email: string;
-  userID?: number;
-  // creating a method type
-  showData: () => number;
-  // another way of creating a method type
-  showEmail(): string;
-  //passing parameters in method type
-  getHike(name: string, percentage: number): number;
+  userID: number;
+
+  /*
+    private property cannot be accessed outside class but can be accessed inside class.
+
+    We can design a getter & setter methods so that if anyone wants to modify this private property 
+    they can do that indirectly
+
+    */
+  private courseCount: number = 1;
+
+  constructor(email: string, userID: number) {
+    this.email = email;
+    this.userID = userID;
+  }
+
+  get getMaskedEmail(): string {
+    return `${this.email.split("@")[0]}@test.com`;
+  }
+
+  get getCourseCount(): number {
+    return this.courseCount;
+  }
+
+  //   // setter cannot have return type annotation as well
+  //   set setCourseCount(newCourseCount): number {
+  //     return this.courseCount; // this throws an error because setter cannot have a return
+  //   }
+
+  set setCourseCount(newCourseCount: number) {
+    this.courseCount = newCourseCount; // this throws an error because setter cannot have a return
+  }
 }
 
-let userData: User = {
-  _id: 2342,
-  email: "testDummy@test.com",
-  userID: 12,
-  showData: () => {
-    return 1;
-  },
-  showEmail: () => {
-    return "Email";
-  },
-  /*
+const user = new User("test@test.com", 1001);
 
-  getHike: (name: "annual", percentage: "ten") => {
-    // throws an error because the percentage type is number but we provided string
-    return 0;
-  }, 
-  
-  */
-  getHike: (name: "annual", percentage: 10) => {
-    return 0;
-  },
-};
-
-userData._id = 32; // this throws an error because '_id' is read only.
-userData.email = "dummyTest@dummy.com";
 export {};
 
-//2:34:00
+//3:16:00

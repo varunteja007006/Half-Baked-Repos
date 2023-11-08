@@ -590,4 +590,115 @@ let adminData: Admin = {
 };
 ```
 
+###
+
+**class in TypeScript**
+
+```ts
+class User {
+  public email: string;
+  userID: number;
+  city: string = "";
+  readonly classID: number = 77;
+  private readonly superID: number = 77;
+
+  constructor(email: string, userID: number) {
+    this.email = email;
+    this.userID = userID;
+  }
+}
+
+const user = new User("test@test.com", 1001);
+
+user.city = "Jaipur";
+
+user.city = 1000; // this throws an error
+
+user.classID = 37; // this throws an error because classID is read-only
+
+user.superID; // this throws an error because superID is private only accessible in class 'User'
+```
+
+- 'readonly' properties cannot be assigned new value.
+- 'private' properties cannot be accessed outside class.
+- When property does not have a access modifier ( i.e private ) it means 'public' by default.
+
+###
+
+Similarly we can also have **private method inside class**
+
+```ts
+class User {
+  email: string;
+  userID: number;
+
+  constructor(email: string, userID: number) {
+    this.email = email;
+    this.userID = userID;
+  }
+
+  private getToken = (): void => {
+    console.log("Token created");
+  };
+
+  deleteToken = (): void => {
+    console.log("Token deleted");
+  };
+}
+
+const user = new User("test@test.com", 1001);
+
+user.getToken; // this throws an error because 'getToken' is private method
+
+user.deleteToken();
+```
+
+###
+
+**getter and setter methods in class**
+
+```ts
+class User {
+  email: string;
+  userID: number;
+
+  /*
+    private property cannot be accessed outside class but can be accessed inside class.
+
+    We can design a getter & setter methods so that if anyone wants to modify this private property 
+    they can do that indirectly
+
+    */
+  private courseCount: number = 1;
+
+  constructor(email: string, userID: number) {
+    this.email = email;
+    this.userID = userID;
+  }
+
+  get getMaskedEmail(): string {
+    return `${this.email.split("@")[0]}@test.com`;
+  }
+
+  get getCourseCount(): number {
+    return this.courseCount;
+  }
+
+  // setter cannot have return type annotation as well even void
+  set setCourseCount(newCourseCount: number): void {
+    return this.courseCount; // this throws an error because setter cannot have a return
+  }
+
+  // this the write way of writing the setter method
+  set setCourseCount(newCourseCount: number) {
+    if (newCourseCount < 1) {
+      throw new Error("Count cannot be less than 1");
+    }
+    this.courseCount = newCourseCount;
+  }
+}
+
+const user = new User("test@test.com", 1001);
+```
+
 ## Difference between Interface & Type
