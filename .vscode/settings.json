@@ -1,8 +1,7 @@
 {
   "[python]": {
-    "editor.defaultFormatter": "ms-python.python"
+    "editor.defaultFormatter": "ms-python.autopep8"
   },
   "python.formatting.provider": "none",
-  "typescript.tsdk": "node_modules/typescript/lib",
-  "cSpell.words": ["ersse", "sfasf"]
+  "typescript.tsdk": "node_modules/typescript/lib"
 }
