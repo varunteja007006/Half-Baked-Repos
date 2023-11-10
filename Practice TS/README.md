@@ -35,7 +35,7 @@ npm install -g typescript
 
 Compile the TypeScript files as follows
 
-> tsc FILENAME.ts
+    tsc FILENAME.ts
 
 ## TypeScript Notes
 
@@ -57,7 +57,7 @@ Learn TypeScript using documentation https://www.typescriptlang.org/docs/handboo
 - unknown
 - and much more.....
 
-## TypeScript Code
+## TypeScript Basics
 
 **Simple use of typescript**
 
@@ -89,6 +89,8 @@ let pi: 3.14 = 3.14;
 
 pi = 5; // this throws an error - Type '5' is not assignable to type '3.14'.
 ```
+
+### Functions in TypeScript
 
 **Creating a simple function**
 
@@ -191,18 +193,23 @@ function createCourse(
 }
 ```
 
+**Object Parameters in Function**
+
 Dealing with object data as parameters in function.
 
 ```ts
 function processUser({ username: string, paymentID: number }): string {
   return "Success";
 }
+
 processUser({
   username: "test_user",
   paymentID: 435343,
   email: "test_user@dummy.com",
-  // This throws an error because we are passing an extra argument 'email' which is not accepted as parameter
-  // in function 'processUser'.
+  /* 
+    This throws an error because we are passing an extra argument 'email' which is not accepted as parameter
+    in function 'processUser'.
+  */
 });
 
 const userData = {
@@ -211,11 +218,18 @@ const userData = {
   email: "test_user@dummy.com",
 };
 
-processUser(userData); // This does not throw an error even though we are passing the email which is
-// absent as a parameter in the function 'processUser'.
+processUser(userData);
+/* 
+  This does not throw an error even though we are passing the email which is absent as a parameter 
+  in the function 'processUser'.
+
+  This can be resolved. Check topic - "Type Alias in TypeScript"
+*/
 ```
 
-**Using 'type' alias**
+**Type Alias in TypeScript**
+
+Using 'type' alias
 
 ```ts
 type User = {
@@ -224,8 +238,15 @@ type User = {
   email: string;
 };
 
+/*  
+This function 'processUser' should take 'User' type objects as parameters.
+It should also return the type 'User' object
+
+This way we can avoid the issue we faced in the topic - "Object Parameters in Function"
+*/
+
 function processUser(user: User): User {
-  return { ...user }; // this function should also return the type 'User'
+  return { ...user };
 }
 
 processUser({
@@ -592,7 +613,15 @@ let adminData: Admin = {
 
 ###
 
-**class in TypeScript**
+<br>
+<br>
+<br>
+<br>
+<br>
+
+# Advance Concepts in TypeScript
+
+## 'class' in TypeScript
 
 ```ts
 class User {
@@ -806,6 +835,12 @@ class Youtube implements TakePhoto, Story {
 ```
 
 **Abstract class**
+
+An abstract class is a template definition of methods and variables in a specific class or category of objects. Abstract classes are classes that contain one or more abstracted behaviors or methods.
+
+###
+
+Abstract classes are designed to be specifically used as a base class. They can be considered a blueprint for other classes.
 
 ```ts
 abstract class TakePhoto {
