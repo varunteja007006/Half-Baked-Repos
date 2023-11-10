@@ -619,8 +619,12 @@ user.classID = 37; // this throws an error because classID is read-only
 user.superID; // this throws an error because superID is private only accessible in class 'User'
 ```
 
+**What are 'readonly' and 'private'**
+
 - 'readonly' properties cannot be assigned new value.
+
 - 'private' properties cannot be accessed outside class.
+
 - When property does not have a access modifier ( i.e private ) it means 'public' by default.
 
 ###
@@ -699,6 +703,147 @@ class User {
 }
 
 const user = new User("test@test.com", 1001);
+```
+
+###
+
+**What is 'protected' access modifier**
+
+```ts
+class User {
+  email: string;
+  userID: number;
+
+  private courseCount: number = 1;
+
+  /*
+    'protected' variables are accessible within the class and in the child classes.
+    It cannot be accessible outside the parent and child classes.
+  */
+
+  protected authorID: number = 100;
+
+  constructor(email: string, userID: number) {
+    this.email = email;
+    this.userID = userID;
+  }
+
+  get getCourseCount(): number {
+    return this.courseCount;
+  }
+}
+
+// Admin class inherits the User class
+
+class Admin extends User {
+  // public properties are accessible
+  isAdmin: boolean = true;
+
+  // Lets try to access private variable from the User class and try to modify it
+  changeCourseCount = () => {
+    /*
+      this throws an error because Property 'courseCount' is private and only accessible within class 'User'.
+    */
+    this.courseCount = 10;
+  };
+
+  // Lets try to access protected variable from the User class and try to modify it
+  changeAuthorID = () => {
+    this.authorID = 1000; // it is accessible
+  };
+}
+
+const user = new User("test@test.com", 1001);
+```
+
+###
+
+**Interface for class**
+
+```ts
+interface TakePhoto {
+  cameraMode: string;
+  filter: string;
+  burstMode: number;
+}
+
+interface Story {
+  createStory(): void;
+}
+
+class SnapChat implements TakePhoto {} /* 
+This throws an error because of the following reasons
+  Class SnapChat incorrectly implements interface 
+  
+  Type is missing the following properties from type:
+  - cameraMode
+  - filter
+  - burstMode
+*/
+
+class Instagram implements TakePhoto {
+  constructor(
+    public cameraMode: string,
+    public filter: string,
+    public burstMode: number
+  ) {}
+}
+
+class Youtube implements TakePhoto, Story {
+  constructor(
+    public cameraMode: string,
+    public filter: string,
+    public burstMode: number,
+    public short: string /* You can have additional properties but it must have all properties 
+    defined in interface 'TakePhoto' & 'Story'
+    */
+  ) {}
+
+  createStory(): void {
+    console.log("Story created");
+  }
+}
+```
+
+**Abstract class**
+
+```ts
+abstract class TakePhoto {
+  constructor(public cameraMode: string, public filter: string) {}
+
+  // lets create a method
+  abstract getSepia(): void;
+  // this 'getSepia' method should be implemented.
+}
+
+const a = new TakePhoto("demo", "demo");
+/*
+  You cannot create an object for abstract. It acts like a blueprint. 
+
+  You can only create an object from class extending the abstract class.
+
+  Abstract classes help to define the class that is inheriting. it makes sure the methods and properties 
+  that are used in abstract classes are implemented. Methods can be overridden as well.
+*/
+
+class Instagram extends TakePhoto {
+  constructor(
+    public cameraMode: string,
+    public filter: string,
+    public burstMode: number
+  ) {
+    super(cameraMode, filter);
+  }
+
+  getSepia(): void {
+    console.log("Sepia");
+  }
+}
+
+const b = new Instagram("demo", "demo", 5);
+/*   
+  this is valid since we are implementing 'Instagram' which extends the abstract class 'TakePhoto'.
+*/
 ```
 
 ## Difference between Interface & Type
