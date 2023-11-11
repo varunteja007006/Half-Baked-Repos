@@ -1,3 +1,0 @@
-Queues in JS
-Stacks in JS
-Linked List in JS

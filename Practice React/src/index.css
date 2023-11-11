@@ -1,8 +1,0 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-body * {
-  /* theme change duration */
-  @apply transition-colors duration-300;
-}
