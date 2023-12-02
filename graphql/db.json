@@ -1,0 +1,159 @@
+{
+  "games": [
+    {
+      "id": "3",
+      "title": "Elden Ring",
+      "platform": [
+        "PS5",
+        "Xbox",
+        "PC"
+      ]
+    },
+    {
+      "id": "4",
+      "title": "Mario Kart",
+      "platform": [
+        "Switch"
+      ]
+    },
+    {
+      "id": "5",
+      "title": "Pokemon Scarlet",
+      "platform": [
+        "PS5",
+        "Xbox",
+        "PC"
+      ]
+    },
+    {
+      "id": "1",
+      "title": "Zelda, Tears of the Kingdom",
+      "platform": [
+        "Switch"
+      ]
+    },
+    {
+      "id": "2",
+      "title": "Final Fantasy 7 Remake",
+      "platform": [
+        "PS5",
+        "Xbox"
+      ]
+    },
+    {
+      "title": "GTA5",
+      "platform": [
+        "XBOX",
+        "PS5"
+      ],
+      "id": "6099ac07-5e92-403d-aff4-598fd1e395ec"
+    },
+    {
+      "id": "39ac722c-59c8-4903-b580-26726b592914",
+      "title": "GTA6",
+      "platform": [
+        "XBOX",
+        "PS5"
+      ]
+    },
+    {
+      "id": "927d9806-95b3-4efd-8922-0f708066e108",
+      "title": "GTA-V",
+      "platform": [
+        "XBOX",
+        "PS5"
+      ]
+    },
+    {
+      "id": "ad0e4d00-988f-403f-9b25-5b0cc67c312e",
+      "title": "RD 2",
+      "platform": [
+        "Windows",
+        "XBOX",
+        "PS5"
+      ]
+    },
+    {
+      "id": "b7cc685b-b757-4ae9-ba5a-50937a15b451",
+      "title": "RD2 Online",
+      "platform": [
+        "Windows",
+        "XBOX",
+        "PS5"
+      ]
+    }
+  ],
+  "authors": [
+    {
+      "id": "1",
+      "name": "mario",
+      "verified": true
+    },
+    {
+      "id": "2",
+      "name": "yoshi",
+      "verified": false
+    },
+    {
+      "id": "3",
+      "name": "peach",
+      "verified": true
+    },
+    {
+      "id": "4",
+      "name": "apple",
+      "verified": true
+    }
+  ],
+  "reviews": [
+    {
+      "id": "1",
+      "rating": 9,
+      "content": "lorem ipsum",
+      "author_id": "1",
+      "game_id": "2"
+    },
+    {
+      "id": "2",
+      "rating": 10,
+      "content": "lorem ipsum",
+      "author_id": "2",
+      "game_id": "1"
+    },
+    {
+      "id": "3",
+      "rating": 7,
+      "content": "lorem ipsum",
+      "author_id": "3",
+      "game_id": "3"
+    },
+    {
+      "id": "4",
+      "rating": 5,
+      "content": "lorem ipsum",
+      "author_id": "2",
+      "game_id": "4"
+    },
+    {
+      "id": "5",
+      "rating": 8,
+      "content": "lorem ipsum",
+      "author_id": "2",
+      "game_id": "5"
+    },
+    {
+      "id": "6",
+      "rating": 7,
+      "content": "lorem ipsum",
+      "author_id": "1",
+      "game_id": "2"
+    },
+    {
+      "id": "7",
+      "rating": 10,
+      "content": "lorem ipsum",
+      "author_id": "3",
+      "game_id": "1"
+    }
+  ]
+}

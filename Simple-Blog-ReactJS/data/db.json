@@ -1,0 +1,16 @@
+{
+  "blogs": [
+    {
+      "title": "Nulla",
+      "body": "Habitant per auctor egestas euismod nostra ullamcorper mus quisque molestie arcu. Sed vivamus tellus aliquet sapien sit commodo litora tempor rhoncus inceptos class. Penatibus mus fusce finibus ac placerat. Vel massa dignissim quisque nunc volutpat adipiscing rhoncus auctor quis suscipit porttitor.\n\nFinibus interdum rhoncus quisque potenti enim taciti. Non etiam maecenas vulputate libero curae nullam. Efficitur proin arcu quam justo senectus posuere. Risus ante interdum pulvinar fermentum nisi ligula eleifend aliquam etiam maximus sed. Consequat venenatis neque si at etiam tempor. Suspendisse vestibulum hendrerit nec libero porta nibh bibendum tempor id donec nisl. Velit ac lectus natoque posuere a ridiculus. Fringilla lectus torquent finibus augue dolor.\n\nMontes ex facilisis neque tellus nisi dictum taciti egestas potenti. Ut egestas consequat a maecenas habitasse imperdiet. Integer laoreet consectetuer pellentesque fringilla egestas dictum. Tellus egestas non mus ridiculus luctus primis. Hac sodales amet phasellus laoreet arcu nunc ullamcorper netus conubia. Pharetra a lobortis tincidunt curabitur eget ullamcorper letius suscipit faucibus. Nisi phasellus leo praesent platea himenaeos luctus primis finibus nec dolor faucibus.",
+      "author": "Teja",
+      "id": 1
+    },
+    {
+      "title": "Magnis",
+      "body": "Dapibus magnis pede bibendum porttitor feugiat accumsan eleifend sollicitudin. Nec sociosqu eros lacus fusce inceptos. Netus auctor dictumst felis mi lacus suspendisse rutrum. Ipsum diam posuere maximus mauris hac morbi vel volutpat.",
+      "author": "mario",
+      "id": 2
+    }
+  ]
+}

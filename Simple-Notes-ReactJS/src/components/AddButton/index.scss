@@ -1,0 +1,12 @@
+.add-btn {
+  position: relative;
+  display: inline-block;
+  border-radius: 2rem;
+  padding: 0.2rem;
+  box-shadow: 0 0.15rem 0.6rem grey;
+  border: 0.1rem solid black;
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.089);
+    border: 0.1rem solid black;
+  }
+}

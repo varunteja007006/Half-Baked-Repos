@@ -1,0 +1,22 @@
+@import "~bootstrap/scss/bootstrap";
+
+* {
+  scroll-behavior: smooth;
+}
+
+html {
+  background: rgb(61, 64, 62);
+}
+
+.App {
+  max-height: 100vh;
+  overflow: auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+.page-header {
+  margin: 1rem;
+}

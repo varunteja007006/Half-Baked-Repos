@@ -1,0 +1,28 @@
+.icons {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+
+.arrow-btn {
+  margin-left: 1rem;
+  z-index: 1;
+  border-radius: 2rem;
+  padding: 0.8rem;
+  box-shadow: 0rem 0.1rem 0.4rem grey;
+  border: 0.1rem solid black;
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.089);
+    border: 0.1rem solid black;
+  }
+}
+
+.delete-btn {
+  margin-left: auto;
+  margin-right: 1rem;
+}
+
+.delete-icon {
+  z-index: 1;
+  box-shadow: 0.15rem 0.15rem 0.3rem grey;
+}

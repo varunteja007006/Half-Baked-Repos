@@ -1,0 +1,375 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+
+
+
+$primary-color-one: rgb(90, 90, 4);
+$primary-color-two: rgb(27, 27, 2);
+
+$secondary-color-one: white;
+
+* {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: $primary-color-one;
+}
+
+.navbar-top{
+    background-color: $primary-color-two;
+    
+    .navbar {
+        padding: 1rem;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: $primary-color-two;
+        color: $secondary-color-one;
+        max-width: max-content;
+    
+        h1{
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            padding: 1rem;
+            top: 5%;
+            left: auto;
+            font-weight: 900;
+            font-size: 2rem;
+            background-color: $primary-color-two;
+    
+        }
+    
+        .links{
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            margin: 1rem;
+            background-color: $primary-color-two;
+    
+            a{
+                padding: 1rem;
+                margin: 1rem;
+                display: inline-flex;
+                flex-direction: row;
+                text-decoration: none;
+                color: yellow;
+                font-weight: 600;
+                border-radius: 1rem;
+    
+                &:hover {
+                    cursor: pointer;
+                    transition: ease-in 380ms;
+                    transform: translateY(-0.2rem);
+                    border: .1rem solid;
+                    background-color: black;
+                    box-shadow: 5rem;
+                }
+            }
+    
+            
+        }
+    }
+}
+
+
+
+
+.home {
+    padding: 1rem 15rem;
+    margin: 0 auto;    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h1 {
+        position: relative;
+        color: $secondary-color-one;
+    }
+
+    .blogs {
+        position: relative;
+        margin: 2rem;
+        border: 0.2rem solid $primary-color-two;
+        border-radius: 1rem;
+        background-color: $primary-color-two;
+        color: white;
+
+        h2{
+            padding: 1rem;
+            margin: 1rem;
+            text-align: center;
+            background-color: $primary-color-two;
+            border-bottom: 0.2rem solid $primary-color-one;
+        }
+
+        .blog-preview {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            padding: 1rem;
+            margin: 1rem;
+            border-radius: 1rem;
+            background-color: $primary-color-two;
+            text-decoration: none;
+
+            &:hover{
+                transition: ease-in 20ms;
+                transform: translateY(-0.2rem);
+                z-index: 1;
+                box-shadow: 2rem yellow; 
+            }
+
+            a{
+                display: inline-flex;
+                flex-direction: row;
+                text-decoration: none;
+                font-weight: 600;
+                color: yellow;
+                background-color: $primary-color-two;
+
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+
+            .blog-title {
+                text-align: center;
+                padding: .4rem;
+                margin: auto;
+                font-style: italic;
+                border-bottom: 0.2rem solid yellow;
+                text-decoration: none;
+            }
+        
+            .blog-content {
+                margin: 1rem 0;
+                text-align: justify;
+                font-weight: 650;
+                background-color: $primary-color-two;
+            }
+        
+            .blog-author-box {
+                text-align: right;
+                background-color: $primary-color-two;
+            
+                .blog-author {
+                    font-style: italic;
+                    font-weight: 700;
+                    background-color: $primary-color-two;
+                }
+            }
+        }        
+
+    
+
+
+    }
+
+
+}
+
+.btn-delete {
+    padding: 0.4rem;
+    margin: 0.4rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 0.2rem;
+    max-width: fit-content;
+    max-height: fit-content;
+    align-items: center;
+    align-content: right;
+}
+.btn-submit {
+    padding: 0.8rem;
+    margin: 1rem;
+    position: relative;
+    cursor: pointer;
+    background-color: yellow;
+    color: black;
+    border: none;
+    border-radius: 0.2rem;
+    max-width: fit-content;
+    max-height: fit-content;
+    align-items: center;
+    align-content: center;
+    font-weight: 600;
+}
+
+.create {
+    padding: 1rem 15rem;
+    margin: 0 auto;    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h1 {
+        position: relative;
+        color: $secondary-color-one;
+    }
+
+    .title-highlighter{
+        color: yellow;
+    }
+
+    form {
+        padding: 1rem;
+        margin: 1rem;
+        display: flex;
+        flex-direction: column;
+        border: 0.1rem solid yellow;
+        border-radius: 0.3rem;
+        background-color: $primary-color-two;
+        color: white;
+    }
+
+    label {
+        margin: 1rem 0.2rem;
+        font-weight: 700;
+        background-color: $primary-color-two;
+    }
+    
+    input {
+        margin: 0.2rem;
+        border: none;
+        border-bottom: 0.1rem solid yellow;
+        outline: none;
+        font-size: 1.4rem;
+        font-weight: 600;
+        background-color: $primary-color-two;
+        color: white;
+    }
+    
+    textarea {
+        margin: 0.2rem;
+        border: none;
+        border-bottom: 0.1rem solid yellow;
+        outline: none;
+        font-size: 1rem;
+        font-weight: 600;
+        background-color: $primary-color-two;
+        color: white;
+    }    
+
+    select {
+        display: block;
+        position: relative;
+        margin: 0.2rem;
+        border: none;
+        border-bottom: 0.1rem solid yellow;
+        outline: none;
+        width: 100%;
+        font-size: 1rem;
+        font-weight: 600;
+        background-color: $primary-color-two;
+        color: white;
+        cursor: pointer;
+
+        option{
+            font-weight: 600;
+            font-size: 1rem;
+            background-color: $primary-color-two;
+            color: white;
+        }
+
+    }
+
+    .button-center{
+        background-color: $primary-color-two;
+        text-align: center;
+    }
+
+}
+
+.blog-details {
+    position: relative;
+    margin: 2rem;
+    border: 0.2rem solid $primary-color-two;
+    border-radius: 1rem;
+    background-color: $primary-color-two;
+    color: white;
+
+    h1{
+        padding: 1rem;
+        margin: 1rem;
+        text-align: center;
+        background-color: $primary-color-two;
+        border-bottom: 0.2rem solid $primary-color-one;
+    }
+
+    .title-highlighter{
+        color: yellow;
+        background-color: $primary-color-two;
+    }
+
+    .blog-preview {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+        margin: 1rem;
+        border-radius: 1rem;
+        background-color: $primary-color-two;
+        text-decoration: none;
+
+        &:hover{
+            transition: ease-in 20ms;
+            transform: translateY(-0.2rem);
+            z-index: 1;
+            box-shadow: 2rem yellow; 
+        }
+
+        a{
+            display: inline-flex;
+            flex-direction: row;
+            text-decoration: none;
+            font-weight: 600;
+            color: yellow;
+            background-color: $primary-color-two;
+
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        .blog-title {
+            text-align: center;
+            padding: .4rem;
+            margin: auto;
+            font-style: italic;
+            border-bottom: 0.2rem solid yellow;
+            text-decoration: none;
+            background-color: $primary-color-two;
+        }
+    
+        .blog-content {
+            margin: 1rem 0;
+            text-align: justify;
+            font-weight: 650;
+            background-color: $primary-color-two;
+        }
+    
+        .blog-author-box {
+            text-align: right;
+            background-color: $primary-color-two;
+        
+            .blog-author {
+                font-style: italic;
+                font-weight: 700;
+                background-color: $primary-color-two;
+            }
+        }
+    }        
+
+
+
+
+}
