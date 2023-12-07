@@ -98,6 +98,7 @@ main();
 // https://github.com/PLhery/node-twitter-api-v2/blob/38f87ecc8d58cf8da92798be408fecd632e54219/doc/auth.md
 
 // https://github.com/plhery/node-twitter-api-v2/blob/HEAD/doc/basics.md
+<<<<<<< HEAD
 
 // sample url: http://127.0.0.1:5173/?oauth_token=vCEVbAAAAAABrTOkAAABjDiVpoo&oauth_verifier=LgS6Y1RVGUIr3Sv0C47wCYX908uJArEQ
 
@@ -117,3 +118,5 @@ TwitterApiv1 {
   _prefix: 'https://api.twitter.com/1.1/'
 }
 */
+=======
+>>>>>>> c8efa93 (Updated repo)
