@@ -98,6 +98,3 @@ main();
 // https://github.com/PLhery/node-twitter-api-v2/blob/38f87ecc8d58cf8da92798be408fecd632e54219/doc/auth.md
 
 // https://github.com/plhery/node-twitter-api-v2/blob/HEAD/doc/basics.md
-*/
-=======
->>>>>>> c8efa93 (Updated repo)
