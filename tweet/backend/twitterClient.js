@@ -98,25 +98,6 @@ main();
 // https://github.com/PLhery/node-twitter-api-v2/blob/38f87ecc8d58cf8da92798be408fecd632e54219/doc/auth.md
 
 // https://github.com/plhery/node-twitter-api-v2/blob/HEAD/doc/basics.md
-<<<<<<< HEAD
-
-// sample url: http://127.0.0.1:5173/?oauth_token=vCEVbAAAAAABrTOkAAABjDiVpoo&oauth_verifier=LgS6Y1RVGUIr3Sv0C47wCYX908uJArEQ
-
-/*
-TwitterApiv1 {
-  _currentUser: null,
-  _currentUserV2: null,
-  _requestMaker: ClientRequestMaker {
-    rateLimits: {},
-    clientSettings: {},
-    consumerToken: 'nQ6Gw720fTivslHC6TAw8x909',
-    consumerSecret: 'vlhKcBkqGnTGTvqaLJvpVf701glcyP6KBgVu7IlbHIsGh3yTET',
-    accessToken: '1559916726837358593-Zbj12H5FMnHL2XaEqaefRSvhBWd6Xv',
-    accessSecret: 'PCNowT6yvOFk1gXylC13q5lmF0PESaYaTHp7VgsBijWPj',
-    _oauth: OAuth1Helper { nonceLength: 32, consumerKeys: [Object] }
-  },
-  _prefix: 'https://api.twitter.com/1.1/'
-}
 */
 =======
 >>>>>>> c8efa93 (Updated repo)
