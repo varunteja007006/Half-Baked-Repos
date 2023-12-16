@@ -36,14 +36,14 @@ function ColumnContainer({
         style={style}
         {...attributes}
         {...listeners}
-        className="border flex-shrink-0 mb-5 card w-48 h-48 bg-primary opacity-40 border-primary"
+        className="border flex-shrink-0 mb-5 card w-72 h-96 bg-primary opacity-40 border-primary"
       ></div>
     );
   }
 
   return (
     <div
-      className={`border flex-shrink-0 mb-5 card w-48 h-48 bg-secondary border-primary ${className}`}
+      className={`border flex-shrink-0 mb-5 card w-72 h-96 bg-secondary border-primary ${className}`}
       ref={setNodeRef}
       style={style}
       {...attributes}
