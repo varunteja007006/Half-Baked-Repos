@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* width */
+::-webkit-scrollbar {
+  @apply w-[1px];
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  @apply rounded-badge bg-secondary;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  @apply rounded-badge bg-primary;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  @apply rounded-badge bg-primary/70;
+}
