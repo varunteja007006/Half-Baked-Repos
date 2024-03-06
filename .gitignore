@@ -1,3 +1,6 @@
 node_modules
 .env
 .env.local
+linux_env
+env
+linuxenv
