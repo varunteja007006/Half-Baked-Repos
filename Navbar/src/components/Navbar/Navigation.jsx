@@ -1,5 +1,5 @@
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
-import "./styles/index.css";
+import "./styles/radix.css";
 import React from "react";
 import { PiCaretDownDuotone } from "react-icons/pi";
 

@@ -5,17 +5,22 @@ const NavbarContext = createContext();
 export const NavbarContextProvider = ({ children }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isSubmenuOpen, setIsSubmenuOpen] = useState(false);
+  const [activeSubmenu, setActiveSubmenu] = useState("");
+  const [location, setLocation] = useState({});
   const openSidebar = () => {
     setIsSidebarOpen(true);
   };
   const closeSidebar = () => {
     setIsSidebarOpen(false);
   };
-  const openSubmenu = (text, coordinates) => {
+  const openSubmenu = (name, coordinates) => {
     setIsSubmenuOpen(true);
+    setActiveSubmenu(name);
+    setLocation(coordinates);
   };
   const closeSubmenu = () => {
     setIsSubmenuOpen(false);
+    setActiveSubmenu("");
   };
   return (
     <NavbarContext.Provider
@@ -26,6 +31,8 @@ export const NavbarContextProvider = ({ children }) => {
         isSubmenuOpen,
         openSubmenu,
         closeSubmenu,
+        activeSubmenu,
+        location,
       }}
     >
       {children}
