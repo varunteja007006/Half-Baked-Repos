@@ -12,18 +12,28 @@ const withITRole = withRole(["IT"]);
 console.log(withITRole);
 
 const ITContactRoute = withITRole(() => {
-  return <>IT Guy</>;
+  return (
+    <div className="border p-3">
+      IT Guy
+      <div className="p-2 bg-black text-green-500">
+        `Hacker stuff goes here.....🤣🤣🤣`
+      </div>
+    </div>
+  );
 }, NotFound);
 
 const MarketingView = withRole(["marketing"])(() => (
-  <h1>Welcome Marketing Guru, You have access</h1>
+  <h1>Welcome Marketing Manager</h1>
 ));
 
 const DeleteButton = withRole(["superuser"])((props) => {
   const { onClick } = props;
 
   return (
-    <button className="deleteButton" onClick={onClick}>
+    <button
+      className="bg-red-500 py-2 px-4 hover:bg-red-500/[0.9]"
+      onClick={onClick}
+    >
       Delete Database
     </button>
   );
@@ -35,7 +45,15 @@ function Dashboard() {
   return (
     <>
       <MarketingView />
-      <h1>Welcome to Home: {users[user].username}</h1>
+      <h1>Welcome {users[user].username} !!</h1>
+      {users[user].roles?.length > 0 && (
+        <p>
+          You have following roles{" "}
+          <span className="font-semibold uppercase bg-green-900 p-2">
+            {users[user].roles?.join(", ")}
+          </span>
+        </p>
+      )}
       <DeleteButton onClick={() => alert("database dropped")} />
     </>
   );
@@ -84,6 +102,10 @@ export default function HomePage() {
         updateUser: (a) => setUser(a),
       }}
     >
+      <h1 className="text-2xl font-bold">
+        Role based access using wrapper components
+      </h1>
+
       <ToggleUser />
 
       <Dashboard />
