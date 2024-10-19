@@ -14,7 +14,6 @@ const permDefs = {
 };
 
 export const casbinAuthorizer: any = null;
-// const enforcer = casbinAuth.Enforcer
 // console.log(enforcer.prototype.addPermissionForUser("Jill", "read", "Contact"));
 
 export default function defineRulesFor(user: string) {
