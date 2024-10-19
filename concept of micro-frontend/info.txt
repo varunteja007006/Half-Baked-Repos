@@ -1,1 +1,5 @@
 https://github.com/vercel/examples/tree/main/solutions/microfrontends
+
+https://youtu.be/0WIFW3s2fDM?si=pwasCtKCHGCr2xFB	
+
+- Deploy the assets in S3 or something like that

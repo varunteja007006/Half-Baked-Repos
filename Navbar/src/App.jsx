@@ -7,15 +7,14 @@ function App() {
   const { closeSubmenu } = useNavbarContext();
   return (
     <>
-      <MyNav>
-        <Navigation />
-        <main onMouseOver={closeSubmenu}>
-          <Flex direction="column" gap="2">
-            <Text>Hello from Radix Themes :)</Text>
-            <Button>Let's go</Button>
-          </Flex>
-        </main>
-      </MyNav>
+      <MyNav></MyNav>
+      <Navigation />
+      <main onMouseOver={closeSubmenu}>
+        <Flex direction="column" gap="2">
+          <Text>Hello from Radix Themes :)</Text>
+          <Button>Let's go</Button>
+        </Flex>
+      </main>
     </>
   );
 }

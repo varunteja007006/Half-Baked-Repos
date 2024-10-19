@@ -5,14 +5,12 @@ import { PiCaretDownDuotone } from "react-icons/pi";
 
 const ListItem = ({ children, title, href }) => {
   return (
-    <>
-      <a href={href} style={{ textDecoration: "none" }} className="content-bg">
-        <div>
-          <div className="ListItemHeading">{title}</div>
-          <div className="ListItemText">{children}</div>
-        </div>
-      </a>
-    </>
+    <a href={href} style={{ textDecoration: "none" }} className="content-bg">
+      <div>
+        <div className="ListItemHeading">{title}</div>
+        <div className="ListItemText">{children}</div>
+      </div>
+    </a>
   );
 };
 

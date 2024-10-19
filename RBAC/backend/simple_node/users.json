@@ -1,0 +1,9 @@
+{
+  "users": [
+    {
+      "name": "Varun Teja",
+      "password": "password",
+      "role": "admin"
+    }
+  ]
+}
