@@ -37,3 +37,9 @@ https://casbin.org/docs/adapters
 
 - MySQL:
   https://github.com/JoemaNequinto/node-mysql-rest-api
+
+React sources to check
+
+https://github.com/stalniy/casl
+
+https://casl.js.org/v5/en/cookbook/less-confusing-can-api
