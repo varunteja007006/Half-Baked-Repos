@@ -1,0 +1,84 @@
+html,
+body,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+  font-family: "DM Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.navigation-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 2rem 0 2rem;
+  border-bottom: 2px solid #032b5b;
+}
+
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex; /* Make the menu horizontal */
+  background-color: #fff;
+  border-radius: 0.5rem;
+}
+
+.menu-item {
+  position: relative; /* Needed for dropdown positioning */
+}
+
+.menu-item > a {
+  text-decoration: none;
+  padding: 1rem 1rem;
+  display: block;
+  color: #000;
+}
+
+.menu-item > a:hover {
+  background-color: #dfdfdfdf; /* Highlight on hover */
+}
+
+.menu ul {
+  display: none;
+  position: absolute;
+  top: 100%; /* Dropdown appears below the parent */
+  left: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  min-width: 200px; /* Set minimum width for dropdown */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.menu-item:hover > ul {
+  display: block; /* Show dropdown on hover */
+  opacity: 1;
+  visibility: visible;
+  /* left: auto; */
+  /* right: 0; */
+  /* max-width: 80vw; Limit width to 80% of viewport width */
+}
+
+.menu ul .menu-item {
+  white-space: nowrap;
+}
+
+.menu ul ul {
+  left: 100%; /* Nested dropdown appears to the right */
+  top: 0;
+}
