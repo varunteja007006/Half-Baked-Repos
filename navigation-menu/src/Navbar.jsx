@@ -4,27 +4,34 @@ import "./navbar.css";
 const menuItems = [
   {
     label: "Home",
-    link: "/",
+    link: "#",
   },
   {
     label: "About Us",
-    link: "/about",
+    link: "#",
   },
   {
     label: "Services",
-    link: "/services",
+    link: "#",
     children: [
-      { label: "Web Development", link: "/services/web-development" },
-      { label: "SEO Optimization", link: "/services/seo" },
+      {
+        label: "Web Development",
+        link: "#",
+        children: [
+          { label: "React Development", link: "#" },
+          { label: "Vue Development", link: "#" },
+        ],
+      },
+      { label: "SEO Optimization", link: "#" },
       {
         label: "Marketing",
-        link: "/services/marketing",
+        link: "#",
         children: [
-          { label: "Content Marketing", link: "/services/marketing/content" },
-          { label: "Email Marketing", link: "/services/marketing/email" },
+          { label: "Content Marketing", link: "#" },
+          { label: "Email Marketing", link: "#" },
           {
             label: "Social Media Marketing",
-            link: "/services/marketing/social",
+            link: "#",
           },
         ],
       },
@@ -34,31 +41,31 @@ const menuItems = [
     label: "Blog",
     link: "/blog",
     children: [
-      { label: "Tech Articles", link: "/blog/tech" },
-      { label: "Business Tips", link: "/blog/business" },
-      { label: "Case Studies", link: "/blog/case-studies" },
+      { label: "Tech Articles", link: "#" },
+      { label: "Business Tips", link: "#" },
+      { label: "Case Studies", link: "#" },
+    ],
+  },
+  {
+    label: "Support",
+    link: "#",
+    children: [
+      { label: "Technical Support", link: "#" },
+      { label: "Billing Support", link: "#" },
+      { label: "Account Management", link: "#" },
     ],
   },
   {
     label: "Contact",
-    link: "/contact",
+    link: "#",
   },
   {
     label: "Careers",
-    link: "/careers",
+    link: "#",
   },
   {
     label: "FAQs",
-    link: "/faqs",
-  },
-  {
-    label: "Support",
-    link: "/support",
-    children: [
-      { label: "Technical Support", link: "/support/technical" },
-      { label: "Billing Support", link: "/support/billing" },
-      { label: "Account Management", link: "/support/account" },
-    ],
+    link: "#",
   },
 ];
 
