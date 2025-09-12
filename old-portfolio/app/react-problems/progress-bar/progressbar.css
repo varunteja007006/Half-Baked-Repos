@@ -1,0 +1,21 @@
+.progress_bar_outer {
+  width: 100%;
+  background-color: #e5e7eb;
+  min-height: 2rem;
+  border-radius: 1rem;
+  overflow: hidden;
+  max-width: 97vw;
+}
+
+.progress_bar_inner {
+  position: relative;
+  padding: 0.5rem 1rem;
+  display: block;
+  background-color: rgb(203, 148, 255);
+  transition: all 0.5s ease-in;
+  height: 2rem;
+}
+
+.progress_bar_container > * + * {
+  margin-top: 1rem;
+}
