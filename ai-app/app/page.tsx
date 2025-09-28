@@ -12,8 +12,10 @@ import { Loader2, Send, StopCircle } from "lucide-react";
 import { toast } from "sonner";
 
 import { PostBody } from "./api/open-router/chat/route";
-
 import { useCompletion } from "@ai-sdk/react";
+
+import Markdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 export type ModelItem = {
   id: string;
@@ -140,7 +142,11 @@ export default function Home() {
               </div>
             )}
 
-            <pre className="max-w-4xl">{aiResponse}</pre>
+            <div className="max-w-4xl wrap-break-word text-wrap font-mono">
+              <Markdown remarkPlugins={[remarkGfm]}>
+                {aiResponse || ""}
+              </Markdown>
+            </div>
 
             <Input
               value={prompt ?? ""}
@@ -158,17 +164,18 @@ export default function Home() {
           </TabsContent>
           <TabsContent value="stream" className="space-y-4">
             {isStreamLoading && (
-              <div>
+              <div className="mx-auto">
                 <Loader2 className="animate-spin size-6" />
               </div>
             )}
 
             {streamError?.message && (
-              <p className="text-red-400">{streamError.message}</p>
+              <p className="text-red-400 text-sm">{streamError.message}</p>
             )}
 
-            <pre className="max-w-4xl">{completion}</pre>
-
+            <div className="max-w-4xl wrap-break-word text-wrap font-mono">
+              <Markdown remarkPlugins={[remarkGfm]}>{completion}</Markdown>
+            </div>
             <form
               onSubmit={(e) => {
                 e.preventDefault();
