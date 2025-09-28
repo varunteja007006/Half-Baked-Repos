@@ -5,6 +5,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "./theme-provider";
 import { ModeToggle } from "@/components/toggle-theme";
 import { Toaster } from "@/components/ui/sonner";
+import { BotIcon } from "lucide-react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,8 +38,16 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <nav>
-            <ModeToggle />
+          <nav className="p-2">
+            <div className="flex items-center justify-between">
+              <h1 className="flex items-center font-semibold text-xl">
+                <span>
+                  <BotIcon className="mr-2 size-6" />
+                </span>{" "}
+                AI
+              </h1>
+              <ModeToggle />
+            </div>
           </nav>
           {children}
         </ThemeProvider>
