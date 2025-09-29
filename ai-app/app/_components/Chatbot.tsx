@@ -3,6 +3,8 @@
 import React from "react";
 
 import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Switch } from "@/components/ui/switch";
 
 import { useChat } from "@ai-sdk/react";
 
@@ -13,7 +15,7 @@ import {
   SendButton,
   StopButton,
 } from "./components";
-import { BotIcon, Sparkle, User } from "lucide-react";
+import { BotIcon, User } from "lucide-react";
 
 export default function Chatbot({
   selectedModel,
@@ -21,6 +23,7 @@ export default function Chatbot({
   selectedModel: string | undefined;
 }>) {
   const [input, setInput] = React.useState<string | undefined>();
+  const [addSystemPrompt, setAddSystemPrompt] = React.useState(false);
 
   const { messages, sendMessage, status, stop, error } = useChat();
 
@@ -33,14 +36,25 @@ export default function Chatbot({
       {
         body: {
           modelName: selectedModel,
+          addSystemPrompt,
         },
       }
     );
     setInput("");
   };
 
+
   return (
     <div className="space-y-6">
+      <div className="flex mt-2 items-center space-x-2">
+        <Switch
+          checked={addSystemPrompt}
+          onCheckedChange={(val) => setAddSystemPrompt(val)}
+          id="system-prompt"
+        />
+        <Label htmlFor="system-prompt">System Prompt</Label>
+      </div>
+
       {error?.message && <ErrorMessage>{error.message}</ErrorMessage>}
 
       {messages.map((message) => {

@@ -4,10 +4,11 @@ import { streamText } from "ai";
 export type PostBody = {
   prompt: string;
   modelName: string;
+  addSystemPrompt?: boolean;
 };
 
 export async function POST(request: Request) {
-  const { prompt, modelName }: PostBody = await request.json();
+  const { prompt, modelName, addSystemPrompt }: PostBody = await request.json();
 
   console.log(
     "\nPrompt: ",
