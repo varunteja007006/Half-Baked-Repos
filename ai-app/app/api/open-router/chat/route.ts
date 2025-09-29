@@ -9,6 +9,13 @@ export type PostBody = {
 export async function POST(request: Request) {
   const { prompt, modelName }: PostBody = await request.json();
 
+  console.log(
+    "\nPrompt: ",
+    prompt,
+    "\nModel Name:",
+    modelName,
+    "\n==========================\n"
+  );
   const openrouter = createOpenRouter({
     apiKey: process.env.OPEN_ROUTER_KEY,
   });
@@ -20,6 +27,10 @@ export async function POST(request: Request) {
     });
 
     await response.consumeStream();
+
+    response.usage.then((usage) => {
+      console.log(JSON.stringify(usage));
+    });
 
     const res = await response.text;
 

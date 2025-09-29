@@ -7,8 +7,15 @@ export type PostBody = {
 };
 
 export async function POST(request: Request) {
-  const body: PostBody = await request.json();
-  const { prompt, modelName } = body;
+  const { prompt, modelName }: PostBody = await request.json();
+
+  console.log(
+    "\nPrompt: ",
+    prompt,
+    "\nModel Name:",
+    modelName,
+    "\n==========================\n"
+  );
 
   const openrouter = createOpenRouter({
     apiKey: process.env.OPEN_ROUTER_KEY,
@@ -16,7 +23,11 @@ export async function POST(request: Request) {
 
   const response = streamText({
     prompt,
-    model: openrouter(modelName ?? "x-ai/grok-4-fast:free"),
+    model: openrouter(modelName),
+  });
+
+  response.usage.then((usage) => {
+    console.log(JSON.stringify(usage));
   });
 
   return response.toUIMessageStreamResponse();
