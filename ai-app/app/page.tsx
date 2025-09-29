@@ -7,6 +7,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 import Stream from "./_components/Stream";
 import Chat from "./_components/Chat";
+import Chatbot from "./_components/Chatbot";
 
 export type ModelItem = {
   id: string;
@@ -71,6 +72,7 @@ export default function Home() {
           <TabsList>
             <TabsTrigger value="chat">Chat</TabsTrigger>
             <TabsTrigger value="stream">Stream</TabsTrigger>
+            <TabsTrigger value="chat-bot">Chat Bot</TabsTrigger>
           </TabsList>
 
           <TabsContent value="chat">
@@ -78,6 +80,9 @@ export default function Home() {
           </TabsContent>
           <TabsContent value="stream">
             <Stream selectedModel={selectedModel} />
+          </TabsContent>
+          <TabsContent value="chat-bot">
+            <Chatbot selectedModel={selectedModel} />
           </TabsContent>
         </Tabs>
       </div>

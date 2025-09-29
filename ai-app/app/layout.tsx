@@ -40,12 +40,7 @@ export default function RootLayout({
         >
           <nav className="p-2">
             <div className="flex items-center justify-between">
-              <h1 className="flex items-center font-semibold text-xl">
-                <span>
-                  <BotIcon className="mr-2 size-6" />
-                </span>{" "}
-                AI
-              </h1>
+              <BotIcon className="mr-2 size-8" />
               <ModeToggle />
             </div>
           </nav>

@@ -6,10 +6,16 @@ import { Loader2, Send, StopCircle } from "lucide-react";
 
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import { cn } from "@/lib/utils";
 
-export const LoadingDiv = () => {
+export const LoadingDiv = ({ className }: { className?: string }) => {
   return (
-    <div className="mx-auto w-full flex flex-col items-center justify-center">
+    <div
+      className={cn(
+        "mx-auto w-full flex flex-col items-center justify-center",
+        className
+      )}
+    >
       <Loader2 className="animate-spin size-6" />
     </div>
   );
@@ -44,7 +50,7 @@ export const SendButton = ({
       {children || (
         <>
           <Send className="mr-2 size-4" />
-          Stop
+          Send
         </>
       )}
     </Button>
@@ -53,7 +59,7 @@ export const SendButton = ({
 
 export const RenderOutput = ({ children }: { children: string }) => {
   return (
-    <div className="max-w-4xl py-4 px-2 wrap-break-word text-wrap font-mono max-h-[calc(100dvh-20rem)] lg:max-h-[calc(100vh-20rem)] overflow-y-auto">
+    <div className="max-w-4xl px-2 wrap-break-word text-wrap font-mono max-h-[calc(100dvh-20rem)] lg:max-h-[calc(100vh-20rem)] overflow-y-auto">
       <Markdown remarkPlugins={[remarkGfm]}>{children}</Markdown>
     </div>
   );
