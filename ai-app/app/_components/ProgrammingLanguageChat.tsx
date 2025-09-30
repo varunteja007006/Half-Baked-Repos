@@ -9,6 +9,7 @@ import { toast } from "sonner";
 import { Combobox, type OptionType } from "@/components/combo-box";
 import {
   ErrorMessage,
+  LoadingDiv,
   RenderOutput,
   SendButton,
   StopButton,
@@ -76,6 +77,8 @@ export default function ProgrammingLanguageChat({
           <Combobox options={languages} onSelect={handleSelect} />
         </div>
 
+        {isLoading && <LoadingDiv />}
+
         <div className="space-y-2">
           <div className="flex flex-row items-center justify-between gap-2">
             {object?.programming_language && (
@@ -100,11 +103,13 @@ export default function ProgrammingLanguageChat({
           {object?.description && (
             <p className="text-sm">{object?.description}</p>
           )}
-          <div className="p-2 border bg-accent text-accent-foreground">
-            {object?.code?.code_snippet && (
+
+          {object?.code?.code_snippet && (
+            <div className="p-2 border bg-accent text-accent-foreground">
               <RenderOutput>{object?.code?.code_snippet}</RenderOutput>
-            )}
-          </div>
+            </div>
+          )}
+          
           {object?.code?.what_this_code_does && (
             <p className="text-sm">{object?.code?.what_this_code_does}</p>
           )}
