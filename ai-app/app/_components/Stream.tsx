@@ -13,6 +13,7 @@ import {
   SendButton,
   StopButton,
 } from "./components";
+import { toast } from "sonner";
 
 export default function Stream({
   selectedModel,
@@ -48,6 +49,15 @@ export default function Stream({
       <form
         onSubmit={(e) => {
           e.preventDefault();
+          if (!selectedModel) {
+            toast.error("Please select the model");
+            return;
+          }
+
+          if (!input) {
+            toast.error("Please enter your prompt");
+            return;
+          }
           handleSubmit();
           setInput("");
         }}

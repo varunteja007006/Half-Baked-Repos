@@ -16,16 +16,20 @@ export default function Chat({
   const [aiResponse, setAiResponse] = React.useState<string | undefined>();
   const [isProcessing, setIsProcessing] = React.useState(false);
 
-  const sendPrompt = async () => {
+  const sendPrompt = async (e: React.FormEvent) => {
+    e.preventDefault();
+
     try {
       setIsProcessing(true);
 
       if (!selectedModel) {
-        throw new Error("Model not selected!!");
+        toast.error("Please select the model");
+        return;
       }
 
       if (!prompt) {
-        throw new Error("Prompt is empty!!");
+        toast.error("Please enter the prompt");
+        return;
       }
 
       const payload = {
@@ -53,14 +57,19 @@ export default function Chat({
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 mt-3">
       {isProcessing && <LoadingDiv />}
 
       {aiResponse && <RenderOutput>{aiResponse || ""}</RenderOutput>}
 
-      <Input value={prompt ?? ""} onChange={(e) => setPrompt(e.target.value)} />
+      <form onSubmit={sendPrompt} className="space-y-6">
+        <Input
+          value={prompt ?? ""}
+          onChange={(e) => setPrompt(e.target.value)}
+        />
 
-      <SendButton onClick={sendPrompt} />
+        <SendButton />
+      </form>
     </div>
   );
 }

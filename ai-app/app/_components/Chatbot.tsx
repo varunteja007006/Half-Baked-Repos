@@ -16,6 +16,7 @@ import {
   StopButton,
 } from "./components";
 import { BotIcon, User } from "lucide-react";
+import { toast } from "sonner";
 
 export default function Chatbot({
   selectedModel,
@@ -31,6 +32,15 @@ export default function Chatbot({
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!selectedModel) {
+      toast.error("Please select the model");
+      return;
+    }
+
+    if (!input) {
+      toast.error("Please enter the prompt");
+      return;
+    }
     sendMessage(
       { text: input || "" },
       {
@@ -42,7 +52,6 @@ export default function Chatbot({
     );
     setInput("");
   };
-
 
   return (
     <div className="space-y-6">
