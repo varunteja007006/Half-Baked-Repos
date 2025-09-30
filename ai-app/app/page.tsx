@@ -8,6 +8,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Stream from "./_components/Stream";
 import Chat from "./_components/Chat";
 import Chatbot from "./_components/Chatbot";
+import ProgrammingLanguageChat from "./_components/ProgrammingLanguageChat";
 
 export type ModelItem = {
   id: string;
@@ -73,6 +74,7 @@ export default function Home() {
             <TabsTrigger value="chat">Chat</TabsTrigger>
             <TabsTrigger value="stream">Stream</TabsTrigger>
             <TabsTrigger value="chat-bot">Chat Bot</TabsTrigger>
+            <TabsTrigger value="programming-language-guru">Programming Language Guru</TabsTrigger>
           </TabsList>
 
           <TabsContent value="chat">
@@ -83,6 +85,9 @@ export default function Home() {
           </TabsContent>
           <TabsContent value="chat-bot">
             <Chatbot selectedModel={selectedModel} />
+          </TabsContent>
+          <TabsContent value="programming-language-guru">
+            <ProgrammingLanguageChat selectedModel={selectedModel} />
           </TabsContent>
         </Tabs>
       </div>
