@@ -42,7 +42,7 @@ export default function Chat({
         body: JSON.stringify(payload),
       });
       const data = await res.json();
-      console.log(data);
+
       setPrompt("");
       if (data.success) {
         setAiResponse(data.data);
