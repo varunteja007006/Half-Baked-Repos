@@ -59,7 +59,7 @@ export const SendButton = ({
 
 export const RenderOutput = ({ children }: { children: string }) => {
   return (
-    <div className="max-w-4xl px-2 wrap-break-word text-wrap font-mono max-h-[calc(100dvh-20rem)] lg:max-h-[calc(100vh-20rem)] overflow-y-auto">
+    <div className="max-w-xl px-2 wrap-anywhere overflow-x-auto text-wrap font-mono">
       <Markdown remarkPlugins={[remarkGfm]}>{children}</Markdown>
     </div>
   );

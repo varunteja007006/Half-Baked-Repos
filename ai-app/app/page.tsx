@@ -9,6 +9,7 @@ import Stream from "./_components/Stream";
 import Chat from "./_components/Chat";
 import Chatbot from "./_components/Chatbot";
 import ProgrammingLanguageChat from "./_components/ProgrammingLanguageChat";
+import MultiModalChatbot from "./_components/MultiModalChatbot";
 
 export type ModelItem = {
   id: string;
@@ -74,7 +75,10 @@ export default function Home() {
             <TabsTrigger value="chat">Chat</TabsTrigger>
             <TabsTrigger value="stream">Stream</TabsTrigger>
             <TabsTrigger value="chat-bot">Chat Bot</TabsTrigger>
-            <TabsTrigger value="programming-language-guru">Programming Language Guru</TabsTrigger>
+            <TabsTrigger value="programming-language-guru">
+              Programming Language Guru
+            </TabsTrigger>
+            <TabsTrigger value="multi-modal-bot">Multi Modal Bot</TabsTrigger>
           </TabsList>
 
           <TabsContent value="chat">
@@ -88,6 +92,9 @@ export default function Home() {
           </TabsContent>
           <TabsContent value="programming-language-guru">
             <ProgrammingLanguageChat selectedModel={selectedModel} />
+          </TabsContent>
+          <TabsContent value="multi-modal-bot">
+            <MultiModalChatbot selectedModel={selectedModel} />
           </TabsContent>
         </Tabs>
       </div>

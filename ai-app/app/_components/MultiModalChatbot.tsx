@@ -15,21 +15,24 @@ import {
   SendButton,
   StopButton,
 } from "./components";
-import { BotIcon, User } from "lucide-react";
+import { BotIcon, Paperclip, User } from "lucide-react";
 import { toast } from "sonner";
 import { DefaultChatTransport } from "ai";
+import Image from "next/image";
 
-export default function Chatbot({
+export default function MultiModalChatbot({
   selectedModel,
 }: Readonly<{
   selectedModel: string | undefined;
 }>) {
   const [input, setInput] = React.useState<string | undefined>();
   const [addSystemPrompt, setAddSystemPrompt] = React.useState(false);
+  const [files, setFiles] = React.useState<FileList | null>(null);
+  const fileInputRef = React.useRef<HTMLInputElement | null>(null);
 
   const { messages, sendMessage, status, stop, error } = useChat({
     transport: new DefaultChatTransport({
-      api: "/api/open-router/chat-bot/",
+      api: "/api/open-router/multi-modal",
     }),
   });
 
@@ -46,16 +49,30 @@ export default function Chatbot({
       toast.error("Please enter the prompt");
       return;
     }
-    sendMessage(
-      { text: input || "" },
-      {
-        body: {
-          modelName: selectedModel,
-          addSystemPrompt,
-        },
-      }
-    );
-    setInput("");
+
+    let payload: {
+      text: string;
+      files?: FileList;
+    } = { text: input || "" };
+
+    if (files) {
+      payload["files"] = files;
+    }
+
+    sendMessage(payload, {
+      body: {
+        modelName: selectedModel,
+        addSystemPrompt,
+      },
+    })
+      .then((res) => console.log(res))
+      .catch((e) => toast.error("Something went wrong"))
+      .finally(() => {
+        setInput("");
+        if (fileInputRef.current) {
+          fileInputRef.current.value = "";
+        }
+      });
   };
 
   return (
@@ -79,12 +96,39 @@ export default function Chatbot({
                 switch (part.type) {
                   case "text":
                     return (
-                      <div key={index}>
+                      <div key={`${message.id} - ${index} - text`}>
                         <RenderOutput>{part.text}</RenderOutput>
                       </div>
                     );
                   case "file":
-                    break;
+                    if (part.mediaType?.startsWith("image/")) {
+                      return (
+                        <Image
+                          key={`${message.id} - ${index} - image`}
+                          src={part.url}
+                          alt={
+                            part.filename ??
+                            `attachment ${message.id} - ${index}`
+                          }
+                          width={250}
+                          height={250}
+                          objectFit="contain"
+                        />
+                      );
+                    }
+
+                    if (part.mediaType?.startsWith("application/pdf")) {
+                      return (
+                        <iframe
+                          key={`${message.id} - ${index} - pdf`}
+                          src={part.url}
+                          width={"500"}
+                          height={"500"}
+                          title={`${part.filename}`}
+                        />
+                      );
+                    }
+                    return null;
                   default:
                     break;
                 }
@@ -105,11 +149,35 @@ export default function Chatbot({
       <form onSubmit={handleSubmit} className="space-y-4">
         <Input value={input || ""} onChange={(e) => setInput(e.target.value)} />
 
-        {status === "ready" ? (
-          <SendButton disabled={isProcessing} />
-        ) : (
-          <StopButton onClick={stop} />
-        )}
+        <div className="flex flex-row gap-4 items-center justify-between">
+          {status === "ready" || status === "error" ? (
+            <SendButton disabled={isProcessing} />
+          ) : (
+            <StopButton onClick={stop} />
+          )}
+
+          <Label htmlFor="file-upload">
+            {!files || files?.length === 0 ? (
+              <>
+                <Paperclip /> Attach your file here
+              </>
+            ) : (
+              <>Attached files: {files?.length}</>
+            )}
+          </Label>
+          <Input
+            id="file-upload"
+            type="file"
+            ref={fileInputRef}
+            onChange={(e) => {
+              if (e.target.files) {
+                setFiles(e.target.files);
+              }
+            }}
+            className="hidden"
+            multiple
+          />
+        </div>
       </form>
     </div>
   );
