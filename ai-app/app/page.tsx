@@ -10,6 +10,7 @@ import Chat from "./_components/Chat";
 import Chatbot from "./_components/Chatbot";
 import ProgrammingLanguageChat from "./_components/ProgrammingLanguageChat";
 import MultiModalChatbot from "./_components/MultiModalChatbot";
+import ToolChat from "./_components/ToolChat";
 
 export type ModelItem = {
   id: string;
@@ -33,11 +34,43 @@ const getModels = async (): Promise<ModelResponse | undefined> => {
   }
 };
 
+const renderSection = (
+  activeSection: string,
+  selectedModel: string | undefined
+) => {
+  switch (activeSection) {
+    case "chat":
+      return <Chat selectedModel={selectedModel} />;
+    case "stream":
+      return <Stream selectedModel={selectedModel} />;
+    case "chat-bot":
+      return <Chatbot selectedModel={selectedModel} />;
+    case "programming-language-guru":
+      return <ProgrammingLanguageChat selectedModel={selectedModel} />;
+    case "multi-modal-bot":
+      return <MultiModalChatbot selectedModel={selectedModel} />;
+    case "tool-chat":
+      return <ToolChat selectedModel={selectedModel} />;
+    default:
+      return null;
+  }
+};
+
+const buttons = [
+  { id: "chat", label: "Chat" },
+  { id: "stream", label: "Stream" },
+  { id: "chat-bot", label: "Chat Bot" },
+  { id: "programming-language-guru", label: "Programming Guru" },
+  { id: "multi-modal-bot", label: "Multi Modal Bot" },
+  { id: "tool-chat", label: "Tools Chat" },
+];
+
 export default function Home() {
   const [models, setModels] = React.useState<ModelResponse | undefined>();
   const [selectedModel, setSelectedModel] = React.useState<
     string | undefined
   >();
+  const [activeSection, setActiveSection] = React.useState("chat");
 
   const getInitialData = async () => {
     const res = await getModels();
@@ -58,7 +91,7 @@ export default function Home() {
   }, [models]);
 
   return (
-    <div className="max-w-xl flex flex-col gap-8 mx-auto">
+    <div className="flex flex-col gap-8">
       <div className="flex flex-col gap-2">
         <p className="text-sm font-semibold">
           Select the Model {`(Free Models Only)`}
@@ -69,35 +102,26 @@ export default function Home() {
         />
       </div>
 
-      <div className="mb-10">
-        <Tabs defaultValue="chat" className="max-w-4xl">
-          <TabsList>
-            <TabsTrigger value="chat">Chat</TabsTrigger>
-            <TabsTrigger value="stream">Stream</TabsTrigger>
-            <TabsTrigger value="chat-bot">Chat Bot</TabsTrigger>
-            <TabsTrigger value="programming-language-guru">
-              Programming Language Guru
-            </TabsTrigger>
-            <TabsTrigger value="multi-modal-bot">Multi Modal Bot</TabsTrigger>
-          </TabsList>
-
-          <TabsContent value="chat">
-            <Chat selectedModel={selectedModel} />
-          </TabsContent>
-          <TabsContent value="stream">
-            <Stream selectedModel={selectedModel} />
-          </TabsContent>
-          <TabsContent value="chat-bot">
-            <Chatbot selectedModel={selectedModel} />
-          </TabsContent>
-          <TabsContent value="programming-language-guru">
-            <ProgrammingLanguageChat selectedModel={selectedModel} />
-          </TabsContent>
-          <TabsContent value="multi-modal-bot">
-            <MultiModalChatbot selectedModel={selectedModel} />
-          </TabsContent>
-        </Tabs>
+      {/* Button Section */}
+      <div className="flex flex-wrap gap-2">
+        {buttons.map((btn) => (
+          <button
+            key={btn.id}
+            onClick={() => setActiveSection(btn.id)}
+            className={`px-4 py-2 rounded-lg text-sm font-medium transition-all 
+              ${
+                activeSection === btn.id
+                  ? "bg-blue-600 text-white shadow"
+                  : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+              }`}
+          >
+            {btn.label}
+          </button>
+        ))}
       </div>
+
+      {/* Active Section */}
+      <div className="mt-6">{renderSection(activeSection, selectedModel)}</div>
     </div>
   );
 }

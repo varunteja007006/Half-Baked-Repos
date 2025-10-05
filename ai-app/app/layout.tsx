@@ -38,13 +38,13 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <nav className="p-2">
+          <nav className="p-2 max-w-4xl mx-auto">
             <div className="flex items-center justify-between">
               <BotIcon className="mr-2 size-8" />
               <ModeToggle />
             </div>
           </nav>
-          {children}
+          <main className="bg-background max-w-4xl mx-auto">{children}</main>
         </ThemeProvider>
         <Toaster />
       </body>
