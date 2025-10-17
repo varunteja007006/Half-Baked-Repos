@@ -121,7 +121,7 @@ export default function Home() {
       </div>
 
       {/* Active Section */}
-      <div className="mt-6">{renderSection(activeSection, selectedModel)}</div>
+      <div className="mt-6 mb-30">{renderSection(activeSection, selectedModel)}</div>
     </div>
   );
 }

@@ -11,3 +11,5 @@ More to learn
 - [ ] Generate speech using the sdk lib https://youtu.be/QtCWDqjK294?si=m8fI-ubyyFqLMSP5
 
 - [ ] Accessing tools using the sdk lib https://youtu.be/eIFD74tMORo?si=X0tTupdwoPBDt1i_
+
+- [ ] Web search using the sdk lib https://youtu.be/4cjQg9EOk3A?si=RRacOvMSjPBPELWN
