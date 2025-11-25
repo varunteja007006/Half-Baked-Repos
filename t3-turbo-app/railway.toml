@@ -1,7 +1,0 @@
-[build]
-builder = "RAILPACK"
-buildCommand = "cd packages/db pnpm push && cd ../../ && pnpm build"
-
-[deploy]
-startCommand = "pnpm --filter=nextjs start"
-restartPolicyType = "never"
