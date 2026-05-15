@@ -1,26 +1,3 @@
-# Todo
-
-The `tooltip` component has been added. Remember to wrap your app with the `TooltipProvider` component.
-
-```tsx title="app/layout.tsx"
-import { TooltipProvider } from "@/components/ui/tooltip"
-
-export default function RootLayout({ children }: { children: React.ReactNode }) {
-  return (
-    <html lang="en">
-      <body>
-        <TooltipProvider>{children}</TooltipProvider>
-      </body>
-    </html>
-  )
-}
-```
-
-
-
-
-# NEXT
-
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
