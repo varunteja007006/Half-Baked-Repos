@@ -7,6 +7,5 @@ if (!DATABASE_URL) {
   throw new Error("URL not found");
 }
 
-const db = drizzle(DATABASE_URL);
+export const db = drizzle(DATABASE_URL);
 
-export default db;
