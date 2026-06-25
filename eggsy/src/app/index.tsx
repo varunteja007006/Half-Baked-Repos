@@ -3,14 +3,14 @@ import * as Haptics from "expo-haptics";
 import { Stack } from "expo-router";
 import { useEffect, useRef, useState } from "react";
 import {
-  FlatList,
-  StyleSheet,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  useColorScheme,
-  useWindowDimensions,
-  View,
+	FlatList,
+	StyleSheet,
+	Text,
+	TextInput,
+	TouchableOpacity,
+	useColorScheme,
+	useWindowDimensions,
+	View,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -101,16 +101,6 @@ export default function App() {
 	const resetEgg = async (id: number) => {
 		await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
 
-		const toggleEgg = async (id: number) => {
-			await Haptics.selectionAsync();
-
-			setEggs((prev) =>
-				prev.map((egg) =>
-					egg.id === id ? { ...egg, crossed: !egg.crossed } : egg,
-				),
-			);
-		};
-
 		setEggs((prev) =>
 			prev.map((egg) => (egg.id === id ? { ...egg, crossed: false } : egg)),
 		);
@@ -153,6 +143,7 @@ export default function App() {
 					style={{ ...styles.input, color: isDark ? "#fff" : "#000" }}
 					keyboardType="numeric"
 					placeholder="Enter number of eggs"
+					placeholderTextColor={isDark ? "#fff" : "#000"}
 					value={count}
 					onChangeText={setCount}
 				/>
@@ -166,7 +157,7 @@ export default function App() {
 				</TouchableOpacity>
 
 				<TouchableOpacity style={styles.resetButton} onPress={resetAll}>
-					<Text>Reset All</Text>
+					<Text style={{ color: isDark ? "#fff" : "#000" }}>Reset All</Text>
 				</TouchableOpacity>
 			</View>
 
