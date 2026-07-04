@@ -1,0 +1,21 @@
+{
+  "name": "Half-Baked-Repos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "clean": "node ./scripts/clean-workspace.mjs",
+    "clean:dry": "node ./scripts/clean-workspace.mjs --dry-run"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "^11.5.0",
+      "onFail": "download"
+    }
+  },
+  "type": "module"
+}
