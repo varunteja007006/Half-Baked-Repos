@@ -3,8 +3,7 @@
 import path from "node:path";
 import { rm, readdir } from "node:fs/promises";
 
-const TARGET_DIR_NAMES = new Set([
-	"node_modules",
+const CACHE_DIR_NAMES = new Set([
 	".next",
 	".turbo",
 	".expo",
@@ -21,13 +20,16 @@ const TARGET_DIR_NAMES = new Set([
 	".gradle",
 ]);
 
-const TARGET_FILE_NAMES = new Set(["tsconfig.tsbuildinfo"]);
+const CACHE_FILE_NAMES = new Set(["tsconfig.tsbuildinfo"]);
+
+const DEPS_DIR_NAMES = new Set(["node_modules"]);
 
 const SKIP_DIR_NAMES = new Set([".git"]);
 
 function parseArgs(argv) {
 	const parsed = {
 		dryRun: false,
+		mode: "all",
 		root: process.cwd(),
 	};
 
@@ -36,6 +38,17 @@ function parseArgs(argv) {
 
 		if (arg === "--dry-run") {
 			parsed.dryRun = true;
+			continue;
+		}
+
+		if (arg === "--mode") {
+			const next = argv[index + 1];
+			if (!next || !["all", "cache", "deps"].includes(next)) {
+				throw new Error("--mode must be one of: all, cache, deps");
+			}
+
+			parsed.mode = next;
+			index += 1;
 			continue;
 		}
 
@@ -61,7 +74,23 @@ function parseArgs(argv) {
 	return parsed;
 }
 
-async function findTargets(dir, acc) {
+function getTargetSets(mode) {
+	if (mode === "cache") {
+		return { dirs: CACHE_DIR_NAMES, files: CACHE_FILE_NAMES };
+	}
+
+	if (mode === "deps") {
+		return { dirs: DEPS_DIR_NAMES, files: new Set() };
+	}
+
+	// all
+	return {
+		dirs: new Set([...CACHE_DIR_NAMES, ...DEPS_DIR_NAMES]),
+		files: CACHE_FILE_NAMES,
+	};
+}
+
+async function findTargets(dir, acc, targetDirs, targetFiles) {
 	const entries = await readdir(dir, { withFileTypes: true });
 
 	for (const entry of entries) {
@@ -70,16 +99,21 @@ async function findTargets(dir, acc) {
 		if (entry.isDirectory()) {
 			if (SKIP_DIR_NAMES.has(entry.name)) continue;
 
-			if (TARGET_DIR_NAMES.has(entry.name)) {
+			if (targetDirs.has(entry.name)) {
 				acc.push(fullPath);
 				continue;
 			}
 
-			await findTargets(fullPath, acc);
+			// Never recurse into node_modules — those are installed
+			// package artifacts and traversing them will pick up dist/
+			// and build/ dirs inside the pnpm virtual store, corrupting packages.
+			if (entry.name === "node_modules") continue;
+
+			await findTargets(fullPath, acc, targetDirs, targetFiles);
 			continue;
 		}
 
-		if (TARGET_FILE_NAMES.has(entry.name)) {
+		if (targetFiles.has(entry.name)) {
 			acc.push(fullPath);
 		}
 	}
@@ -95,17 +129,19 @@ async function run() {
 
 	if (args.help) {
 		console.log(
-			"Usage: node scripts/clean-workspace.mjs [--dry-run] [--root <path>]",
+			"Usage: node scripts/clean-workspace.mjs [--mode all|cache|deps] [--dry-run] [--root <path>]",
 		);
 		return;
 	}
 
+	const { dirs: targetDirs, files: targetFiles } = getTargetSets(args.mode);
 	const targets = [];
-	await findTargets(args.root, targets);
+	await findTargets(args.root, targets, targetDirs, targetFiles);
 	targets.sort((left, right) => left.localeCompare(right));
 
 	if (targets.length === 0) {
-		console.log(`No matching cache directories found in ${args.root}`);
+		const label = args.mode === "all" ? "" : ` ${args.mode}`;
+		console.log(`No matching${label} targets found in ${args.root}`);
 		return;
 	}
 
