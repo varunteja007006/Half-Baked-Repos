@@ -5,7 +5,11 @@
   "main": "index.js",
   "scripts": {
     "clean": "node ./scripts/clean-workspace.mjs",
-    "clean:dry": "node ./scripts/clean-workspace.mjs --dry-run"
+    "clean:dry": "node ./scripts/clean-workspace.mjs --dry-run",
+    "clean:cache": "node ./scripts/clean-workspace.mjs --mode cache",
+    "clean:cache:dry": "node ./scripts/clean-workspace.mjs --mode cache --dry-run",
+    "clean:deps": "node ./scripts/clean-workspace.mjs --mode deps",
+    "clean:deps:dry": "node ./scripts/clean-workspace.mjs --mode deps --dry-run"
   },
   "keywords": [],
   "author": "",

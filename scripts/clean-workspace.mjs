@@ -4,6 +4,7 @@ import path from "node:path";
 import { rm, readdir } from "node:fs/promises";
 
 const CACHE_DIR_NAMES = new Set([
+	// ── JS / Node / React / Next / Remix / etc ──────────────
 	".next",
 	".turbo",
 	".expo",
@@ -16,11 +17,33 @@ const CACHE_DIR_NAMES = new Set([
 	"coverage",
 	"dist",
 	"build",
+	"out",
 	"web-build",
 	".gradle",
+	".nuxt",
+	".svelte-kit",
+	".astro",
+
+	// ── Python ──────────────────────────────────────────────
+	"__pycache__",
+	".pytest_cache",
+	".mypy_cache",
+	".ruff_cache",
+	".tox",
+	".eggs",
+	"htmlcov",
+
+	// ── Rust ────────────────────────────────────────────────
+	"target",
 ]);
 
-const CACHE_FILE_NAMES = new Set(["tsconfig.tsbuildinfo"]);
+const CACHE_FILE_NAMES = new Set([
+	"tsconfig.tsbuildinfo",
+	".eslintcache",
+	".stylelintcache",
+	".prettiercache",
+	".coverage",
+]);
 
 const DEPS_DIR_NAMES = new Set(["node_modules"]);
 
@@ -119,9 +142,17 @@ async function findTargets(dir, acc, targetDirs, targetFiles) {
 	}
 }
 
-function toRepoRelative(root, absolutePath) {
+function formatTarget(root, absolutePath) {
 	const relative = path.relative(root, absolutePath);
-	return relative === "" ? "." : relative;
+	if (relative === "") return ".";
+
+	const folder = path.dirname(relative);
+	const name = path.basename(relative);
+
+	if (folder === ".") {
+		return name;
+	}
+	return `${folder} - ${name}`;
 }
 
 async function run() {
@@ -131,6 +162,15 @@ async function run() {
 		console.log(
 			"Usage: node scripts/clean-workspace.mjs [--mode all|cache|deps] [--dry-run] [--root <path>]",
 		);
+		console.log("");
+		console.log("Modes:");
+		console.log("  all     Remove both cache and deps directories (default)");
+		console.log("  cache   Remove build/cache dirs across JS, Python, Rust, Go, and more (does NOT touch node_modules)");
+		console.log("  deps    Remove node_modules directories only");
+		console.log("");
+		console.log("Options:");
+		console.log("  --dry-run  List targets without deleting anything");
+		console.log("  --root     Root directory to scan (default: cwd)");
 		return;
 	}
 
@@ -146,10 +186,10 @@ async function run() {
 	}
 
 	const mode = args.dryRun ? "Dry run" : "Removing";
-	console.log(`${mode} ${targets.length} directories:`);
+	console.log(`${mode} ${targets.length} targets:`);
 
 	for (const target of targets) {
-		console.log(`- ${toRepoRelative(args.root, target)}`);
+		console.log(`- ${formatTarget(args.root, target)}`);
 
 		if (!args.dryRun) {
 			await rm(target, { recursive: true, force: true });
