@@ -1,0 +1,38 @@
+{
+  "name": "@varunteja007006/webp-icons",
+  "version": "0.1.0",
+  "description": "Render icons from a set of webp images as self-contained data URIs",
+  "publishConfig": {
+    "access": "public"
+  },
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "node scripts/build.js",
+    "prepack": "npm run build",
+    "prepublishOnly": "npm run build && npm test",
+    "test": "node test/test.js"
+  },
+  "keywords": [
+    "icons",
+    "webp",
+    "icon"
+  ],
+  "license": "MIT",
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18"
+  }
+}
