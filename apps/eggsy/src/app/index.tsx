@@ -1,4 +1,5 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useQuery } from "convex/react";
 import * as Haptics from "expo-haptics";
 import { Stack } from "expo-router";
 import { useEffect, useRef, useState } from "react";
@@ -13,6 +14,7 @@ import {
 	View,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { api } from "../../convex/_generated/api";
 
 const STORAGE_KEY = "egg_tracker_data";
 
@@ -27,6 +29,7 @@ type StoredData = {
 };
 
 export default function App() {
+	const tasks = useQuery(api.tasks.get);
 	const theme = useColorScheme();
 	const isDark = theme === "dark";
 	const [count, setCount] = useState("");
@@ -134,6 +137,11 @@ export default function App() {
 			}}
 		>
 			<Stack.Screen options={{ headerShown: false }}></Stack.Screen>
+			{tasks?.map(({ _id, text }) => (
+				<Text key={_id} style={{ color: isDark ? "#fff" : "#000" }}>
+					{text}
+				</Text>
+			))}
 			<Text style={{ ...styles.header, color: isDark ? "#fff" : "#000" }}>
 				🥚 Egg Tracker
 			</Text>

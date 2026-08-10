@@ -25,6 +25,39 @@ In the output, you'll find options to open the app in a
 
 You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
 
+## Building & installing the APK
+
+### Build
+
+Run `build-apk.sh` from the project root, choosing an environment:
+
+```bash
+./build-apk.sh dev    # uses .env.local  → eggsy.dev.apk
+./build-apk.sh prod   # uses .env.production → eggsy.prod.apk
+```
+
+Notes:
+- `prod` builds **deploy the Convex backend first** (`npx convex deploy` to the production deployment), so the APK ships with the latest functions/schema. Dev builds skip this — they talk to the local dev server.
+- The env file is baked into the JS bundle (`EXPO_PUBLIC_CONVEX_URL`, ...), so a rebuild is required to switch environments.
+- The `gradlew` daemon is stopped before building so the new env vars aren't frozen out by a stale daemon.
+- Output APK lands in the repo root as `eggsy.<mode>.apk`.
+
+### Install
+
+Plug in your phone with USB debugging enabled ([enable it in Developer Options](https://developer.android.com/studio/run/device#developer-device-options)), then:
+
+```bash
+adb devices          # confirm the phone is listed (not "unauthorized")
+adb install eggsy.prod.apk
+```
+
+Useful flags:
+- `-r` reinstall and keep app data: `adb install -r eggsy.prod.apk`
+- `-d` allow downgrade (pair with `-r`): `adb install -rd eggsy.prod.apk`
+- `-g` grant all runtime permissions at install time
+
+If `adb devices` shows `unauthorized`, accept the RSA debug prompt on your phone.
+
 ## Get a fresh project
 
 When you're ready, run:
