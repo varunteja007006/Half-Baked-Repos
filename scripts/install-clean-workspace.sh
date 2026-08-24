@@ -5,7 +5,32 @@ set -euo pipefail
 RAW_URL="https://raw.githubusercontent.com/varunteja007006/Half-Baked-Repos/main/scripts/clean-workspace.mjs"
 SCRIPT_DIR="$(dirname "${BASH_SOURCE[0]:-.}")"
 LOCAL_SOURCE="$SCRIPT_DIR/clean-workspace.mjs"
-TARGET_DIR="${1:-.}"
+
+FORCE=0
+TARGET_DIR=""
+for arg in "$@"; do
+	case "$arg" in
+	-f | --force)
+		FORCE=1
+		;;
+	-h | --help)
+		echo "Usage: install-clean-workspace.sh [--force] [target-dir]"
+		exit 0
+		;;
+	-*)
+		echo "Error: unknown option: $arg" >&2
+		exit 1
+		;;
+	*)
+		if [[ -n "$TARGET_DIR" ]]; then
+			echo "Error: multiple target directories given" >&2
+			exit 1
+		fi
+		TARGET_DIR="$arg"
+		;;
+	esac
+done
+TARGET_DIR="${TARGET_DIR:-.}"
 
 if [[ ! -d "$TARGET_DIR" ]]; then
 	echo "Error: directory not found: $TARGET_DIR" >&2
@@ -22,6 +47,22 @@ fi
 
 mkdir -p "$TARGET_DIR/scripts"
 DEST="$TARGET_DIR/scripts/clean-workspace.mjs"
+
+if [[ -e "$DEST" && $FORCE -ne 1 ]]; then
+	if [[ ! -t 0 ]]; then
+		echo "Skipped: $DEST already exists (re-run with --force to overwrite)"
+		exit 0
+	fi
+	answer=""
+	read -r -p "scripts/clean-workspace.mjs already exists. Overwrite? [y/N] " answer </dev/tty || true
+	case "$answer" in
+	y | Y | yes | YES) ;;
+	*)
+		echo "Skipped. Existing file left untouched."
+		exit 0
+		;;
+	esac
+fi
 
 fetch() {
 	local url="$1"
